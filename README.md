@@ -1,29 +1,21 @@
-# Site N1nara
+# N1nara - versão restaurada
 
-Arquivos prontos para publicar no GitHub Pages.
+Esta versão mantém o visual original do site e corrige os pontos que podiam deixar a página sem estilo no GitHub Pages.
 
-## Como usar
+## Como publicar
 
-1. Envie o conteúdo desta pasta para a raiz do repositório `N1nara`.
-2. Não envie a pasta `n1nara-site` inteira como uma subpasta. O arquivo `index.html` precisa ficar na raiz do repositório.
-3. Confirme se a logo está em `images/Logo N1.png`.
-4. No GitHub, publique pelo GitHub Pages usando a branch principal.
+Envie o conteúdo desta pasta para a raiz do repositório `N1nara`.
 
-## Onde alterar informações
+O arquivo `index.html` precisa ficar diretamente na raiz do repositório, junto com:
 
-- WhatsApp, Instagram, logo e link do catálogo: `data/config.json`
-- Produtos, preços, descrições e opções: `data/produtos.json`
-- Visual do site: `assets/css/styles.css`
-- Páginas de identificação: `pet.html`, `pessoa.html` e `bagagem.html`
+- `styles.css`
+- `tag.css`
+- `site.js`
+- `pet-demo.html`
+- `pessoa-demo.html`
+- `bagagem-demo.html`
+- `assets/`
 
-## Instagram
+Se a logo `images/Logo N1.png` existir no repositório, ela será usada. Se não existir, o site usa automaticamente a logo SVG antiga em `assets/logo-n1nara.svg`.
 
-O campo `latestInstagramEmbedUrl` está vazio de propósito.
-
-Para usar a opção simples, coloque nele o link de incorporação do Reels, por exemplo:
-
-```json
-"latestInstagramEmbedUrl": "https://www.instagram.com/reel/SEU_CODIGO/embed"
-```
-
-O e-mail foi mantido fora das páginas do site.
+O e-mail foi removido das páginas públicas. O contato visível fica por WhatsApp e Instagram.
