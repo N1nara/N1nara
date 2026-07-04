@@ -1,0 +1,25 @@
+VERSAO SEM PASTAS - N1NARA
+
+Use esta versao se o GitHub nao estiver enviando as pastas.
+
+Como publicar:
+
+1. Abra a pasta n1nara-site-sem-pastas.
+2. Selecione TODOS os arquivos que estao dentro dela.
+3. Envie todos para a raiz do repositorio no GitHub.
+4. O arquivo index.html precisa ficar na raiz.
+
+Nesta versao, os produtos estao em arquivos simples, por exemplo:
+
+produto-n1-art-3d.html
+produto-n1-flat.html
+produto-n1-flat-tag-nfc.html
+produto-tag-para-coleira.html
+produto-cartao-nfc.html
+
+Nao precisa criar pasta produtos.
+Nao precisa criar pasta produto.
+Nao precisa criar pasta assets.
+
+O contato visivel do site fica por WhatsApp e Instagram.
+O e-mail nao aparece nas paginas publicas.

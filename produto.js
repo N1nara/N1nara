@@ -1,4 +1,4 @@
-const PRODUCTS = {
+﻿const PRODUCTS = {
   "n1-art-3d": {
     name: "N1 Art 3D",
     mark: "3D",
@@ -156,7 +156,7 @@ function renderProduct() {
         <p class="hero-text">${product.description}</p>
         <div class="hero-actions">
           <a class="btn primary" href="https://wa.me/5521984004976?text=${encodeURIComponent(message)}" target="_blank" rel="noopener">Comprar pelo WhatsApp</a>
-          <a class="btn ghost" href="../index.html#produtos">Voltar aos produtos</a>
+          <a class="btn ghost" href="index.html#produtos">Voltar aos produtos</a>
         </div>
       </div>
     </section>
