@@ -16,6 +16,7 @@ O arquivo `index.html` precisa ficar diretamente na raiz do repositório, junto 
 - `bagagem-demo.html`
 - `assets/`
 - `produtos/`
+- `produto/`
 - `produto.js`
 
 Se a logo `images/Logo N1.png` existir no repositório, ela será usada. Se não existir, o site usa automaticamente a logo SVG antiga em `assets/logo-n1nara.svg`.
@@ -34,3 +35,8 @@ Exemplos:
 - `produtos/cartao-nfc.html`
 
 Os textos das páginas de produto ficam centralizados no arquivo `produto.js`.
+
+Também foi criada a pasta `produto/` como compatibilidade, caso algum link antigo aponte para esse caminho. Envie as duas pastas para o GitHub:
+
+- `produtos/`
+- `produto/`
