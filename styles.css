@@ -295,6 +295,7 @@ h3 {
 
 .steps article,
 .product-grid article,
+.product-grid a,
 .use-grid article,
 .quote-grid blockquote,
 .faq details {
@@ -370,11 +371,101 @@ h3 {
   padding: 20px;
 }
 
+.product-grid a {
+  display: block;
+  min-height: 154px;
+  padding: 20px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.product-grid a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(40, 24, 12, .1);
+}
+
+.product-link {
+  display: inline-flex;
+  margin-top: 14px;
+  color: var(--teal);
+  font-weight: 900;
+}
+
 .product-grid p,
 .quote-grid blockquote,
 .faq p {
   color: var(--muted);
   line-height: 1.55;
+}
+
+.product-page {
+  padding: clamp(44px, 8vw, 88px) clamp(18px, 5vw, 64px);
+}
+
+.product-hero {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(280px, 1.05fr);
+  gap: clamp(28px, 6vw, 80px);
+  align-items: center;
+}
+
+.product-visual {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(15, 139, 141, .16), transparent 42%),
+    linear-gradient(315deg, rgba(243, 107, 79, .18), transparent 44%),
+    var(--white);
+  box-shadow: var(--shadow);
+}
+
+.product-mark {
+  display: grid;
+  place-items: center;
+  width: 154px;
+  height: 154px;
+  border-radius: 34px;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--ink), var(--caramel));
+  font-size: 44px;
+  font-weight: 900;
+}
+
+.product-meta,
+.product-info {
+  display: grid;
+  gap: 14px;
+}
+
+.product-meta {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 26px 0;
+}
+
+.product-info {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 34px;
+}
+
+.product-meta article,
+.product-info article {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .72);
+}
+
+.product-meta span,
+.product-info span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
 .showcase {
@@ -460,7 +551,8 @@ h3 {
 
   .hero,
   .split,
-  .showcase {
+  .showcase,
+  .product-hero {
     grid-template-columns: 1fr;
   }
 
@@ -471,7 +563,9 @@ h3 {
   .steps,
   .use-grid,
   .product-grid,
-  .quote-grid {
+  .quote-grid,
+  .product-meta,
+  .product-info {
     grid-template-columns: 1fr;
   }
 
