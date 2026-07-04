@@ -4,9 +4,10 @@ Arquivos prontos para publicar no GitHub Pages.
 
 ## Como usar
 
-1. Envie todos os arquivos desta pasta para o repositório `N1nara`.
-2. Confirme se a logo está em `images/Logo N1.png`.
-3. No GitHub, publique pelo GitHub Pages usando a branch principal.
+1. Envie o conteúdo desta pasta para a raiz do repositório `N1nara`.
+2. Não envie a pasta `n1nara-site` inteira como uma subpasta. O arquivo `index.html` precisa ficar na raiz do repositório.
+3. Confirme se a logo está em `images/Logo N1.png`.
+4. No GitHub, publique pelo GitHub Pages usando a branch principal.
 
 ## Onde alterar informações
 
