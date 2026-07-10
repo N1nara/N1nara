@@ -1,203 +1,226 @@
 const PRODUTOS = [
   {
-    id: "n1-art-3d",
-    nome: "N1 Art 3D",
-    arquivo: "produto-n1-art-3d.html",
-    categoria: ["Decoração", "Presentes", "Personalizados"],
-    destaque: true,
-    descricao: "Quadro personalizado em impressão 3D, com relevo, camadas, suporte incluído e acabamento exclusivo.",
-    uso: "Presentes especiais, decoração afetiva, nomes, personagens, logos e peças comemorativas.",
-    dimensoes: "Sob consulta, conforme a arte e o tamanho escolhido.",
-    material: "Impressão 3D com acabamento personalizado.",
-    prazo: "Prazo confirmado pelo WhatsApp após análise da arte.",
-    precoInicial: 49.9,
-    imagem: "N1",
-    nfc: false,
-    campos: [
-      { id: "cores", label: "Quantidade de cores", tipo: "select", obrigatorio: true, opcoes: [
-        { label: "Preto e branco", preco: 49.9 },
-        { label: "2 cores", preco: 49.9 },
-        { label: "3 cores", preco: 59.9 },
-        { label: "4 cores", preco: 69.9 },
-        { label: "5 cores", preco: 79.9 },
-        { label: "6 cores", preco: 89.9 }
-      ]},
-      { id: "cor", label: "Cores desejadas", tipo: "text", obrigatorio: true, placeholder: "Ex.: preto, branco e dourado" },
-      { id: "personalizacao", label: "Nome, tema ou arte", tipo: "text", obrigatorio: true },
-      { id: "observacoes", label: "Observações", tipo: "textarea" }
-    ],
-    relacionados: ["n1-flat", "n1-mini-me", "n1-stencil"]
-  },
-  {
     id: "n1-flat",
     nome: "N1 Flat",
+    subtitulo: "Identificador personalizado em impressão 3D",
     arquivo: "produto-n1-flat.html",
     categoria: ["Pets", "Pessoas", "Empresas", "Presentes", "Personalizados"],
     destaque: true,
-    descricao: "Produto personalizado plano e versátil para pessoas, pets, empresas, presentes, chaveiros, coleiras, mochilas e identificação.",
-    uso: "Identificação, chaveiros, brindes, presentes personalizados, mochilas, coleiras e usos criativos.",
-    dimensoes: "Sob consulta, conforme o uso escolhido.",
-    material: "Impressão 3D com acabamento plano personalizado.",
-    prazo: "Prazo confirmado pelo WhatsApp.",
-    precoInicial: 39.9,
+    descricao: "Identificador personalizado, leve e resistente, disponível para coleira, chaveiro, empresas, brindes e diversas aplicações.",
+    uso: "Cães, gatos, chaveiros personalizados, identificação de mochilas, bagagens, brindes corporativos, eventos, lembranças, coleiras para pets e equipamentos.",
+    dimensoes: "Aproximadamente 47 × 38 mm.",
+    material: "Impressão 3D personalizada, leve e resistente.",
+    prazo: "Produção sob encomenda. Prazo confirmado pelo WhatsApp.",
+    precoInicial: 24.9,
     imagem: "FLAT",
     nfc: false,
+    caracteristicas: [
+      "Impressão 3D personalizada",
+      "Diversas opções de cores",
+      "Produção sob encomenda",
+      "Desenvolvido exclusivamente para cada cliente"
+    ],
     campos: [
-      { id: "tipo", label: "Tipo de uso", tipo: "select", obrigatorio: true, opcoes: ["Pessoa", "Pet", "Empresa", "Presente", "Identificação", "Chaveiro", "Coleira", "Mochila", "Outro"] },
-      { id: "cor", label: "Cor", tipo: "text", obrigatorio: true },
-      { id: "personalizacao", label: "Personalização", tipo: "text", obrigatorio: true },
+      { id: "modelo", label: "Modelo", tipo: "select", obrigatorio: true, opcoes: ["N1 Flat Pet", "N1 Flat Pessoa", "N1 Flat Empresa", "N1 Flat Personalizado"] },
+      { id: "uso", label: "Tipo de uso", tipo: "select", obrigatorio: true, opcoes: ["Coleira", "Chaveiro", "Mochila", "Bagagem", "Brinde corporativo", "Evento", "Equipamento", "Outro"] },
+      { id: "cor", label: "Cor", tipo: "text", obrigatorio: true, placeholder: "Ex.: preto, branco, rosa" },
+      { id: "personalizacao", label: "Informações personalizadas", tipo: "textarea", obrigatorio: true, placeholder: "Nome, telefone, logotipo, frase, data especial ou QR Code opcional" },
       { id: "observacoes", label: "Observações", tipo: "textarea" }
     ],
-    relacionados: ["n1-flat-tag-nfc", "n1-stencil", "n1-art-3d"]
+    relacionados: ["n1-tag-nfc", "n1-mini-pet", "n1-art-3d"]
   },
   {
-    id: "n1-flat-tag-nfc",
-    nome: "N1 Flat Tag NFC",
-    arquivo: "produto-n1-flat-tag-nfc.html",
+    id: "n1-tag-nfc",
+    nome: "N1 Tag NFC",
+    subtitulo: "Identificador inteligente com tecnologia NFC",
+    arquivo: "produto-n1-tag-nfc.html",
     categoria: ["NFC", "Pets", "Pessoas", "Empresas", "Personalizados"],
     destaque: true,
-    descricao: "Tag personalizada com NFC incorporado ao produto. Ao aproximar um celular compatível, a pessoa pode acessar informações cadastradas, telefone, WhatsApp, página personalizada, redes sociais ou informações importantes.",
-    uso: "Coleiras, mochilas, malas, bicicletas, idosos, crianças, cartão de contato e identificação inteligente.",
-    dimensoes: "Varia conforme o modelo selecionado.",
-    material: "Tag personalizada com NFC integrado. O NFC não é vendido separadamente.",
-    prazo: "Prazo confirmado pelo WhatsApp.",
+    descricao: "Identificador inteligente com NFC programada e página personalizada para pessoas, pets, empresas, mochilas, malas e bicicletas.",
+    uso: "Coleiras de cães e gatos, mochilas, malas, bicicletas, identificação de crianças, idosos, pessoas e empresas.",
+    dimensoes: "Aproximadamente 47 × 38 mm.",
+    material: "Identificador personalizado com tecnologia NFC incorporada. A programação da tag NFC já está incluída no preço.",
+    prazo: "Produção sob encomenda. Prazo confirmado pelo WhatsApp.",
     precoInicial: 49.9,
     imagem: "NFC",
     nfc: true,
+    caracteristicas: [
+      "NFC programada incluída",
+      "Página personalizada",
+      "Botão para WhatsApp",
+      "Pode incluir fotos, Instagram, informações médicas e localização autorizada"
+    ],
     campos: [
-      { id: "modelo", label: "Modelo", tipo: "select", obrigatorio: true, opcoes: [
-        { label: "Cartão NFC", preco: 59.9, descricao: "Cartão digital para contatos e links." },
-        { label: "Tag para coleira", preco: 49.9, descricao: "Identificação para pets." },
-        { label: "Tag para mochila", preco: 49.9, descricao: "Identificação para escola, passeio e trabalho." },
-        { label: "Tag para mala", preco: 54.9, descricao: "Identificação para bagagens." },
-        { label: "Tag para bicicleta", preco: 54.9, descricao: "Identificação para bike." },
-        { label: "Tag para idosos", preco: 59.9, descricao: "Contato de emergência." },
-        { label: "Tag para crianças", preco: 59.9, descricao: "Contato do responsável." }
-      ]},
+      { id: "modelo", label: "Modelo", tipo: "select", obrigatorio: true, opcoes: ["Tag para coleira", "Tag para mochila", "Tag para mala", "Tag para bicicleta", "Tag para idosos", "Tag para crianças", "Cartão NFC"] },
       { id: "cor", label: "Cor", tipo: "text", obrigatorio: true },
-      { id: "personalizacao", label: "Informações ou link desejado", tipo: "text", obrigatorio: true },
+      { id: "pagina", label: "Informações para a página", tipo: "textarea", obrigatorio: true, placeholder: "Nome, telefones, Instagram, fotos, informações importantes ou redes sociais" },
       { id: "observacoes", label: "Observações", tipo: "textarea" }
     ],
-    relacionados: ["n1-mini-pet", "n1-flat", "n1-pet-move"]
+    nota: "Ao aproximar um celular compatível, a pessoa pode acessar informações cadastradas, como telefone, WhatsApp, identificação, página personalizada, redes sociais ou informações importantes. O NFC não é vendido separadamente; ele fica incorporado ao produto personalizado.",
+    relacionados: ["n1-flat", "n1-mini-pet", "n1-pet-move"]
   },
   {
     id: "n1-mini-pet",
     nome: "N1 Mini Pet",
+    subtitulo: "Mini escultura personalizada do seu pet",
     arquivo: "produto-n1-mini-pet.html",
     categoria: ["Pets", "Presentes", "Personalizados"],
     destaque: true,
-    descricao: "Mini escultura personalizada do pet, feita a partir de foto ou arte de referência.",
-    uso: "Presentes para tutores, lembranças afetivas e decoração.",
-    dimensoes: "Sob consulta, conforme o modelo.",
-    material: "Impressão 3D personalizada.",
-    prazo: "Prazo confirmado após análise da foto ou arte.",
-    precoInicial: 34.9,
+    descricao: "Mini escultura personalizada exclusiva para pets, produzida a partir das fotos do seu melhor amigo.",
+    uso: "Decoração de mesa, lembrança do pet, presente para tutores, coleção de miniaturas e decoração de home office.",
+    dimensoes: "Altura aproximada: 8 cm.",
+    material: "Impressão 3D personalizada com acabamento artesanal.",
+    prazo: "Produção sob encomenda após envio das fotos do pet.",
+    precoInicial: 49.9,
     imagem: "PET",
     nfc: false,
+    caracteristicas: [
+      "Produzido a partir das fotos do pet",
+      "Cada peça é criada sob encomenda",
+      "Acabamento artesanal",
+      "Produto exclusivo para pets"
+    ],
     campos: [
       { id: "nomePet", label: "Nome do pet", tipo: "text", obrigatorio: true },
       { id: "cor", label: "Cor", tipo: "text", obrigatorio: true },
-      { id: "arte", label: "Foto ou arte de referência", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
+      { id: "fotos", label: "Fotos do pet", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
       { id: "observacoes", label: "Observações", tipo: "textarea" }
     ],
-    relacionados: ["n1-pet-move", "n1-flat-tag-nfc", "n1-flat"]
+    relacionados: ["n1-pet-move", "n1-tag-nfc", "n1-flat"]
   },
   {
     id: "n1-pet-move",
     nome: "N1 Pet Move",
+    subtitulo: "Escultura personalizada com movimento divertido",
     arquivo: "produto-n1-pet-move.html",
     categoria: ["Pets", "Presentes", "Personalizados"],
     destaque: true,
-    descricao: "Movimento que dá ainda mais vida à personalidade do seu melhor amigo.",
-    uso: "Presentes criativos, lembranças de pets e peças personalizadas.",
-    dimensoes: "Sob consulta.",
-    material: "Impressão 3D articulada.",
-    prazo: "Prazo confirmado pelo WhatsApp.",
-    precoInicial: 44.9,
+    descricao: "Uma miniatura personalizada que ganha ainda mais personalidade com o movimento do corpo.",
+    uso: "Presente para apaixonados por pets, decoração de mesa, home office, lembrança especial e colecionável personalizado.",
+    dimensoes: "Altura aproximada: 8 cm.",
+    material: "Impressão 3D personalizada com corpo articulado e acabamento artesanal.",
+    prazo: "Produção sob encomenda após envio das fotos do pet.",
+    precoInicial: 59.9,
     imagem: "MOVE",
     nfc: false,
+    caracteristicas: [
+      "Corpo articulado com movimento",
+      "Produzido a partir das fotos do pet",
+      "Impressão 3D personalizada",
+      "Acabamento artesanal"
+    ],
     campos: [
       { id: "nomePet", label: "Nome do pet", tipo: "text", obrigatorio: true },
       { id: "cor", label: "Cor", tipo: "text", obrigatorio: true },
-      { id: "arte", label: "Arte personalizada", tipo: "text", placeholder: "Enviar referência pelo WhatsApp" },
+      { id: "fotos", label: "Fotos do pet", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
       { id: "observacoes", label: "Observações", tipo: "textarea" }
     ],
-    relacionados: ["n1-mini-pet", "n1-flat-tag-nfc", "n1-art-3d"]
+    relacionados: ["n1-mini-pet", "n1-tag-nfc", "n1-art-3d"]
   },
   {
-    id: "n1-stencil",
-    nome: "N1 Stencil",
-    arquivo: "produto-n1-stencil.html",
-    categoria: ["Empresas", "Decoração", "Personalizados"],
+    id: "n1-art-3d",
+    nome: "N1 Art 3D",
+    subtitulo: "Retrato personalizado em relevo com suporte",
+    arquivo: "produto-n1-art-3d.html",
+    categoria: ["Decoração", "Presentes", "Personalizados", "Pets", "Pessoas"],
     destaque: true,
-    descricao: "Stencil personalizado para pintura, marcação, artesanato, decoração e projetos criativos.",
-    uso: "Pintura, embalagens, logos, decoração, artesanato e marcação.",
-    dimensoes: "Conforme tamanho escolhido.",
-    material: "Material recortado conforme a aplicação.",
-    prazo: "Prazo confirmado após análise do desenho.",
-    precoInicial: 29.9,
-    imagem: "ST",
+    descricao: "Retrato personalizado em relevo, produzido a partir de uma fotografia especial, acompanhado de suporte independente.",
+    uso: "Retratos de pessoas, retratos de pets, casamentos, aniversários, homenagens, decoração de salas, quartos e escritórios, presentes personalizados.",
+    dimensoes: "Disponível nos tamanhos 10 × 15 cm, 15 × 20 cm e 20 × 25 cm.",
+    material: "Imagem em relevo produzida em impressão 3D, com suporte independente incluído.",
+    prazo: "Produção sob encomenda após análise da fotografia.",
+    precoInicial: 79.9,
+    imagem: "ART",
     nfc: false,
-    campos: [
-      { id: "tamanho", label: "Tamanho", tipo: "select", obrigatorio: true, opcoes: [
-        { label: "Pequeno", preco: 29.9 },
-        { label: "Médio", preco: 49.9 },
-        { label: "Grande", preco: 79.9 },
-        { label: "Valor sujeito à análise da arte e das dimensões", preco: 0, sobConsulta: true }
-      ]},
-      { id: "modelo", label: "Modelo", tipo: "text", obrigatorio: true },
-      { id: "finalidade", label: "Finalidade", tipo: "text", obrigatorio: true },
-      { id: "observacoes", label: "Texto, desenho ou observações", tipo: "textarea" }
+    caracteristicas: [
+      "Produzido a partir de uma fotografia",
+      "Imagem criada em relevo",
+      "Suporte independente incluído",
+      "Versão em preto e branco ou multicolorida"
     ],
-    relacionados: ["n1-art-3d", "n1-flat", "n1-mini-me"]
+    campos: [
+      { id: "variacao", label: "Tamanho e acabamento", tipo: "select", obrigatorio: true, opcoes: [
+        { label: "10 × 15 cm - Preto e branco", preco: 79.9 },
+        { label: "10 × 15 cm - Até 6 cores", preco: 119.9 },
+        { label: "15 × 20 cm - Preto e branco", preco: 99.9 },
+        { label: "15 × 20 cm - Até 6 cores", preco: 149.9 },
+        { label: "20 × 25 cm - Preto e branco", preco: 129.9 },
+        { label: "20 × 25 cm - Até 6 cores", preco: 199.9 }
+      ]},
+      { id: "foto", label: "Foto de referência", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
+      { id: "observacoes", label: "Observações", tipo: "textarea" }
+    ],
+    relacionados: ["n1-mini-me", "n1-sculpt", "n1-mini-pet"]
   },
   {
     id: "n1-mini-me",
     nome: "N1 Mini Me",
+    subtitulo: "Miniatura personalizada em estilo bobblehead",
     arquivo: "produto-n1-mini-me.html",
     categoria: ["Pessoas", "Presentes", "Personalizados"],
     destaque: true,
-    descricao: "Escultura personalizada estilo mini pessoa, feita a partir de foto ou arte de referência.",
-    uso: "Presentes personalizados, homenagens, lembranças e decoração.",
-    dimensoes: "Sob consulta.",
-    material: "Impressão 3D com acabamento personalizado.",
-    prazo: "Prazo confirmado após análise da referência.",
-    precoInicial: 69.9,
+    descricao: "Miniatura personalizada da pessoa em estilo bobblehead, criada a partir de fotografias.",
+    uso: "Presente de aniversário, formatura, profissões, uniformes, casamentos, homenagens, decoração de mesa e presente para amigos, familiares e colegas de trabalho.",
+    dimensoes: "Disponível em 10 cm, 13 cm com base e 16 cm com base.",
+    material: "Impressão 3D personalizada, com roupa, aparência e base independente.",
+    prazo: "Produção sob encomenda após análise das fotografias.",
+    precoInicial: 99.9,
     imagem: "ME",
     nfc: false,
-    campos: [
-      { id: "nome", label: "Nome", tipo: "text", obrigatorio: true },
-      { id: "cor", label: "Cor", tipo: "text", obrigatorio: true },
-      { id: "arte", label: "Foto ou arte", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
-      { id: "observacoes", label: "Observações", tipo: "textarea" }
+    caracteristicas: [
+      "Produzido a partir das fotos da pessoa",
+      "Estilo divertido inspirado em bobbleheads",
+      "Roupa e aparência personalizadas",
+      "Base independente incluída"
     ],
-    relacionados: ["n1-sculpt", "n1-art-3d", "n1-stencil"]
+    campos: [
+      { id: "variacao", label: "Tamanho e acabamento", tipo: "select", obrigatorio: true, opcoes: [
+        { label: "10 cm - Branco", preco: 99.9 },
+        { label: "10 cm - Até 6 cores", preco: 249.9 },
+        { label: "13 cm com base - Branco", preco: 129.9 },
+        { label: "13 cm com base - Até 6 cores", preco: 349.9 },
+        { label: "16 cm com base - Branco", preco: 179.9 },
+        { label: "16 cm com base - Até 6 cores", preco: 449.9 }
+      ]},
+      { id: "nome", label: "Nome da pessoa", tipo: "text", obrigatorio: true },
+      { id: "fotos", label: "Fotos de referência", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
+      { id: "observacoes", label: "Roupa, profissão, pose ou observações", tipo: "textarea" }
+    ],
+    relacionados: ["n1-sculpt", "n1-art-3d", "n1-flat"]
   },
   {
     id: "n1-sculpt",
     nome: "N1 Sculpt",
+    subtitulo: "Escultura personalizada em busto",
     arquivo: "produto-n1-sculpt.html",
     categoria: ["Pessoas", "Decoração", "Presentes", "Personalizados"],
     destaque: true,
-    descricao: "Busto ou escultura personalizada com acabamento artístico. Na versão colorida, o valor é sob consulta.",
-    uso: "Presentes premium, homenagens, decoração e peças especiais.",
-    dimensoes: "Sob consulta.",
-    material: "Impressão 3D com acabamento simples ou colorido.",
-    prazo: "Prazo confirmado após análise ou criação da arte.",
-    precoInicial: 89.9,
+    descricao: "Escultura personalizada em busto, com foco na fidelidade da fisionomia, expressão e principais traços da pessoa.",
+    uso: "Presentes especiais, homenagens, formaturas, aniversários, casamentos, decoração, empresas e colecionadores.",
+    dimensoes: "Disponível em 13 cm, 16 cm e 20 cm.",
+    material: "Escultura personalizada em impressão 3D com base independente inclusa.",
+    prazo: "Produção sob encomenda após análise das fotografias.",
+    precoInicial: 199.9,
     imagem: "SC",
     nfc: false,
+    caracteristicas: [
+      "Produzido a partir de fotografias",
+      "Alta fidelidade aos principais traços",
+      "Base independente inclusa",
+      "Produção artesanal sob encomenda"
+    ],
     campos: [
-      { id: "modelo", label: "Modelo", tipo: "select", obrigatorio: true, opcoes: [
-        { label: "Simples", preco: 89.9 },
-        { label: "Colorido - valor sob consulta", preco: 0, sobConsulta: true }
+      { id: "variacao", label: "Tamanho e acabamento", tipo: "select", obrigatorio: true, opcoes: [
+        { label: "13 cm - Branco", preco: 199.9 },
+        { label: "16 cm - Branco", preco: 269.9 },
+        { label: "20 cm - Branco", preco: 349.9 },
+        { label: "Versão colorida - Sob consulta via WhatsApp", preco: 0, sobConsulta: true }
       ]},
-      { id: "cor", label: "Cor", tipo: "text" },
-      { id: "arte", label: "Foto ou arte de referência", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
+      { id: "fotos", label: "Fotos de referência", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
       { id: "observacoes", label: "Observações", tipo: "textarea" }
     ],
-    nota: "A cotação será realizada pelo WhatsApp após a análise ou criação da arte, pois o preço depende do tamanho, quantidade de cores e complexidade do modelo.",
-    relacionados: ["n1-mini-me", "n1-art-3d", "n1-stencil"]
+    nota: "A cotação da versão colorida será realizada pelo WhatsApp após a análise das fotografias, pois o preço depende do tamanho, quantidade de cores, detalhes do cabelo, barba, roupas, acessórios e complexidade do modelo.",
+    relacionados: ["n1-mini-me", "n1-art-3d", "n1-flat"]
   }
 ];
 

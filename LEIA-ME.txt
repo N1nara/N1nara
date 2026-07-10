@@ -20,3 +20,15 @@ Arquivos importantes:
 O pedido fica salvo apenas no navegador do cliente ate ser enviado pelo WhatsApp.
 O site nao armazena pedidos em painel administrativo.
 O e-mail nao aparece nas paginas publicas.
+
+Catalogo atualizado com:
+
+- N1 Flat: R$ 24,90.
+- N1 Tag NFC: R$ 49,90.
+- N1 Mini Pet: R$ 49,90.
+- N1 Pet Move: R$ 59,90.
+- N1 Art 3D com variações por tamanho e acabamento.
+- N1 Mini Me com variações por tamanho e acabamento.
+- N1 Sculpt com preços para branco e versão colorida sob consulta.
+
+Para alterar preços, textos ou opções, edite apenas o arquivo produtos.js.

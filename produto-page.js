@@ -27,8 +27,10 @@ function renderProductPage() {
       <div>
         <p class="eyebrow">Produto personalizado</p>
         <h1>${produto.nome}</h1>
+        <h2>${produto.subtitulo || ""}</h2>
         <p class="lead">${produto.descricao}</p>
         ${produto.nota ? `<p class="notice">${produto.nota}</p>` : ""}
+        <p class="notice">Por ser personalizado, o resultado pode apresentar pequenas variações em relação às fotos de referência. A qualidade do resultado depende da nitidez e dos ângulos das imagens enviadas.</p>
         <form class="product-form" data-product-form>
           <div data-fields></div>
           <label>Quantidade
@@ -52,6 +54,13 @@ function renderProductPage() {
       <article><span>Dimensões</span><p>${produto.dimensoes}</p></article>
       <article><span>Material</span><p>${produto.material}</p></article>
       <article><span>Prazo</span><p>${produto.prazo}</p></article>
+    </section>
+
+    <section class="section-lite">
+      <h2>Características</h2>
+      <div class="info-grid">
+        ${(produto.caracteristicas || []).map((item) => `<article><span>✓</span><p>${item}</p></article>`).join("")}
+      </div>
     </section>
 
     <section class="section-lite">
