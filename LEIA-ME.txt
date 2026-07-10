@@ -25,3 +25,12 @@ Nao precisa criar pasta assets.
 
 O contato visivel do site fica por WhatsApp e Instagram.
 O e-mail nao aparece nas paginas publicas.
+
+Melhorias incluidas nas paginas de produto:
+
+- Tabela de comparacao.
+- Avaliacoes com estrelas.
+- Galeria para fotos, videos e clientes usando.
+- Produtos relacionados.
+- Botoes de compartilhar: Facebook, Instagram, WhatsApp e copiar link.
+- Botoes flutuantes: WhatsApp, Instagram e voltar ao topo.
