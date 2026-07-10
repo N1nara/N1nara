@@ -4,44 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sobre | N1nara</title>
-  <meta name="description" content="Conheça a N1nara, marca de produtos personalizados, identificação e soluções criativas.">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="description" content="Conheça a N1nara, produtos personalizados e produção em impressão 3D sob encomenda.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body id="top">
   <div data-header></div>
-
-  <main class="page">
-    <div class="section-inner">
-      <h1 class="page-title">Sobre a N1nara</h1>
-      <p class="page-lead">A N1nara cria produtos personalizados, soluções de identificação e peças criativas para quem busca praticidade, cuidado e personalidade em cada detalhe.</p>
+  <main>
+    <section class="page-hero compact">
+      <p class="eyebrow">Sobre</p>
+      <h1>N1nara</h1>
+      <p>Produtos personalizados, impressão 3D, NFC, atendimento pelo WhatsApp e produção sob encomenda.</p>
+    </section>
+    <section class="section">
       <div class="grid">
-        <article class="card">
-          <div class="card-body">
-            <h3>Personalização</h3>
-            <p>Cada produto pode ser pensado de acordo com o uso, estilo e necessidade do cliente.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-body">
-            <h3>Identificação</h3>
-            <p>Páginas com QR Code, WhatsApp e localização ajudam na comunicação rápida quando algo ou alguém precisa ser encontrado.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-body">
-            <h3>Atendimento</h3>
-            <p>O atendimento acontece pelo WhatsApp e Instagram, com mensagens diretas e informações claras.</p>
-          </div>
-        </article>
+        <article class="panel"><h3>Como funciona?</h3><p>Você escolhe o produto, envia a ideia ou referência e a personalização é alinhada pelo WhatsApp.</p></article>
+        <article class="panel"><h3>Prazo</h3><p>O prazo depende da complexidade, quantidade de cores, tamanho e fila de produção.</p></article>
+        <article class="panel"><h3>Cuidados</h3><p>Produtos personalizados devem ser protegidos de calor excessivo, quedas e atrito intenso.</p></article>
+        <article class="panel"><h3>Pedido</h3><p>O site não realiza pagamento. O pedido é enviado completo pelo WhatsApp.</p></article>
       </div>
-      <div class="actions">
-        <a class="button green" href="#" data-whatsapp-link target="_blank" rel="noopener">Falar pelo WhatsApp</a>
-        <a class="button accent" href="#" data-instagram-link target="_blank" rel="noopener">Ver Instagram</a>
-      </div>
-    </div>
+    </section>
+    <section class="section alt faq">
+      <h2>Perguntas frequentes</h2>
+      <details><summary>Como envio a foto ou arte?</summary><p>Envie pelo WhatsApp depois de adicionar o produto ao pedido.</p></details>
+      <details><summary>O NFC precisa de bateria?</summary><p>Não. O NFC é lido por aproximação em celulares compatíveis.</p></details>
+      <details><summary>O suporte está incluído?</summary><p>No N1 Art 3D, o suporte está incluído quando indicado na descrição do produto.</p></details>
+      <details><summary>O carrinho fica salvo?</summary><p>Sim, no navegador do cliente, usando localStorage.</p></details>
+    </section>
   </main>
-
-  <div data-footer></div>
-  <script src="assets/js/main.js"></script>
+  <div data-footer></div><div data-floating></div>
+  <script src="config.js"></script><script src="produtos.js"></script><script src="app.js"></script>
 </body>
 </html>

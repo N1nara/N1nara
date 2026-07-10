@@ -1,36 +1,22 @@
-VERSAO SEM PASTAS - N1NARA
+N1NARA - CATALOGO COM PEDIDO PELO WHATSAPP
 
-Use esta versao se o GitHub nao estiver enviando as pastas.
+Esta versao funciona no GitHub Pages sem servidor, sem banco de dados, sem login e sem pagamento online.
 
 Como publicar:
 
-1. Abra a pasta n1nara-site-sem-pastas.
-2. Selecione TODOS os arquivos que estao dentro dela.
-3. Envie todos para a raiz do repositorio no GitHub.
-4. O arquivo index.html precisa ficar na raiz.
-5. A logo precisa ficar na raiz com este nome exato:
-   Logo N1.png
+1. Abra esta pasta.
+2. Envie todos os arquivos para a raiz do repositorio N1nara no GitHub.
+3. O arquivo index.html precisa ficar na raiz.
+4. Se a sua logo estiver no GitHub com o nome Logo N1.png, ela sera usada automaticamente.
 
-Nesta versao, os produtos estao em arquivos simples, por exemplo:
+Arquivos importantes:
 
-produto-n1-art-3d.html
-produto-n1-flat.html
-produto-n1-flat-tag-nfc.html
-produto-tag-para-coleira.html
-produto-cartao-nfc.html
+- produtos.js: dados, preços, opções e textos dos produtos.
+- config.js: Instagram, WhatsApp e link manual do Reels.
+- carrinho.js: carrinho salvo no navegador com localStorage.
+- produto-page.js: paginas individuais de produtos.
+- identificacao.js: idade, QR Code e localizacao para Pet, Pessoa e Bagagem.
 
-Nao precisa criar pasta produtos.
-Nao precisa criar pasta produto.
-Nao precisa criar pasta assets.
-
-O contato visivel do site fica por WhatsApp e Instagram.
+O pedido fica salvo apenas no navegador do cliente ate ser enviado pelo WhatsApp.
+O site nao armazena pedidos em painel administrativo.
 O e-mail nao aparece nas paginas publicas.
-
-Melhorias incluidas nas paginas de produto:
-
-- Tabela de comparacao.
-- Avaliacoes com estrelas.
-- Galeria para fotos, videos e clientes usando.
-- Produtos relacionados.
-- Botoes de compartilhar: Facebook, Instagram, WhatsApp e copiar link.
-- Botoes flutuantes: WhatsApp, Instagram e voltar ao topo.

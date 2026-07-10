@@ -4,22 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Produtos | N1nara</title>
-  <meta name="description" content="Catálogo de produtos personalizados N1nara: Art 3D, Flat, Tag NFC, Mini Pet, Pet Move, Stencil, Mini Me e Scult.">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="description" content="Catálogo completo de produtos personalizados N1nara.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body id="top">
   <div data-header></div>
-
-  <main class="page">
-    <div class="section-inner">
-      <h1 class="page-title">Produtos</h1>
-      <p class="page-lead">Produtos personalizados para identificação, presentes e uso diário. Os preços e opções ficam centralizados para facilitar futuras atualizações.</p>
-      <div class="grid" data-products-list></div>
-    </div>
+  <main>
+    <section class="page-hero compact">
+      <p class="eyebrow">Catálogo</p>
+      <h1>Produtos</h1>
+      <p>Busque por nome, filtre por categoria e adicione produtos ao pedido.</p>
+    </section>
+    <section class="section">
+      <div class="filters">
+        <label>Buscar por nome <input data-search type="search" placeholder="Ex.: NFC, Pet, Stencil"></label>
+        <label>Categoria <select data-category></select></label>
+        <label>Ordenar <select data-sort><option value="">Padrão</option><option value="menor">Menor preço</option><option value="maior">Maior preço</option></select></label>
+      </div>
+      <div class="product-grid" data-products-list></div>
+    </section>
   </main>
-
   <div data-footer></div>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/products.js"></script>
+  <div data-floating></div>
+  <script src="config.js"></script><script src="produtos.js"></script><script src="app.js"></script><script src="produtos-page.js"></script>
 </body>
 </html>
