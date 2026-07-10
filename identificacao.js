@@ -104,8 +104,10 @@ function renderIdentificationPage() {
         ${data.telefone ? `<a class="btn ghost" href="tel:+${data.telefone}">Ligar</a>` : ""}
         ${data.whatsapp ? `<a class="btn primary" href="${whatsappLink(data.whatsapp, defaultMessage(type, data))}" target="_blank" rel="noopener">WhatsApp</a>` : ""}
         ${data.whatsapp ? `<button class="btn ghost" type="button" data-share-location="${type}">Compartilhar localização</button>` : ""}
+        ${data.whatsapp ? `<button class="btn ghost" type="button" data-manual-location="${type}">Enviar localização manualmente</button>` : ""}
         ${data.instagram ? `<a class="btn ghost" href="${data.instagram}" target="_blank" rel="noopener">Instagram</a>` : ""}
       </div>
+      <p class="location-help">Se o navegador bloquear o GPS, use “Enviar localização manualmente” e compartilhe a localização pelo próprio WhatsApp.</p>
     </section>
     <section class="id-card">
       <h2>Informações</h2>
@@ -132,24 +134,57 @@ function defaultMessage(kind, data) {
   return "Olá! Encontrei sua bagagem.";
 }
 
+function locationMessage(kind, mapUrl) {
+  if (kind === "pet") return `Olá! Encontrei o seu pet.\n\nMinha localização atual:\n${mapUrl}`;
+  if (kind === "pessoa") return `Olá! Estou entrando em contato por meio da página de identificação.\n\nMinha localização atual:\n${mapUrl}`;
+  return `Olá! Encontrei sua bagagem.\n\nMinha localização atual:\n${mapUrl}`;
+}
+
+function manualLocationMessage(kind) {
+  const base = kind === "pet"
+    ? "Olá! Encontrei o seu pet."
+    : kind === "pessoa"
+      ? "Olá! Estou entrando em contato por meio da página de identificação."
+      : "Olá! Encontrei sua bagagem.";
+
+  return `${base}\n\nNão consegui autorizar a localização automática no navegador.\n\nVou enviar minha localização manualmente pelo WhatsApp:\n1. Toque no clipe/anexo ou no botão +\n2. Escolha Localização\n3. Envie minha localização atual`;
+}
+
+function openManualLocation(kind) {
+  const data = IDENTIFICACOES[kind];
+  if (!data?.whatsapp) return;
+  window.open(whatsappLink(data.whatsapp, manualLocationMessage(kind)), "_blank", "noopener");
+}
+
 function shareLocation(kind) {
   const data = IDENTIFICACOES[kind];
   if (!data?.whatsapp) return;
-  if (!navigator.geolocation) {
-    toast("Seu navegador não permite compartilhar localização.");
+
+  if (!window.isSecureContext) {
+    toast("A localização automática só funciona em site seguro. Abrindo WhatsApp com instrução manual.");
+    openManualLocation(kind);
     return;
   }
+
+  if (!navigator.geolocation) {
+    toast("Seu navegador não permite compartilhar localização. Abrindo instrução manual.");
+    openManualLocation(kind);
+    return;
+  }
+
+  toast("Solicitando autorização de localização...");
   navigator.geolocation.getCurrentPosition(({ coords }) => {
     const map = `https://www.google.com/maps?q=${coords.latitude},${coords.longitude}`;
+    window.open(whatsappLink(data.whatsapp, locationMessage(kind, map)), "_blank", "noopener");
+  }, (error) => {
     const messages = {
-      pet: `Olá! Encontrei o seu pet.\n\nMinha localização atual:\n${map}`,
-      pessoa: `Olá! Estou entrando em contato por meio da página de identificação.\n\nMinha localização atual:\n${map}`,
-      bagagem: `Olá! Encontrei sua bagagem.\n\nMinha localização atual:\n${map}`
+      1: "Permissão de localização negada.",
+      2: "Localização indisponível no momento.",
+      3: "Tempo esgotado ao tentar obter a localização."
     };
-    window.open(whatsappLink(data.whatsapp, messages[kind]), "_blank", "noopener");
-  }, () => {
-    toast("Não foi possível obter a localização. Verifique a permissão do navegador.");
-  }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 });
+    toast(`${messages[error.code] || "Não foi possível obter a localização."} Abrindo instrução manual.`);
+    openManualLocation(kind);
+  }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
 }
 
 function renderQrCode() {
@@ -160,8 +195,10 @@ function renderQrCode() {
 }
 
 document.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-share-location]");
-  if (button) shareLocation(button.dataset.shareLocation);
+  const shareButton = event.target.closest("[data-share-location]");
+  const manualButton = event.target.closest("[data-manual-location]");
+  if (shareButton) shareLocation(shareButton.dataset.shareLocation);
+  if (manualButton) openManualLocation(manualButton.dataset.manualLocation);
 });
 
 document.addEventListener("DOMContentLoaded", renderIdentificationPage);
