@@ -104,10 +104,9 @@ function renderIdentificationPage() {
         ${data.telefone ? `<a class="btn ghost" href="tel:+${data.telefone}">Ligar</a>` : ""}
         ${data.whatsapp ? `<a class="btn primary" href="${whatsappLink(data.whatsapp, defaultMessage(type, data))}" target="_blank" rel="noopener">WhatsApp</a>` : ""}
         ${data.whatsapp ? `<button class="btn ghost" type="button" data-share-location="${type}">Compartilhar localização</button>` : ""}
-        ${data.whatsapp ? `<button class="btn ghost" type="button" data-manual-location="${type}">Enviar localização manualmente</button>` : ""}
         ${data.instagram ? `<a class="btn ghost" href="${data.instagram}" target="_blank" rel="noopener">Instagram</a>` : ""}
       </div>
-      <p class="location-help">Se o navegador bloquear o GPS, use “Enviar localização manualmente” e compartilhe a localização pelo próprio WhatsApp.</p>
+      <p class="location-help">O site tentará obter a localização automaticamente. Se o navegador bloquear, o WhatsApp abrirá com instruções para envio manual.</p>
     </section>
     <section class="id-card">
       <h2>Informações</h2>
@@ -196,9 +195,7 @@ function renderQrCode() {
 
 document.addEventListener("click", (event) => {
   const shareButton = event.target.closest("[data-share-location]");
-  const manualButton = event.target.closest("[data-manual-location]");
   if (shareButton) shareLocation(shareButton.dataset.shareLocation);
-  if (manualButton) openManualLocation(manualButton.dataset.manualLocation);
 });
 
 document.addEventListener("DOMContentLoaded", renderIdentificationPage);
