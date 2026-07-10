@@ -170,6 +170,65 @@ textarea { min-height: 118px; resize: vertical; }
 .id-photo { min-height: 280px; border-radius: 8px; }
 .qr { width: 180px; height: 180px; margin-top: 12px; }
 .privacy-box { margin-top: 20px; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: #edf8f6; color: var(--muted); }
+.id-profile {
+  align-self: start;
+  text-align: center;
+}
+.id-photo-square {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--coral), var(--gold));
+  font-size: clamp(32px, 8vw, 58px);
+  font-weight: 900;
+}
+.id-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+.id-info-list {
+  display: grid;
+  gap: 12px;
+}
+.id-info-list article {
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .76);
+}
+.id-info-list span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.id-info-list p {
+  margin: 0;
+  color: var(--muted);
+}
+.qr-discreet {
+  display: inline-grid;
+  gap: 8px;
+  margin-top: 22px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--muted);
+  font-size: 13px;
+}
+.qr-discreet img {
+  width: 112px;
+  height: 112px;
+}
 
 .footer { display: flex; justify-content: space-between; gap: 24px; padding: 42px clamp(18px, 5vw, 64px) 96px; color: var(--white); background: var(--dark); }
 .footer a { color: var(--white); opacity: .86; }

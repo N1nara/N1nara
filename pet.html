@@ -4,35 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pet | N1nara</title>
-  <meta name="description" content="Modelo de página de identificação para pet com QR Code e localização pelo WhatsApp.">
+  <meta name="description" content="Página de identificação para pet com contato do tutor, localização e QR Code.">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body id="top">
+<body id="top" data-identification="pet">
   <div data-header></div>
-  <main class="id-layout">
-    <section class="id-card">
-      <div class="pet-avatar id-photo">PET</div>
-      <h1>Luna</h1>
-      <p class="muted">Se você encontrou este pet, entre em contato com o tutor.</p>
-      <button class="btn primary" type="button" data-share-location="pet">Compartilhar minha localização com o tutor</button>
-      <img class="qr" data-qrcode alt="QR Code da página do pet">
-      <p>Escaneie para acessar esta página.</p>
-    </section>
-    <section class="id-card">
-      <h2>Informações</h2>
-      <div class="info-grid">
-        <article><span>Nome</span><p>Luna</p></article>
-        <article><span>Instagram</span><p>@n1nara</p></article>
-        <article><span>Raça</span><p>Informar raça</p></article>
-        <article><span>Sexo</span><p>Informar sexo</p></article>
-        <article><span>Nascimento</span><p>15/06/2023</p></article>
-        <article><span>Idade</span><p data-birthdate="15/06/2023"></p></article>
-        <article><span>Tutor</span><p>Stephanie</p></article>
-        <article><span>WhatsApp</span><p><a href="https://wa.me/5521984004976">Enviar mensagem</a></p></article>
-      </div>
-      <div class="privacy-box">As informações desta página foram fornecidas pelo responsável e têm finalidade de identificação e contato. A localização só é acessada mediante autorização do visitante e não é armazenada pelo site.</div>
-    </section>
-  </main>
+  <main class="id-layout" data-identification-page></main>
   <div data-footer></div><div data-floating></div>
   <script src="config.js"></script><script src="produtos.js"></script><script src="app.js"></script><script src="identificacao.js"></script>
 </body>

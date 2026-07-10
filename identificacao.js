@@ -1,25 +1,140 @@
-function calcularIdade(dataBR) {
+const IDENTIFICACOES = {
+  pet: {
+    tipo: "pet",
+    fotoTexto: "PET",
+    nome: "Luna",
+    chamada: "Se você encontrou este pet, entre em contato com o tutor.",
+    nascimento: "15/06/2023",
+    telefone: "5521984004976",
+    whatsapp: "5521984004976",
+    instagram: "https://www.instagram.com/n1nara/",
+    campos: {
+      "Raça": "Informar raça",
+      "Sexo": "Informar sexo",
+      "Tutor": "Stephanie",
+      "Informações médicas": "Informar apenas o necessário.",
+      "Vacinas": "Informar situação das vacinas.",
+      "Veterinário": "Informar clínica ou contato, se necessário.",
+      "Observações": "Pet dócil, pode ficar assustado com barulhos altos."
+    }
+  },
+  pessoa: {
+    tipo: "pessoa",
+    fotoTexto: "ID",
+    nome: "Maria",
+    chamada: "Página de identificação para contato com o responsável.",
+    nascimento: "15/06/2023",
+    telefone: "5521984004976",
+    whatsapp: "5521984004976",
+    instagram: "https://www.instagram.com/n1nara/",
+    campos: {
+      "Sexo": "Informar sexo",
+      "Nome do responsável": "Stephanie",
+      "Alergias": "Informar apenas se necessário.",
+      "Medicamentos": "Informar apenas se necessário.",
+      "Plano de saúde": "Informar se necessário.",
+      "Informações importantes": "Informar orientações realmente necessárias."
+    }
+  },
+  bagagem: {
+    tipo: "bagagem",
+    fotoTexto: "MALA",
+    nome: "Bagagem identificada",
+    chamada: "Se você encontrou esta bagagem, fale com o proprietário.",
+    telefone: "5521984004976",
+    whatsapp: "5521984004976",
+    campos: {
+      "Nome do proprietário": "Stephanie / N1nara",
+      "Identificação da bagagem": "MALA-001",
+      "Identificação": "MALA-001",
+      "Mensagem": "Obrigada por ajudar a devolver esta bagagem.",
+      "Informações adicionais": "Evite expor endereço residencial completo."
+    }
+  }
+};
+
+function calcularIdade(dataBR, hoje = new Date()) {
+  if (!dataBR) return "";
   const [dia, mes, ano] = dataBR.split("/").map(Number);
+  if (!dia || !mes || !ano) return "";
+
   const nascimento = new Date(ano, mes - 1, dia);
-  const hoje = new Date();
+  if (Number.isNaN(nascimento.getTime())) return "";
+
   let anos = hoje.getFullYear() - nascimento.getFullYear();
   let meses = hoje.getMonth() - nascimento.getMonth();
   let dias = hoje.getDate() - nascimento.getDate();
+
   if (dias < 0) {
     meses -= 1;
-    const ultimoMes = new Date(hoje.getFullYear(), hoje.getMonth(), 0).getDate();
-    dias += ultimoMes;
+    const diasNoMesAnterior = new Date(hoje.getFullYear(), hoje.getMonth(), 0).getDate();
+    dias += diasNoMesAnterior;
   }
+
   if (meses < 0) {
     anos -= 1;
     meses += 12;
   }
+
   if (anos > 0) return anos === 1 ? "1 ano" : `${anos} anos`;
   if (meses > 0) return meses === 1 ? "1 mês" : `${meses} meses`;
   return dias <= 1 ? "1 dia" : `${dias} dias`;
 }
 
+function whatsappLink(number, message) {
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+}
+
+function renderIdentificationPage() {
+  const type = document.body.dataset.identification;
+  const data = IDENTIFICACOES[type];
+  const root = document.querySelector("[data-identification-page]");
+  if (!data || !root) return;
+
+  const idade = data.nascimento ? calcularIdade(data.nascimento) : "";
+  const info = { ...data.campos };
+  if (idade) info.Idade = idade;
+
+  root.innerHTML = `
+    <section class="id-card id-profile">
+      <div class="id-photo-square" aria-label="Foto">${data.fotoTexto}</div>
+      <h1>${data.nome}</h1>
+      <p class="muted">${data.chamada}</p>
+      <div class="id-actions">
+        ${data.telefone ? `<a class="btn ghost" href="tel:+${data.telefone}">Ligar</a>` : ""}
+        ${data.whatsapp ? `<a class="btn primary" href="${whatsappLink(data.whatsapp, defaultMessage(type, data))}" target="_blank" rel="noopener">WhatsApp</a>` : ""}
+        ${data.whatsapp ? `<button class="btn ghost" type="button" data-share-location="${type}">Compartilhar localização</button>` : ""}
+        ${data.instagram ? `<a class="btn ghost" href="${data.instagram}" target="_blank" rel="noopener">Instagram</a>` : ""}
+      </div>
+    </section>
+    <section class="id-card">
+      <h2>Informações</h2>
+      <div class="id-info-list">
+        ${Object.entries(info)
+          .filter(([, value]) => value && String(value).trim())
+          .map(([label, value]) => `<article><span>${label}</span><p>${value}</p></article>`)
+          .join("")}
+      </div>
+      <div class="privacy-box">As informações desta página foram fornecidas pelo responsável e têm finalidade de identificação e contato. A localização só é acessada mediante autorização do visitante e não é armazenada pelo site.</div>
+      <div class="qr-discreet">
+        <img data-qrcode alt="QR Code desta página">
+        <p>Escaneie para acessar esta página.</p>
+      </div>
+    </section>
+  `;
+
+  renderQrCode();
+}
+
+function defaultMessage(kind, data) {
+  if (kind === "pet") return `Olá! Encontrei o pet ${data.nome}.`;
+  if (kind === "pessoa") return `Olá! Estou entrando em contato por meio da página de identificação de ${data.nome}.`;
+  return "Olá! Encontrei sua bagagem.";
+}
+
 function shareLocation(kind) {
+  const data = IDENTIFICACOES[kind];
+  if (!data?.whatsapp) return;
   if (!navigator.geolocation) {
     toast("Seu navegador não permite compartilhar localização.");
     return;
@@ -31,16 +146,13 @@ function shareLocation(kind) {
       pessoa: `Olá! Estou entrando em contato por meio da página de identificação.\n\nMinha localização atual:\n${map}`,
       bagagem: `Olá! Encontrei sua bagagem.\n\nMinha localização atual:\n${map}`
     };
-    openWhatsApp(messages[kind] || `Minha localização atual:\n${map}`);
+    window.open(whatsappLink(data.whatsapp, messages[kind]), "_blank", "noopener");
   }, () => {
     toast("Não foi possível obter a localização. Verifique a permissão do navegador.");
   }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 });
 }
 
-function renderIdentification() {
-  document.querySelectorAll("[data-birthdate]").forEach((item) => {
-    item.textContent = calcularIdade(item.dataset.birthdate);
-  });
+function renderQrCode() {
   document.querySelectorAll("[data-qrcode]").forEach((img) => {
     img.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(location.href)}`;
     img.alt = "QR Code para acessar esta página";
@@ -52,4 +164,4 @@ document.addEventListener("click", (event) => {
   if (button) shareLocation(button.dataset.shareLocation);
 });
 
-document.addEventListener("DOMContentLoaded", renderIdentification);
+document.addEventListener("DOMContentLoaded", renderIdentificationPage);

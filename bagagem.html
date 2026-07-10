@@ -4,31 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bagagem | N1nara</title>
-  <meta name="description" content="Modelo de página de identificação para bagagem com QR Code e localização pelo WhatsApp.">
+  <meta name="description" content="Página de identificação para bagagem com contato do proprietário, localização e QR Code.">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body id="top">
+<body id="top" data-identification="bagagem">
   <div data-header></div>
-  <main class="id-layout">
-    <section class="id-card">
-      <div class="pet-avatar id-photo">MALA</div>
-      <h1>Bagagem identificada</h1>
-      <p class="muted">Se você encontrou esta bagagem, fale com a proprietária.</p>
-      <button class="btn primary" type="button" data-share-location="bagagem">Compartilhar localização com o proprietário</button>
-      <img class="qr" data-qrcode alt="QR Code da página da bagagem">
-      <p>Escaneie para acessar esta página.</p>
-    </section>
-    <section class="id-card">
-      <h2>Informações</h2>
-      <div class="info-grid">
-        <article><span>Proprietária</span><p>Stephanie / N1nara</p></article>
-        <article><span>Telefone</span><p><a href="https://wa.me/5521984004976">WhatsApp</a></p></article>
-        <article><span>Identificação</span><p>MALA-001</p></article>
-        <article><span>Mensagem</span><p>Obrigada por ajudar a devolver esta bagagem.</p></article>
-      </div>
-      <div class="privacy-box">Evite expor endereço residencial completo. A localização só é acessada mediante autorização do visitante e não é armazenada pelo site.</div>
-    </section>
-  </main>
+  <main class="id-layout" data-identification-page></main>
   <div data-footer></div><div data-floating></div>
   <script src="config.js"></script><script src="produtos.js"></script><script src="app.js"></script><script src="identificacao.js"></script>
 </body>
