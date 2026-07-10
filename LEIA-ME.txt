@@ -32,3 +32,14 @@ Catalogo atualizado com:
 - N1 Sculpt com preços para branco e versão colorida sob consulta.
 
 Para alterar preços, textos ou opções, edite apenas o arquivo produtos.js.
+
+Reels do Instagram:
+
+No arquivo config.js, cole o link normal do Reels no campo latestPostUrl.
+
+Exemplo:
+
+latestPostUrl: "https://www.instagram.com/reel/CODIGO_DO_REELS/"
+
+Nao precisa adicionar /embed manualmente.
+Se o Instagram bloquear a exibicao dentro do site, o site mostra um botao para assistir diretamente no Instagram.
