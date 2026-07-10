@@ -1,4 +1,4 @@
-const IDENTIFICACOES = {
+﻿const IDENTIFICACOES = {
   pet: {
     tipo: "pet",
     fotoTexto: "PET",
@@ -82,7 +82,11 @@ function calcularIdade(dataBR, hoje = new Date()) {
 }
 
 function whatsappLink(number, message) {
-  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+  return `https://api.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(message)}`;
+}
+
+function goToWhatsApp(number, message) {
+  window.location.href = whatsappLink(number, message);
 }
 
 function renderIdentificationPage() {
@@ -152,7 +156,7 @@ function manualLocationMessage(kind) {
 function openManualLocation(kind) {
   const data = IDENTIFICACOES[kind];
   if (!data?.whatsapp) return;
-  window.open(whatsappLink(data.whatsapp, manualLocationMessage(kind)), "_blank", "noopener");
+  goToWhatsApp(data.whatsapp, manualLocationMessage(kind));
 }
 
 function shareLocation(kind) {
@@ -174,7 +178,7 @@ function shareLocation(kind) {
   toast("Solicitando autorização de localização...");
   navigator.geolocation.getCurrentPosition(({ coords }) => {
     const map = `https://www.google.com/maps?q=${coords.latitude},${coords.longitude}`;
-    window.open(whatsappLink(data.whatsapp, locationMessage(kind, map)), "_blank", "noopener");
+    goToWhatsApp(data.whatsapp, locationMessage(kind, map));
   }, (error) => {
     const messages = {
       1: "Permissão de localização negada.",
