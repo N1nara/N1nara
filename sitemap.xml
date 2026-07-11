@@ -2,24 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://n1nara.github.io/N1nara/</loc></url>
   <url><loc>https://n1nara.github.io/N1nara/produtos.html</loc></url>
+  <url><loc>https://n1nara.github.io/N1nara/sobre.html</loc></url>
   <url><loc>https://n1nara.github.io/N1nara/pet.html</loc></url>
   <url><loc>https://n1nara.github.io/N1nara/pessoa.html</loc></url>
   <url><loc>https://n1nara.github.io/N1nara/bagagem.html</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/sobre.html</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-art3d.html</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-art3d/</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-flat.html</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-flat/</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-flat-tag-nfc.html</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-flat-tag-nfc/</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-mini-pet.html</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-mini-pet/</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-pet-move.html</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-pet-move/</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-stencil.html</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-stencil/</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-mini-me.html</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-mini-me/</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-scult.html</loc></url>
-  <url><loc>https://n1nara.github.io/N1nara/produto/n1-scult/</loc></url>
+  <url><loc>https://n1nara.github.io/N1nara/carrinho.html</loc></url>
+  <url><loc>https://n1nara.github.io/N1nara/produto-n1-flat.html</loc></url>
+  <url><loc>https://n1nara.github.io/N1nara/produto-n1-tag-nfc.html</loc></url>
+  <url><loc>https://n1nara.github.io/N1nara/produto-n1-mini-pet.html</loc></url>
+  <url><loc>https://n1nara.github.io/N1nara/produto-n1-pet-move.html</loc></url>
+  <url><loc>https://n1nara.github.io/N1nara/produto-n1-art-3d.html</loc></url>
+  <url><loc>https://n1nara.github.io/N1nara/produto-n1-mini-me.html</loc></url>
+  <url><loc>https://n1nara.github.io/N1nara/produto-n1-sculpt.html</loc></url>
 </urlset>

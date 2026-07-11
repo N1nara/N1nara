@@ -1,0 +1,56 @@
+RELATORIO DE ALTERACOES - N1NARA
+
+Arquivos principais identificados:
+
+- index.html: pagina inicial.
+- app.js: cabecalho, rodape, botoes flutuantes, cards de produto, carrinho rapido e FAQ.
+- home.js: produtos em destaque e area do Instagram.
+- produtos.js: catalogo central com nomes, descricoes, imagens, precos e opcoes.
+- produtos.html: pagina geral de produtos.
+- produtos-page.js: busca, filtro por categoria, ordenacao e leitura de parametros na URL.
+- carrinho.html e carrinho.js: pedido salvo no navegador e envio pelo WhatsApp.
+- produto-page.js: montagem das paginas individuais de produto.
+- config.js: WhatsApp, Instagram e link manual do Reels.
+- identificacao.js: paginas Pet, Pessoa e Bagagem com idade, QR Code e localizacao.
+- styles.css: identidade visual, responsividade e componentes.
+
+Arquivos modificados nesta rodada:
+
+- index.html
+- app.js
+- home.js
+- produtos.html
+- produtos-page.js
+- styles.css
+- produto-n1-scult.html
+- sitemap.xml
+- RELATORIO-ALTERACOES.txt
+
+Melhorias aplicadas:
+
+- Cabecalho compacto, fixo, responsivo e com contador do pedido.
+- Menu com Inicio, Produtos, Como funciona, NFC, Sobre e botao de WhatsApp.
+- Menu mobile fecha ao escolher uma opcao e tambem ao redimensionar para computador.
+- Nova primeira secao com texto mais claro e composicao visual de produtos.
+- Secao do Instagram sem mensagens tecnicas para visitantes.
+- Atalhos por necessidade com links filtrados para o catalogo.
+- Catalogo lendo parametros como produtos.html?categoria=pets.
+- Botao Limpar filtros e contador de resultados no catalogo.
+- Cards de produto com imagem maior, selos, preco mais visivel e hover discreto.
+- Secoes Como funciona, NFC, Confianca e Perguntas frequentes.
+- FAQ acessivel com botoes, aria-expanded e navegação por teclado.
+- Sitemap atualizado com URLs oficiais atuais.
+- produto-n1-scult.html mantido como compatibilidade e redirecionado para produto-n1-sculpt.html.
+
+Arquivos e caminhos aparentemente duplicados ou de compatibilidade:
+
+- produto-n1-scult.html: grafia antiga; mantido como redirecionamento.
+- produto-n1-flat-tag-nfc.html e produto-n1-tag-nfc.html: apontam para o mesmo produto NFC.
+- produto/ e produtos/: contem paginas antigas ou alternativas para compatibilidade.
+- n1nara-site-restaurado/ e n1nara-site-sem-pastas/: copias anteriores do site.
+- produto.js: parece pertencer a uma versao antiga do catalogo; o catalogo atual usa produtos.js.
+- assets/, data/ e images/: estrutura antiga com arquivos que podem ser preservados, mas nao sao o centro do site sem pastas.
+
+Observacao:
+
+Nenhum arquivo antigo foi apagado automaticamente. A recomendacao e manter as paginas antigas como compatibilidade ate confirmar no GitHub quais links ainda recebem acesso.

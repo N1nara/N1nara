@@ -13,19 +13,24 @@
     <section class="page-hero compact">
       <p class="eyebrow">Catálogo</p>
       <h1>Produtos</h1>
-      <p>Busque por nome, filtre por categoria e adicione produtos ao pedido.</p>
+      <p>Busque por nome, filtre por categoria e escolha o produto ideal para personalizar.</p>
     </section>
     <section class="section">
       <div class="filters">
         <label>Buscar por nome <input data-search type="search" placeholder="Ex.: NFC, Pet, Mini Me"></label>
         <label>Categoria <select data-category></select></label>
         <label>Ordenar <select data-sort><option value="">Padrão</option><option value="menor">Menor preço</option><option value="maior">Maior preço</option></select></label>
+        <button class="btn ghost" type="button" data-clear-filters>Limpar filtros</button>
       </div>
+      <p class="results-count" data-results-count aria-live="polite"></p>
       <div class="product-grid" data-products-list></div>
     </section>
   </main>
   <div data-footer></div>
   <div data-floating></div>
-  <script src="config.js"></script><script src="produtos.js"></script><script src="app.js"></script><script src="produtos-page.js"></script>
+  <script src="config.js"></script>
+  <script src="produtos.js"></script>
+  <script src="app.js"></script>
+  <script src="produtos-page.js"></script>
 </body>
 </html>

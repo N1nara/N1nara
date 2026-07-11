@@ -5,7 +5,13 @@ function moeda(valor) {
 }
 
 function getCart() {
-  return JSON.parse(localStorage.getItem("n1naraPedido") || "[]");
+  try {
+    const cart = JSON.parse(localStorage.getItem("n1naraPedido") || "[]");
+    return Array.isArray(cart) ? cart : [];
+  } catch {
+    localStorage.removeItem("n1naraPedido");
+    return [];
+  }
 }
 
 function saveCart(cart) {
@@ -32,6 +38,7 @@ function toast(message) {
   if (!box) {
     box = document.createElement("div");
     box.className = "toast";
+    box.setAttribute("role", "status");
     document.body.appendChild(box);
   }
   box.textContent = message;
@@ -62,27 +69,48 @@ function header() {
     <header class="topbar">
       <a class="brand" href="index.html" aria-label="N1nara">
         <img src="Logo%20N1.png" onerror="this.onerror=null;this.src='logo-n1nara.svg';" alt="Logo N1nara">
-        <span><strong>N1nara</strong><small>3D + NFC inteligente</small></span>
+        <span><strong>N1nara</strong><small>Impressão 3D personalizada</small></span>
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <div class="header-tools">
+        <a class="header-cart" href="carrinho.html" aria-label="Abrir meu pedido">
+          <span aria-hidden="true">Pedido</span>
+          <strong data-cart-count>0</strong>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">Menu</button>
+      </div>
       <nav class="nav" id="menu" aria-label="Menu principal">
-        ${navLink("index.html", "Home", current)}
+        ${navLink("index.html", "Início", current)}
         ${navLink("produtos.html", "Produtos", current)}
-        ${navLink("pet.html", "Pet", current)}
-        ${navLink("pessoa.html", "Pessoa", current)}
-        ${navLink("bagagem.html", "Bagagem", current)}
+        <a href="index.html#como-funciona">Como funciona</a>
+        <a href="index.html#nfc">NFC</a>
         ${navLink("sobre.html", "Sobre", current)}
-        <a href="${N1_CONFIG.instagramUrl}" target="_blank" rel="noopener">Instagram</a>
-        <a href="${whatsappUrl("Olá! Vim pelo site da N1nara.")}" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="cart-link" href="carrinho.html">Carrinho (<span data-cart-count>0</span>)</a>
+        <a class="cart-link" href="carrinho.html" aria-label="Abrir meu pedido">Meu pedido (<span data-cart-count>0</span>)</a>
+        <a class="nav-cta" href="${whatsappUrl("Olá! Vim pelo site da N1nara.")}" target="_blank" rel="noopener">Pedir pelo WhatsApp</a>
       </nav>
     </header>
   `;
 
-  document.querySelector(".menu-toggle").addEventListener("click", (event) => {
-    const nav = document.querySelector("#menu");
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector("#menu");
+
+  function closeMenu() {
+    nav.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Abrir menu");
+  }
+
+  toggle.addEventListener("click", () => {
     const open = nav.classList.toggle("open");
-    event.currentTarget.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  });
+
+  nav.addEventListener("click", (event) => {
+    if (event.target.closest("a")) closeMenu();
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) closeMenu();
   });
 }
 
@@ -100,8 +128,10 @@ function footer() {
       </div>
       <div class="footer-links">
         <a href="produtos.html">Produtos</a>
+        <a href="index.html#como-funciona">Como funciona</a>
+        <a href="index.html#nfc">NFC</a>
         <a href="sobre.html">Sobre</a>
-        <a href="carrinho.html">Carrinho</a>
+        <a href="carrinho.html">Meu pedido</a>
         <a href="${N1_CONFIG.instagramUrl}" target="_blank" rel="noopener">@n1nara</a>
         <a href="${whatsappUrl("Olá! Gostaria de falar com a N1nara.")}" target="_blank" rel="noopener">(21) 98400-4976</a>
       </div>
@@ -115,24 +145,30 @@ function floatingActions() {
   actions.innerHTML = `
     <div class="floating-actions" aria-label="Ações rápidas">
       <a href="${whatsappUrl("Olá! Vim pelo site da N1nara.")}" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
-      <a href="carrinho.html" aria-label="Carrinho">🛒 <span data-cart-count>0</span></a>
-      <a href="#top" aria-label="Voltar ao topo">↑</a>
+      <a href="carrinho.html" aria-label="Meu pedido">Pedido <span data-cart-count>0</span></a>
+      <a href="#top" aria-label="Voltar ao topo">Topo</a>
     </div>
   `;
 }
 
 function productCard(produto) {
+  const hasNfc = produto.nfc ? `<span class="badge">Com NFC</span>` : "";
+  const addButton = produto.precoInicial || produto.precoInicial === 0
+    ? `<button class="btn primary" type="button" data-quick-add="${produto.id}">Adicionar ao pedido</button>`
+    : "";
+
   return `
     <article class="product-card" data-category="${produto.categoria.join(" ")}">
       ${productMedia(produto, "product-thumb")}
-      <div>
+      <div class="product-card-body">
+        <div class="badges"><span class="badge">Personalizado</span>${hasNfc}</div>
         <h3>${produto.nome}</h3>
         <p>${produto.descricao}</p>
-        <strong>${produto.precoInicial ? `A partir de ${moeda(produto.precoInicial)}` : "Sob consulta"}</strong>
+        <strong class="card-price">${produto.precoInicial ? `A partir de ${moeda(produto.precoInicial)}` : "Sob consulta"}</strong>
       </div>
       <div class="card-actions">
         <a class="btn ghost" href="${produto.arquivo}">Ver detalhes</a>
-        <button class="btn primary" type="button" data-quick-add="${produto.id}">Adicionar ao pedido</button>
+        ${addButton}
       </div>
     </article>
   `;
@@ -171,11 +207,24 @@ function bindQuickAdd() {
   });
 }
 
+function initFaq() {
+  document.querySelectorAll("[data-faq-button]").forEach((button) => {
+    const panel = document.getElementById(button.getAttribute("aria-controls"));
+    if (!panel) return;
+    button.addEventListener("click", () => {
+      const open = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!open));
+      panel.hidden = open;
+    });
+  });
+}
+
 function initBase() {
   header();
   footer();
   floatingActions();
   bindQuickAdd();
+  initFaq();
   updateCartCount();
 }
 
