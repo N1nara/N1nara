@@ -1,0 +1,67 @@
+N1NARA - CATALOGO COM PEDIDO PELO WHATSAPP
+
+Esta versao funciona no GitHub Pages sem servidor, sem banco de dados, sem login e sem pagamento online.
+
+Como publicar:
+
+1. Abra esta pasta.
+2. Envie todos os arquivos para a raiz do repositorio N1nara no GitHub.
+3. O arquivo index.html precisa ficar na raiz.
+4. Se a sua logo estiver no GitHub com o nome Logo N1.png, ela sera usada automaticamente.
+
+Imagens que devem ser enviadas para a raiz do repositorio:
+
+- og-n1nara.png
+- produto-n1-art-3d.png
+- produto-n1-flat.png
+- produto-n1-mini-me.png
+- produto-n1-pet-move.png
+- produto-n1-sculpt.png
+- produto-n1-tag-nfc.png
+- foto-bagagem-demo.png
+- foto-pessoa-demo.png
+- foto-pet-demo.png
+- hero-n1-art-3d.png
+- hero-n1-pet-move.png
+- foto-produto-na-mao.png
+- foto-acabamento.png
+- foto-bastidores.png
+- foto-embalagem.png
+- foto-impressora-3d.png
+
+Use exatamente estes nomes, mantendo letras minusculas, hifens e extensao .png.
+
+Arquivos importantes:
+
+- produtos.js: dados, preços, opções e textos dos produtos.
+- config.js: Instagram, WhatsApp e link manual do Reels.
+- carrinho.js: carrinho salvo no navegador com localStorage.
+- produto-page.js: paginas individuais de produtos.
+- identificacao.js: idade, QR Code e localizacao para Pet, Pessoa e Bagagem.
+
+O pedido fica salvo apenas no navegador do cliente ate ser enviado pelo WhatsApp.
+O site nao armazena pedidos em painel administrativo.
+O e-mail nao aparece nas paginas publicas.
+
+Catalogo atualizado com:
+
+- N1 Flat: R$ 24,90.
+- N1 Tag NFC: R$ 49,90.
+- N1 Mini Pet: R$ 49,90.
+- N1 Pet Move: R$ 59,90.
+- N1 Art 3D com variações por tamanho e acabamento.
+- N1 Mini Me com variações por tamanho e acabamento.
+- N1 Sculpt com preços para branco e versão colorida sob consulta.
+
+Para alterar preços, textos ou opções, edite apenas o arquivo produtos.js.
+
+Reels do Instagram:
+
+No arquivo config.js, cole o link normal do Reels no campo latestPostUrl.
+
+Exemplo:
+
+latestPostUrl: "https://www.instagram.com/reel/CODIGO_DO_REELS/"
+
+Nao precisa adicionar /embed manualmente.
+Se o Instagram bloquear a exibicao dentro do site, o site mostra um botao para assistir diretamente no Instagram.
