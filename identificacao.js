@@ -1,53 +1,56 @@
 ﻿const IDENTIFICACOES = {
   pet: {
     tipo: "pet",
+    demo: true,
     fotoTexto: "PET",
     foto: "foto-pet-demo.png",
-    nome: "Luna",
+    nome: "Pet Exemplo",
     chamada: "Se você encontrou este pet, entre em contato com o tutor.",
     nascimento: "15/06/2023",
-    telefone: "5521984004976",
-    whatsapp: "5521984004976",
+    telefone: "5500000000000",
+    whatsapp: "5500000000000",
     instagram: "https://www.instagram.com/n1nara/",
     campos: {
       "Raça": "Informar raça",
       "Sexo": "Informar sexo",
-      "Tutor": "Stephanie",
-      "Informações médicas": "Informar apenas o necessário.",
+      "Tutor": "Responsável fictício",
+      "Informações médicas": "Informação fictícia para demonstração. Informe apenas o necessário na página real.",
       "Vacinas": "Informar situação das vacinas.",
-      "Veterinário": "Informar clínica ou contato, se necessário.",
-      "Observações": "Pet dócil, pode ficar assustado com barulhos altos."
+      "Veterinário": "Informar clínica ou contato somente se necessário.",
+      "Observações": "Exemplo fictício: pet pode ficar assustado com barulhos altos."
     }
   },
   pessoa: {
     tipo: "pessoa",
+    demo: true,
     fotoTexto: "ID",
     foto: "foto-pessoa-demo.png",
-    nome: "Maria",
+    nome: "Pessoa Exemplo",
     chamada: "Página de identificação para contato com o responsável.",
     nascimento: "15/06/2023",
-    telefone: "5521984004976",
-    whatsapp: "5521984004976",
+    telefone: "5500000000000",
+    whatsapp: "5500000000000",
     instagram: "https://www.instagram.com/n1nara/",
     campos: {
       "Sexo": "Informar sexo",
-      "Nome do responsável": "Stephanie",
-      "Alergias": "Informar apenas se necessário.",
-      "Medicamentos": "Informar apenas se necessário.",
-      "Plano de saúde": "Informar se necessário.",
-      "Informações importantes": "Informar orientações realmente necessárias."
+      "Nome do responsável": "Responsável fictício",
+      "Alergias": "Exemplo fictício. O campo pode ficar vazio na página real.",
+      "Medicamentos": "Exemplo fictício. Informe apenas se necessário.",
+      "Plano de saúde": "Exemplo fictício. Informe apenas se necessário.",
+      "Informações importantes": "Informe somente orientações realmente necessárias."
     }
   },
   bagagem: {
     tipo: "bagagem",
+    demo: true,
     fotoTexto: "MALA",
     foto: "foto-bagagem-demo.png",
     nome: "Bagagem identificada",
     chamada: "Se você encontrou esta bagagem, fale com o proprietário.",
-    telefone: "5521984004976",
-    whatsapp: "5521984004976",
+    telefone: "5500000000000",
+    whatsapp: "5500000000000",
     campos: {
-      "Nome do proprietário": "Stephanie / N1nara",
+      "Nome do proprietário": "Proprietário fictício",
       "Identificação da bagagem": "MALA-001",
       "Identificação": "MALA-001",
       "Mensagem": "Obrigada por ajudar a devolver esta bagagem.",
@@ -107,13 +110,14 @@ function renderIdentificationPage() {
       ${data.foto ? `<img class="id-photo-square" src="${data.foto}" alt="Foto de ${data.nome}" width="640" height="640" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'id-photo-square', textContent: '${data.fotoTexto}' }))">` : `<div class="id-photo-square" aria-label="Foto">${data.fotoTexto}</div>`}
       <h1>${data.nome}</h1>
       <p class="muted">${data.chamada}</p>
+      ${data.demo ? `<p class="demo-notice">Dados fictícios para demonstração. Em uma página real, exiba somente as informações necessárias para identificação e contato.</p>` : ""}
       <div class="id-actions">
         ${data.telefone ? `<a class="btn ghost" href="tel:+${data.telefone}">Ligar</a>` : ""}
-        ${data.whatsapp ? `<a class="btn primary" href="${whatsappLink(data.whatsapp, defaultMessage(type, data))}" target="_blank" rel="noopener">WhatsApp</a>` : ""}
+        ${data.whatsapp ? `<a class="btn primary" href="${whatsappLink(data.whatsapp, defaultMessage(type, data))}" target="_blank" rel="noopener">Abrir WhatsApp</a>` : ""}
         ${data.whatsapp ? `<button class="btn ghost" type="button" data-share-location="${type}">Compartilhar localização</button>` : ""}
         ${data.instagram ? `<a class="btn ghost" href="${data.instagram}" target="_blank" rel="noopener">Instagram</a>` : ""}
       </div>
-      <p class="location-help">O site tentará obter a localização automaticamente. Se o navegador bloquear, o WhatsApp abrirá com instruções para envio manual.</p>
+      <p class="location-help">Ao tocar em compartilhar localização, o navegador pedirá autorização. A localização não é armazenada pelo site. Se a autorização falhar, o WhatsApp abrirá com instruções para envio manual.</p>
     </section>
     <section class="id-card">
       <h2>Informações</h2>

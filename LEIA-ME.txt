@@ -1,15 +1,24 @@
-N1NARA - CATALOGO COM PEDIDO PELO WHATSAPP
+N1NARA - CATÁLOGO COM PEDIDO PELO WHATSAPP
 
-Esta versao funciona no GitHub Pages sem servidor, sem banco de dados, sem login e sem pagamento online.
+Esta versão funciona no GitHub Pages sem servidor, sem banco de dados, sem login e sem pagamento online.
 
-Como publicar:
+COMO PUBLICAR
 
 1. Abra esta pasta.
-2. Envie todos os arquivos para a raiz do repositorio N1nara no GitHub.
+2. Envie todos os arquivos para a raiz do repositório N1nara no GitHub.
 3. O arquivo index.html precisa ficar na raiz.
-4. Se a sua logo estiver no GitHub com o nome Logo N1.png, ela sera usada automaticamente.
+4. Se a sua logo estiver no GitHub com o nome Logo N1.png, ela será usada automaticamente.
 
-Imagens que devem ser enviadas para a raiz do repositorio:
+ARQUIVOS IMPORTANTES
+
+- config.js: Instagram, WhatsApp e link manual do Reels.
+- produtos.js: fonte única de dados, preços, opções e textos dos produtos.
+- carrinho.js: pedido salvo no navegador com localStorage.
+- produto-page.js: páginas individuais de produtos.
+- identificacao.js: idade, QR Code e localização para Pet, Pessoa e Bagagem.
+- produto.js: arquivo antigo mantido apenas para compatibilidade de links.
+
+IMAGENS QUE DEVEM SER ENVIADAS PARA A RAIZ
 
 - og-n1nara.png
 - produto-n1-art-3d.png
@@ -29,33 +38,19 @@ Imagens que devem ser enviadas para a raiz do repositorio:
 - foto-embalagem.png
 - foto-impressora-3d.png
 
-Use exatamente estes nomes, mantendo letras minusculas, hifens e extensao .png.
+Use exatamente estes nomes, mantendo letras minúsculas, hifens e extensão .png.
 
-Arquivos importantes:
+PEDIDOS
 
-- produtos.js: dados, preços, opções e textos dos produtos.
-- config.js: Instagram, WhatsApp e link manual do Reels.
-- carrinho.js: carrinho salvo no navegador com localStorage.
-- produto-page.js: paginas individuais de produtos.
-- identificacao.js: idade, QR Code e localizacao para Pet, Pessoa e Bagagem.
+O pedido fica salvo apenas no navegador do cliente até ser enviado pelo WhatsApp.
+O site não armazena pedidos em painel administrativo.
+O e-mail não aparece nas páginas públicas.
 
-O pedido fica salvo apenas no navegador do cliente ate ser enviado pelo WhatsApp.
-O site nao armazena pedidos em painel administrativo.
-O e-mail nao aparece nas paginas publicas.
+PRODUTOS
 
-Catalogo atualizado com:
+Para alterar preços, textos, imagens ou opções, edite apenas o arquivo produtos.js.
 
-- N1 Flat: R$ 24,90.
-- N1 Tag NFC: R$ 49,90.
-- N1 Mini Pet: R$ 49,90.
-- N1 Pet Move: R$ 59,90.
-- N1 Art 3D com variações por tamanho e acabamento.
-- N1 Mini Me com variações por tamanho e acabamento.
-- N1 Sculpt com preços para branco e versão colorida sob consulta.
-
-Para alterar preços, textos ou opções, edite apenas o arquivo produtos.js.
-
-Reels do Instagram:
+REELS DO INSTAGRAM
 
 No arquivo config.js, cole o link normal do Reels no campo latestPostUrl.
 
@@ -63,5 +58,5 @@ Exemplo:
 
 latestPostUrl: "https://www.instagram.com/reel/CODIGO_DO_REELS/"
 
-Nao precisa adicionar /embed manualmente.
-Se o Instagram bloquear a exibicao dentro do site, o site mostra um botao para assistir diretamente no Instagram.
+Não precisa adicionar /embed manualmente.
+Se o Instagram bloquear a exibição dentro do site, o site mostra botões para assistir diretamente no Instagram.

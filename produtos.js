@@ -238,6 +238,56 @@
   }
 ];
 
+function normalizarProduto(produto) {
+  const galeria = Array.isArray(produto.galeria) && produto.galeria.length
+    ? produto.galeria
+    : [produto.imagem].filter(Boolean);
+
+  produto.slug = produto.slug || produto.id;
+  produto.resumo = produto.resumo || produto.subtitulo || produto.descricao || "";
+  produto.categoriasSecundarias = produto.categoriasSecundarias || produto.categoria || [];
+  produto.imagens = produto.imagens || galeria;
+  produto.preco = produto.preco ?? produto.precoInicial ?? null;
+  produto.precoInicialTexto = produto.precoInicial ? `A partir de ${produto.precoInicial}` : "Sob consulta";
+  produto.sobConsulta = Boolean(produto.sobConsulta || (!produto.precoInicial && produto.precoInicial !== 0));
+  produto.nfcDisponivel = produto.nfcDisponivel ?? Boolean(produto.nfc);
+  produto.tamanhos = produto.tamanhos || produto.dimensoes || "";
+  produto.opcoes = produto.opcoes || produto.campos || [];
+  produto.usos = produto.usos || produto.uso || "";
+  produto.pagina = produto.pagina || produto.arquivo || "";
+  produto.alt = produto.alt || `${produto.nome} personalizado da N1nara`;
+  return produto;
+}
+
+function validarProdutos(produtos) {
+  const ids = new Set();
+  const slugs = new Set();
+  produtos.forEach((produto) => {
+    if (ids.has(produto.id)) console.warn(`[N1nara] Produto com id duplicado: ${produto.id}`);
+    ids.add(produto.id);
+
+    if (slugs.has(produto.slug)) console.warn(`[N1nara] Produto com slug duplicado: ${produto.slug}`);
+    slugs.add(produto.slug);
+
+    if (!produto.pagina) console.warn(`[N1nara] Produto sem página definida: ${produto.nome}`);
+    if (!produto.imagem) console.warn(`[N1nara] Produto sem imagem principal: ${produto.nome}`);
+    if (produto.precoInicial !== undefined && produto.precoInicial !== null && typeof produto.precoInicial !== "number") {
+      console.warn(`[N1nara] Preço inicial inválido em: ${produto.nome}`);
+    }
+
+    (produto.campos || []).forEach((campo) => {
+      (campo.opcoes || []).forEach((opcao) => {
+        if (typeof opcao === "object" && opcao.preco !== undefined && typeof opcao.preco !== "number") {
+          console.warn(`[N1nara] Preço de opção inválido em: ${produto.nome} / ${campo.label}`);
+        }
+      });
+    });
+  });
+}
+
+PRODUTOS.forEach(normalizarProduto);
+validarProdutos(PRODUTOS);
+
 const CATEGORIAS = ["Todos", ...Array.from(new Set(PRODUTOS.flatMap((produto) => produto.categoria))).sort((a, b) => a.localeCompare(b, "pt-BR"))];
 
 function produtoPorId(id) {

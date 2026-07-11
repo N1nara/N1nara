@@ -1,42 +1,37 @@
-# N1nara - versão restaurada
+# N1nara - catálogo estático para GitHub Pages
 
-Esta versão mantém o visual original do site e corrige os pontos que podiam deixar a página sem estilo no GitHub Pages.
+Esta versão funciona no GitHub Pages sem servidor, sem banco de dados, sem login e sem pagamento online.
 
 ## Como publicar
 
 Envie o conteúdo desta pasta para a raiz do repositório `N1nara`.
 
-O arquivo `index.html` precisa ficar diretamente na raiz do repositório, junto com:
+O arquivo `index.html` precisa ficar diretamente na raiz do repositório, junto com os arquivos `.html`, `.css`, `.js`, imagens e pastas de compatibilidade.
 
-- `styles.css`
-- `tag.css`
-- `site.js`
-- `pet-demo.html`
-- `pessoa-demo.html`
-- `bagagem-demo.html`
-- `assets/`
-- `produtos/`
-- `produto/`
-- `produto.js`
+## Arquivos principais
 
-Se a logo `images/Logo N1.png` existir no repositório, ela será usada. Se não existir, o site usa automaticamente a logo SVG antiga em `assets/logo-n1nara.svg`.
-
-O e-mail foi removido das páginas públicas. O contato visível fica por WhatsApp e Instagram.
+- `config.js`: WhatsApp, Instagram e link manual do Reels.
+- `produtos.js`: fonte única dos dados dos produtos, com nomes, descrições, imagens, preços e opções.
+- `app.js`: cabeçalho, rodapé, botão flutuante, cards e funções compartilhadas.
+- `produtos-page.js`: busca, filtros, ordenação e resultados do catálogo.
+- `produto-page.js`: páginas individuais dos produtos.
+- `carrinho.js`: pedido salvo temporariamente no navegador e finalização pelo WhatsApp.
+- `identificacao.js`: páginas modelo de Pet, Pessoa e Bagagem.
 
 ## Produtos
 
-Cada produto da vitrine tem uma página própria dentro da pasta `produtos/`.
+Para alterar preços, textos, imagens, opções ou links de páginas, edite o arquivo `produtos.js`.
 
-Exemplos:
+O arquivo `produto.js` foi mantido apenas como compatibilidade para links antigos. Ele não deve ser usado para cadastrar preços ou descrições novas.
 
-- `produtos/n1-art-3d.html`
-- `produtos/n1-flat-tag-nfc.html`
-- `produtos/tag-para-coleira.html`
-- `produtos/cartao-nfc.html`
+## Instagram
 
-Os textos das páginas de produto ficam centralizados no arquivo `produto.js`.
+Para trocar o Reels mostrado na página inicial, edite somente o campo `latestPostUrl` em `config.js`.
 
-Também foi criada a pasta `produto/` como compatibilidade, caso algum link antigo aponte para esse caminho. Envie as duas pastas para o GitHub:
+Se o Instagram bloquear a incorporação dentro do site, o visitante verá uma área visual com botões para assistir no Instagram e seguir `@n1nara`.
 
-- `produtos/`
-- `produto/`
+## Privacidade
+
+As páginas Pet, Pessoa e Bagagem incluídas neste pacote usam dados fictícios de demonstração. Em páginas reais, exiba apenas as informações necessárias para identificação e contato.
+
+O e-mail não aparece nas páginas públicas. O atendimento visível fica por WhatsApp e Instagram.

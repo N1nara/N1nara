@@ -96,7 +96,7 @@ function renderProductPage() {
   document.querySelector("meta[name='description']")?.setAttribute("content", produto.descricao);
 
   const saved = savedProductState(produto);
-  const gallery = (produto.galeria && produto.galeria.length ? produto.galeria : [produto.imagem]).filter(Boolean);
+  const gallery = (produto.imagens && produto.imagens.length ? produto.imagens : [produto.imagem]).filter(Boolean);
   const related = (produto.relacionados || []).map(produtoPorId).filter(Boolean);
 
   root.innerHTML = `
@@ -130,7 +130,8 @@ function renderProductPage() {
         <h1>${produto.nome}</h1>
         <p class="lead">${produto.subtitulo || produto.descricao}</p>
         <strong class="product-price" data-product-price>${priceLabel(produto)}</strong>
-        <p class="badge-line"><span class="badge">Produção sob encomenda</span>${produto.nfc ? '<span class="badge">NFC incorporado</span>' : ""}</p>
+        <p class="badge-line"><span class="badge">Produção sob encomenda</span>${produto.nfcDisponivel ? '<span class="badge">NFC incorporado</span>' : ""}</p>
+        <p class="custom-product-note">Imagens ilustrativas. Por ser um produto personalizado e produzido em impressão 3D, podem ocorrer pequenas variações de acabamento e tonalidade.</p>
         <form class="product-form" data-product-form novalidate>
           <div class="form-errors" data-form-message aria-live="polite"></div>
           <div data-fields>
@@ -155,7 +156,7 @@ function renderProductPage() {
 
     <section class="section-lite product-info-blocks">
       <article class="panel"><h2>O que é</h2><p>${produto.descricao}</p></article>
-      <article class="panel"><h2>Para quem serve</h2><p>${produto.uso}</p></article>
+      <article class="panel"><h2>Para quem serve</h2><p>${produto.usos || produto.uso}</p></article>
       <article class="panel"><h2>Tamanho</h2><p>${produto.dimensoes}</p></article>
       <article class="panel"><h2>Material</h2><p>${produto.material}</p></article>
     </section>

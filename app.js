@@ -24,9 +24,13 @@ function getCart() {
     const cart = JSON.parse(localStorage.getItem("n1naraPedido") || "[]");
     return Array.isArray(cart) ? cart : [];
   } catch {
-    const raw = localStorage.getItem("n1naraPedido");
-    if (raw) sessionStorage.setItem(`n1naraPedidoBackup-${Date.now()}`, raw);
-    localStorage.removeItem("n1naraPedido");
+    try {
+      const raw = localStorage.getItem("n1naraPedido");
+      if (raw) sessionStorage.setItem(`n1naraPedidoBackup-${Date.now()}`, raw);
+      localStorage.removeItem("n1naraPedido");
+    } catch {
+      return [];
+    }
     return [];
   }
 }
@@ -187,19 +191,18 @@ function floatingActions() {
   const actions = document.querySelector("[data-floating]");
   if (!actions) return;
   actions.innerHTML = `
-    <div class="floating-actions" aria-label="Ações rápidas">
-      <a href="${whatsappUrl("Olá! Vim pelo site da N1nara.")}" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
-      <a href="carrinho.html" aria-label="Meu pedido">Pedido <span data-cart-count>0</span></a>
-      <a href="#top" aria-label="Voltar ao topo">Topo</a>
+    <div class="floating-actions" aria-label="Contato rápido">
+      <a class="floating-whatsapp" href="${whatsappUrl("Olá! Vim pelo site da N1nara.")}" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp"><span>Falar pelo WhatsApp</span><strong aria-hidden="true">WA</strong></a>
     </div>
   `;
 }
 
 function productCard(produto) {
-  const hasNfc = produto.nfc ? `<span class="badge">Com NFC</span>` : "";
+  const hasNfc = produto.nfcDisponivel ? `<span class="badge">Com NFC</span>` : "";
   const addButton = produto.precoInicial || produto.precoInicial === 0
     ? `<button class="btn primary" type="button" data-quick-add="${produto.id}">Adicionar ao pedido</button>`
     : "";
+  const priceText = produto.sobConsulta ? "Sob consulta" : `${produto.precoInicial ? "A partir de " : ""}${moeda(produto.preco || produto.precoInicial)}`;
 
   return `
     <article class="product-card" data-category="${produto.categoria.join(" ")}">
@@ -207,11 +210,11 @@ function productCard(produto) {
       <div class="product-card-body">
         <div class="badges"><span class="badge">Personalizado</span>${hasNfc}</div>
         <h3>${produto.nome}</h3>
-        <p>${produto.descricao}</p>
-        <strong class="card-price">${produto.precoInicial ? `A partir de ${moeda(produto.precoInicial)}` : "Sob consulta"}</strong>
+        <p>${produto.resumo || produto.descricao}</p>
+        <strong class="card-price">${priceText}</strong>
       </div>
       <div class="card-actions">
-        <a class="btn ghost" href="${produto.arquivo}">Ver detalhes</a>
+        <a class="btn ghost" href="${produto.pagina || produto.arquivo}">Ver detalhes</a>
         ${addButton}
       </div>
     </article>
@@ -220,10 +223,11 @@ function productCard(produto) {
 
 function productMedia(produto, className = "product-thumb") {
   const image = produto.imagem || "";
+  const alt = produto.alt || produto.nome || "Produto N1nara";
   if (/\.(png|jpe?g|webp|gif|svg)$/i.test(image)) {
-    return `<img class="${className}" src="${image}" alt="${produto.nome}" width="640" height="480" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: '${className}', textContent: '${produto.nome}' }))">`;
+    return `<img class="${className}" src="${image}" alt="${alt}" width="640" height="480" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: '${className} image-fallback', textContent: 'Imagem indisponível' }))">`;
   }
-  return `<div class="${className}" aria-hidden="true">${image || produto.nome}</div>`;
+  return `<div class="${className} image-fallback" aria-label="Imagem indisponível">${image || produto.nome}</div>`;
 }
 
 function quickAdd(productId) {
@@ -238,6 +242,7 @@ function quickAdd(productId) {
     quantidade: 1,
     valorUnitario: produto.precoInicial || 0,
     subtotal: produto.precoInicial || 0,
+    sobConsulta: produto.sobConsulta || !produto.precoInicial,
     observacoes: ""
   };
   saveCart([...getCart(), item]);

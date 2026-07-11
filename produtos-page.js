@@ -41,7 +41,9 @@ function renderProductsPage() {
   const sort = document.querySelector("[data-sort]");
   const clear = document.querySelector("[data-clear-filters]");
   const count = document.querySelector("[data-results-count]");
+  const loading = document.querySelector("[data-catalog-loading]");
   if (!list || !search || !category || !sort || !clear || !count) return;
+  if (loading) loading.hidden = true;
 
   category.innerHTML = CATEGORIAS.map((cat) => `<option value="${cat}">${cat}</option>`).join("");
 
@@ -56,9 +58,9 @@ function renderProductsPage() {
     const term = search.value.trim().toLowerCase();
     const cat = category.value;
     let items = PRODUTOS.filter((produto) => {
-      const content = `${produto.nome} ${produto.descricao} ${produto.uso || ""}`.toLowerCase();
+      const content = `${produto.nome} ${produto.descricao} ${produto.usos || produto.uso || ""}`.toLowerCase();
       const matchTerm = !term || content.includes(term);
-      const matchCat = cat === "Todos" || produto.categoria.includes(cat);
+      const matchCat = cat === "Todos" || produto.categoria.includes(cat) || (produto.categoriasSecundarias || []).includes(cat);
       return matchTerm && matchCat;
     });
 
@@ -69,7 +71,7 @@ function renderProductsPage() {
     list.classList.remove("catalog-fallback");
     list.innerHTML = items.length
       ? items.map(productCard).join("")
-      : `<div class="empty catalog-empty"><h2>Nenhum produto encontrado.</h2><p>Tente limpar os filtros ou buscar por outro termo.</p><button class="btn primary" type="button" data-clear-filters-inline>Limpar filtros</button></div>`;
+      : `<div class="empty-state catalog-empty"><h2>Nenhum produto corresponde aos filtros escolhidos.</h2><p>Limpe os filtros ou veja todas as opções.</p><button class="btn primary" type="button" data-clear-filters-inline>Limpar filtros</button></div>`;
 
     if (updateUrl) {
       writeCatalogState({ busca: search.value.trim(), categoria: category.value, ordem: sort.value });

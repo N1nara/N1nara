@@ -25,6 +25,21 @@ function cartHasQuoteItems() {
   return getCart().some((item) => item.sobConsulta);
 }
 
+function cartIntegrityWarnings(cart) {
+  const warnings = [];
+  cart.forEach((item) => {
+    const produto = typeof produtoPorId === "function" ? produtoPorId(item.produtoId) : null;
+    if (!produto) {
+      warnings.push(`O produto "${item.nome}" não está mais no catálogo atual. Confira antes de finalizar.`);
+      return;
+    }
+    if (!item.sobConsulta && Number(item.valorUnitario) > 0 && produto.precoInicial && item.opcoes?.["Pedido rápido"] && Number(item.valorUnitario) !== Number(produto.precoInicial)) {
+      warnings.push(`O preço de "${item.nome}" foi atualizado. Confira antes de finalizar.`);
+    }
+  });
+  return warnings;
+}
+
 function saveOrderNotes() {
   const field = document.querySelector("[data-order-notes]");
   if (!field) return;
@@ -60,18 +75,22 @@ function renderCart() {
     return;
   }
 
+  const warnings = cartIntegrityWarnings(cart);
+
   root.innerHTML = `
     <section class="page-hero compact">
       <p class="eyebrow">Meu pedido</p>
       <h1>Revise seu pedido</h1>
       <p>O pedido fica salvo neste navegador até você limpar manualmente.</p>
     </section>
+    ${warnings.length ? `<section class="site-message warning" aria-live="polite">${warnings.map((item) => `<p>${item}</p>`).join("")}</section>` : ""}
     <section class="cart-layout">
       <div class="cart-items">
         ${cart.map(cartItem).join("")}
         <label class="order-notes">Observações do pedido
           <textarea data-order-notes placeholder="Ex.: nomes, cores, detalhes da personalização ou dúvidas para o atendimento.">${notes}</textarea>
         </label>
+        <p class="custom-product-note">Imagens ilustrativas. Por ser um produto personalizado e produzido em impressão 3D, podem ocorrer pequenas variações de acabamento e tonalidade.</p>
       </div>
       <aside class="cart-summary">
         <h2>Resumo</h2>

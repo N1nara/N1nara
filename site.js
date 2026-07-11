@@ -1,4 +1,4 @@
-const N1_WHATSAPP = "5521984004976";
+const N1_WHATSAPP = "5500000000000";
 
 function openWhatsApp(message) {
   window.open(`https://wa.me/${N1_WHATSAPP}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
@@ -17,24 +17,36 @@ function showMessage(message) {
   box.textContent = message;
 }
 
+function manualLocationMessage(kind) {
+  const intro = {
+    pet: "Encontrei este pet.",
+    pessoa: "Estou entrando em contato por meio da página de identificação.",
+    bagagem: "Encontrei esta bagagem."
+  };
+  return `${intro[kind] || "Estou entrando em contato."}\n\nNão consegui autorizar a localização automática no navegador.\n\nVou enviar minha localização manualmente pelo WhatsApp:\n1. Toque no clipe/anexo ou no botão +\n2. Escolha Localização\n3. Envie minha localização atual`;
+}
+
 function shareLocation(kind) {
-  if (!navigator.geolocation) {
-    showMessage("Seu navegador não permite compartilhar localização.");
+  if (!window.isSecureContext || !navigator.geolocation) {
+    showMessage("Não foi possível acessar a localização automática. Abrindo WhatsApp com instruções.");
+    openWhatsApp(manualLocationMessage(kind));
     return;
   }
 
+  showMessage("Solicitando autorização de localização...");
   navigator.geolocation.getCurrentPosition(
     ({ coords }) => {
       const mapUrl = `https://maps.google.com/?q=${coords.latitude},${coords.longitude}`;
       const messages = {
-        pet: `Meu pet foi encontrado.\n\nMinha localização:\n${mapUrl}`,
-        pessoa: `Encontrei esta pessoa e estou compartilhando minha localização.\n\nMinha localização:\n${mapUrl}`,
-        bagagem: `Encontrei sua bagagem.\n\nMinha localização:\n${mapUrl}`
+        pet: `Encontrei este pet.\n\nMinha localização:\n${mapUrl}`,
+        pessoa: `Estou entrando em contato por meio da página de identificação.\n\nMinha localização:\n${mapUrl}`,
+        bagagem: `Encontrei esta bagagem.\n\nMinha localização:\n${mapUrl}`
       };
       openWhatsApp(messages[kind] || `Estou compartilhando minha localização:\n${mapUrl}`);
     },
     () => {
-      showMessage("Não foi possível acessar a localização. Verifique a permissão do navegador.");
+      showMessage("Não foi possível acessar a localização. Abrindo WhatsApp com instruções.");
+      openWhatsApp(manualLocationMessage(kind));
     },
     { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
   );

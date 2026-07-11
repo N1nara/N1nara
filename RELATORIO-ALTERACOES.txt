@@ -74,6 +74,16 @@ Melhorias aplicadas:
 - Criada pagina 404.html compativel com GitHub Pages.
 - Carrinho e paginas de produto receberam tratamento extra para localStorage/sessionStorage indisponivel ou corrompido.
 - Sitemap e robots.txt revisados para o caminho publico https://n1nara.github.io/N1nara/.
+- produtos.js passou a normalizar campos como slug, resumo, imagens, preco, pagina, opcoes, usos e NFC disponivel para servir como fonte unica dos dados dos produtos.
+- produtos.js agora emite avisos apenas no console de desenvolvimento quando encontra id duplicado, slug duplicado, pagina ausente, imagem principal ausente ou preco invalido.
+- produto.js antigo foi substituido por uma camada de compatibilidade sem cadastro duplicado de precos ou descricoes.
+- Pagina Sobre refeita com foco em impressao 3D personalizada, atendimento pelo WhatsApp, cuidado de producao e NFC incorporado em alguns produtos.
+- Botao flutuante reduzido para WhatsApp, com rotulo acessivel e versao compacta no celular.
+- Catalogo recebeu estado de carregamento e mensagem amigavel quando nenhum produto corresponde aos filtros.
+- Carrinho passou a exibir aviso discreto sobre produtos personalizados e alerta quando item salvo precisar ser conferido com o catalogo atual.
+- Paginas Pet, Pessoa e Bagagem passaram a usar dados ficticios, aviso de demonstracao, noindex e texto de privacidade/localizacao mais claro.
+- Paginas antigas nas pastas produto/ e produtos/ foram regeneradas como compatibilidade sem indexacao.
+- Sitemap removeu paginas de identificacao com dados ficticios para evitar indexacao de modelos.
 
 Arquivos e caminhos aparentemente duplicados ou de compatibilidade:
 
@@ -81,7 +91,7 @@ Arquivos e caminhos aparentemente duplicados ou de compatibilidade:
 - produto-n1-flat-tag-nfc.html e produto-n1-tag-nfc.html: apontam para o mesmo produto NFC.
 - produto/ e produtos/: contem paginas antigas ou alternativas para compatibilidade.
 - n1nara-site-restaurado/ e n1nara-site-sem-pastas/: copias anteriores do site.
-- produto.js: parece pertencer a uma versao antiga do catalogo; o catalogo atual usa produtos.js.
+- produto.js: mantido apenas como compatibilidade de links antigos; o catalogo atual usa produtos.js como fonte unica.
 - assets/, data/ e images/: estrutura antiga com arquivos que podem ser preservados, mas nao sao o centro do site sem pastas.
 
 Observacao:
