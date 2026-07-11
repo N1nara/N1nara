@@ -265,7 +265,10 @@ function addSelectedProduct(produto) {
     observacoes: selected.opcoes.Observações || ""
   };
   saveCart([...getCart(), item]);
-  toast("Produto adicionado ao pedido.");
+  toast("Produto adicionado ao pedido.", [
+    { label: "Ver pedido", href: "carrinho.html" },
+    { label: "Continuar escolhendo", href: "produtos.html" }
+  ]);
 }
 
 function bindProductForm(produto) {

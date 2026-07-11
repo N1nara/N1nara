@@ -33,17 +33,22 @@ function updateCartCount() {
   });
 }
 
-function toast(message) {
+function toast(message, actions = []) {
   let box = document.querySelector(".toast");
   if (!box) {
     box = document.createElement("div");
     box.className = "toast";
     box.setAttribute("role", "status");
+    box.setAttribute("aria-live", "polite");
     document.body.appendChild(box);
   }
-  box.textContent = message;
+  box.innerHTML = `
+    <span>${message}</span>
+    ${actions.length ? `<div class="toast-actions">${actions.map((action) => `<a href="${action.href}">${action.label}</a>`).join("")}</div>` : ""}
+  `;
   box.classList.add("show");
-  setTimeout(() => box.classList.remove("show"), 2800);
+  clearTimeout(window.n1ToastTimer);
+  window.n1ToastTimer = setTimeout(() => box.classList.remove("show"), 4200);
 }
 
 function uid() {
@@ -119,22 +124,35 @@ function navLink(href, label, current) {
 }
 
 function footer() {
+  const year = new Date().getFullYear();
   document.querySelector("[data-footer]").innerHTML = `
     <footer class="footer">
-      <div>
+      <div class="footer-brand">
+        <img src="Logo%20N1.png" onerror="this.onerror=null;this.src='logo-n1nara.svg';" alt="Logo N1nara">
         <strong>N1nara</strong>
-        <p>Produtos personalizados em impressão 3D, NFC e produção sob encomenda.</p>
-        <p class="privacy">Produtos personalizados podem variar conforme arte, tamanho, cores e acabamento. Pedidos são finalizados pelo WhatsApp.</p>
+        <p>Produtos personalizados em impressão 3D.</p>
       </div>
-      <div class="footer-links">
+      <nav class="footer-col" aria-label="Navegação do rodapé">
+        <h2>Navegação</h2>
+        <a href="index.html">Início</a>
         <a href="produtos.html">Produtos</a>
         <a href="index.html#como-funciona">Como funciona</a>
-        <a href="index.html#nfc">NFC</a>
         <a href="sobre.html">Sobre</a>
-        <a href="carrinho.html">Meu pedido</a>
-        <a href="${N1_CONFIG.instagramUrl}" target="_blank" rel="noopener">@n1nara</a>
-        <a href="${whatsappUrl("Olá! Gostaria de falar com a N1nara.")}" target="_blank" rel="noopener">(21) 98400-4976</a>
-      </div>
+      </nav>
+      <nav class="footer-col" aria-label="Páginas de identificação">
+        <h2>Identificação</h2>
+        <a href="produtos.html?categoria=nfc">Produtos com NFC</a>
+        <a href="pet.html">Página Pet</a>
+        <a href="pessoa.html">Página Pessoa</a>
+        <a href="bagagem.html">Página Bagagem</a>
+      </nav>
+      <nav class="footer-col" aria-label="Contato">
+        <h2>Contato</h2>
+        <a href="${N1_CONFIG.instagramUrl}" target="_blank" rel="noopener">Instagram</a>
+        <a href="${whatsappUrl("Olá! Gostaria de falar com a N1nara.")}" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#top">Voltar ao topo</a>
+      </nav>
+      <p class="footer-copy">© ${year} N1nara. Produtos personalizados podem variar conforme arte, tamanho, cores e acabamento. Pedidos são finalizados pelo WhatsApp.</p>
     </footer>
   `;
 }
@@ -197,7 +215,10 @@ function quickAdd(productId) {
     observacoes: ""
   };
   saveCart([...getCart(), item]);
-  toast("Produto adicionado ao pedido.");
+  toast("Produto adicionado ao pedido.", [
+    { label: "Ver pedido", href: "carrinho.html" },
+    { label: "Continuar escolhendo", href: "produtos.html" }
+  ]);
 }
 
 function bindQuickAdd() {

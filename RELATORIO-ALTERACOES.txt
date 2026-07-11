@@ -23,6 +23,8 @@ Arquivos modificados nesta rodada:
 - produtos-page.js
 - produtos.js
 - produto-page.js
+- carrinho.html
+- carrinho.js
 - styles.css
 - produto-n1-scult.html
 - sitemap.xml
@@ -48,6 +50,10 @@ Melhorias aplicadas:
 - Catalogo atualiza a URL sem recarregar e aceita filtros vindos da URL.
 - Paginas individuais padronizadas com breadcrumb, galeria, opcoes, validacao por campo e secoes de informacoes.
 - Paginas de produto mantem temporariamente as opcoes preenchidas ao navegar e voltar.
+- Carrinho atualizado com miniaturas, opcoes, quantidade, subtotal, total parcial e observacao para itens sob consulta.
+- Mensagem do WhatsApp formatada sem campos vazios, com observacoes do pedido e aviso sobre avaliacao de produtos personalizados.
+- Feedback ao adicionar produto com links para Ver pedido e Continuar escolhendo.
+- Rodape reorganizado em quatro colunas, com ano automatico, Instagram, WhatsApp e link para voltar ao topo.
 
 Arquivos e caminhos aparentemente duplicados ou de compatibilidade:
 
