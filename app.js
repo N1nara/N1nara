@@ -1,21 +1,47 @@
 const BRL = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
+let memoryCart = [];
+
+function storageAvailable() {
+  try {
+    const key = "__n1_storage_test__";
+    localStorage.setItem(key, "1");
+    localStorage.removeItem(key);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+const HAS_STORAGE = storageAvailable();
 
 function moeda(valor) {
   return BRL.format(Number(valor || 0));
 }
 
 function getCart() {
+  if (!HAS_STORAGE) return memoryCart;
   try {
     const cart = JSON.parse(localStorage.getItem("n1naraPedido") || "[]");
     return Array.isArray(cart) ? cart : [];
   } catch {
+    const raw = localStorage.getItem("n1naraPedido");
+    if (raw) sessionStorage.setItem(`n1naraPedidoBackup-${Date.now()}`, raw);
     localStorage.removeItem("n1naraPedido");
     return [];
   }
 }
 
 function saveCart(cart) {
-  localStorage.setItem("n1naraPedido", JSON.stringify(cart));
+  if (HAS_STORAGE) {
+    try {
+      localStorage.setItem("n1naraPedido", JSON.stringify(Array.isArray(cart) ? cart : []));
+    } catch {
+      memoryCart = Array.isArray(cart) ? cart : [];
+      toast("Não foi possível salvar o pedido neste navegador. Você ainda pode finalizar pelo WhatsApp.");
+    }
+  } else {
+    memoryCart = Array.isArray(cart) ? cart : [];
+  }
   updateCartCount();
 }
 
@@ -224,7 +250,12 @@ function quickAdd(productId) {
 function bindQuickAdd() {
   document.addEventListener("click", (event) => {
     const button = event.target.closest("[data-quick-add]");
-    if (button) quickAdd(button.dataset.quickAdd);
+    if (!button || button.disabled) return;
+    button.disabled = true;
+    quickAdd(button.dataset.quickAdd);
+    setTimeout(() => {
+      button.disabled = false;
+    }, 900);
   });
 }
 
@@ -240,12 +271,41 @@ function initFaq() {
   });
 }
 
+function injectPageBreadcrumb() {
+  if (document.getElementById("breadcrumb-jsonld") || pageName() === "index.html") return;
+  const labels = {
+    "produtos.html": "Produtos",
+    "sobre.html": "Sobre",
+    "carrinho.html": "Meu pedido",
+    "pet.html": "Página Pet",
+    "pessoa.html": "Página Pessoa",
+    "bagagem.html": "Página Bagagem",
+    "404.html": "Página não encontrada"
+  };
+  const current = pageName();
+  const label = labels[current];
+  if (!label) return;
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.id = "breadcrumb-jsonld";
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Início", item: new URL("index.html", N1_CONFIG.siteUrl).href },
+      { "@type": "ListItem", position: 2, name: label, item: new URL(current, N1_CONFIG.siteUrl).href }
+    ]
+  });
+  document.head.appendChild(script);
+}
+
 function initBase() {
   header();
   footer();
   floatingActions();
   bindQuickAdd();
   initFaq();
+  injectPageBreadcrumb();
   updateCartCount();
 }
 

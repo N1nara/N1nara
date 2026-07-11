@@ -1,4 +1,5 @@
 const ORDER_NOTES_KEY = "n1naraPedidoObservacoes";
+let memoryOrderNotes = "";
 
 function cleanText(value) {
   return String(value || "").trim();
@@ -26,14 +27,23 @@ function cartHasQuoteItems() {
 
 function saveOrderNotes() {
   const field = document.querySelector("[data-order-notes]");
-  if (field) localStorage.setItem(ORDER_NOTES_KEY, field.value);
+  if (!field) return;
+  if (typeof HAS_STORAGE !== "undefined" && HAS_STORAGE) {
+    try {
+      localStorage.setItem(ORDER_NOTES_KEY, field.value);
+    } catch {
+      memoryOrderNotes = field.value;
+    }
+  } else {
+    memoryOrderNotes = field.value;
+  }
 }
 
 function renderCart() {
   const root = document.querySelector("[data-cart-page]");
   if (!root) return;
   const cart = getCart();
-  const notes = localStorage.getItem(ORDER_NOTES_KEY) || "";
+  const notes = (typeof HAS_STORAGE !== "undefined" && HAS_STORAGE) ? (localStorage.getItem(ORDER_NOTES_KEY) || "") : memoryOrderNotes;
 
   if (!cart.length) {
     root.innerHTML = `
@@ -121,7 +131,7 @@ function removeItem(id) {
 
 function formatWhatsAppOrder() {
   const cart = getCart();
-  const notes = cleanText(localStorage.getItem(ORDER_NOTES_KEY));
+  const notes = cleanText((typeof HAS_STORAGE !== "undefined" && HAS_STORAGE) ? localStorage.getItem(ORDER_NOTES_KEY) : memoryOrderNotes);
   const lines = ["Olá! Quero fazer um pedido na N1nara:", ""];
 
   cart.forEach((item, index) => {
@@ -178,7 +188,8 @@ document.addEventListener("click", (event) => {
   if (event.target.closest("[data-finish]")) finishWhatsApp();
   if (event.target.closest("[data-clear]") && confirm("Esvaziar todo o pedido?")) {
     saveCart([]);
-    localStorage.removeItem(ORDER_NOTES_KEY);
+    if (typeof HAS_STORAGE !== "undefined" && HAS_STORAGE) localStorage.removeItem(ORDER_NOTES_KEY);
+    memoryOrderNotes = "";
     renderCart();
     toast("Pedido esvaziado.");
   }

@@ -23,7 +23,11 @@ function saveProductState(produto) {
   const form = document.querySelector("[data-product-form]");
   if (!form) return;
   const data = Object.fromEntries(new FormData(form).entries());
-  sessionStorage.setItem(productStorageKey(produto), JSON.stringify(data));
+  try {
+    sessionStorage.setItem(productStorageKey(produto), JSON.stringify(data));
+  } catch {
+    return;
+  }
 }
 
 function priceLabel(produto) {
@@ -72,7 +76,21 @@ function fieldInput(campo, saved) {
 function renderProductPage() {
   const produto = currentProduct();
   const root = document.querySelector("[data-product-detail]");
-  if (!produto || !root) return;
+  if (!root) return;
+  if (!produto) {
+    root.innerHTML = `
+      <section class="page-hero">
+        <p class="eyebrow">Produto</p>
+        <h1>Produto não encontrado</h1>
+        <p>O endereço pode ter mudado ou o produto pode estar em atualização.</p>
+        <div class="actions">
+          <a class="btn primary" href="produtos.html">Ver produtos</a>
+          <a class="btn ghost" href="index.html">Voltar ao início</a>
+        </div>
+      </section>
+    `;
+    return;
+  }
 
   document.title = `${produto.nome} | N1nara`;
   document.querySelector("meta[name='description']")?.setAttribute("content", produto.descricao);
@@ -188,6 +206,52 @@ function renderProductPage() {
   `;
 
   bindProductForm(produto);
+  injectProductStructuredData(produto);
+}
+
+function absoluteUrl(path = "") {
+  return new URL(path, N1_CONFIG.siteUrl).href;
+}
+
+function jsonLdScript(id, data) {
+  const old = document.getElementById(id);
+  if (old) old.remove();
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.id = id;
+  script.textContent = JSON.stringify(data);
+  document.head.appendChild(script);
+}
+
+function injectProductStructuredData(produto) {
+  const productData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: produto.nome,
+    description: produto.descricao,
+    image: absoluteUrl(produto.imagem || "og-n1nara.png"),
+    brand: { "@type": "Brand", name: "N1nara" }
+  };
+
+  if (produto.precoInicial) {
+    productData.offers = {
+      "@type": "Offer",
+      price: String(produto.precoInicial.toFixed(2)),
+      priceCurrency: "BRL",
+      url: absoluteUrl(produto.arquivo)
+    };
+  }
+
+  jsonLdScript("product-jsonld", productData);
+  jsonLdScript("breadcrumb-jsonld", {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Início", item: absoluteUrl("index.html") },
+      { "@type": "ListItem", position: 2, name: "Produtos", item: absoluteUrl("produtos.html") },
+      { "@type": "ListItem", position: 3, name: produto.nome, item: absoluteUrl(produto.arquivo) }
+    ]
+  });
 }
 
 function formSelection(produto) {
@@ -283,8 +347,13 @@ function bindProductForm(produto) {
   });
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+    if (form.dataset.submitting === "true") return;
     if (!validateProductForm(produto)) return;
+    form.dataset.submitting = "true";
     addSelectedProduct(produto);
+    setTimeout(() => {
+      form.dataset.submitting = "false";
+    }, 900);
   });
 
   document.querySelector("[data-buy-now]").addEventListener("click", () => {

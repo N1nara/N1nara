@@ -66,6 +66,14 @@ Melhorias aplicadas:
 - Imagem principal do hero recebeu fetchpriority="high".
 - Adicionado suporte a prefers-reduced-motion.
 - Removidos onclick e alert/prompt de arquivos antigos de demonstracao e compatibilidade.
+- SEO revisado em todas as paginas HTML: title, description, canonical absoluto, Open Graph, Twitter Card, favicon e theme-color.
+- Paginas de demonstracao e compatibilidade nao comerciais marcadas com noindex, nofollow.
+- Adicionados dados estruturados JSON-LD para Organization na pagina inicial.
+- Paginas de produto passaram a gerar JSON-LD Product e BreadcrumbList sem inventar avaliacoes ou disponibilidade.
+- Paginas internas comuns passaram a gerar BreadcrumbList.
+- Criada pagina 404.html compativel com GitHub Pages.
+- Carrinho e paginas de produto receberam tratamento extra para localStorage/sessionStorage indisponivel ou corrompido.
+- Sitemap e robots.txt revisados para o caminho publico https://n1nara.github.io/N1nara/.
 
 Arquivos e caminhos aparentemente duplicados ou de compatibilidade:
 
