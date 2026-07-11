@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "n1-art3d",
+    "name": "N1 Art 3D",
+    "shortDescription": "Peça personalizada em camadas, com acabamento visual em relevo e combinações de cores.",
+    "description": "Produto personalizado para quem deseja uma peça marcante, criativa e com acabamento em estilo 3D.",
+    "price": 49.9,
+    "photos": ["images/produto-placeholder.svg"],
+    "features": ["Personalização visual", "Acabamento em camadas", "Opções com 2 a 6 cores"],
+    "dimensions": "Sob consulta, conforme o projeto.",
+    "material": "Material personalizado conforme o acabamento escolhido.",
+    "deadline": "Prazo informado no atendimento.",
+    "options": {
+      "Quantidade de cores": [
+        { "label": "2 cores", "price": 49.9 },
+        { "label": "3 cores", "price": 59.9 },
+        { "label": "4 cores", "price": 69.9 },
+        { "label": "5 cores", "price": 79.9 },
+        { "label": "6 cores", "price": 89.9 }
+      ]
+    },
+    "faq": [
+      { "question": "Posso escolher as cores?", "answer": "Sim. As cores são combinadas durante o atendimento." },
+      { "question": "O preço muda conforme a quantidade de cores?", "answer": "Sim. O preço é atualizado automaticamente na página." }
+    ],
+    "related": ["n1-flat", "n1-stencil", "n1-mini-me"]
+  },
+  {
+    "slug": "n1-flat",
+    "name": "N1 Flat",
+    "shortDescription": "Produto personalizado em formato plano, leve e versátil.",
+    "description": "Uma opção prática e elegante para personalização do dia a dia.",
+    "price": 39.9,
+    "photos": ["images/produto-placeholder.svg"],
+    "features": ["Leve", "Personalizável", "Boa opção para presentes"],
+    "dimensions": "Sob consulta.",
+    "material": "Material personalizado conforme o modelo.",
+    "deadline": "Prazo informado no atendimento.",
+    "options": {},
+    "faq": [],
+    "related": ["n1-art3d", "n1-flat-tag-nfc", "n1-stencil"]
+  },
+  {
+    "slug": "n1-flat-tag-nfc",
+    "name": "N1 Flat Tag NFC",
+    "shortDescription": "Tag com NFC para identificação, contato rápido e uso em pets, malas, mochilas e acessórios.",
+    "description": "Tag NFC personalizada para facilitar identificação e contato por aproximação.",
+    "price": 59.9,
+    "photos": ["images/produto-placeholder.svg"],
+    "features": ["Tecnologia NFC", "Personalização", "Uso em diferentes objetos e pessoas"],
+    "dimensions": "Varia conforme o modelo escolhido.",
+    "material": "Material resistente para uso diário.",
+    "deadline": "Prazo informado no atendimento.",
+    "options": {
+      "Modelo": [
+        { "label": "Cartão NFC", "price": 59.9 },
+        { "label": "Tag para coleira", "price": 49.9 },
+        { "label": "Tag para mochila", "price": 49.9 },
+        { "label": "Tag para mala", "price": 54.9 },
+        { "label": "Tag para bicicleta", "price": 54.9 },
+        { "label": "Tag para idosos", "price": 59.9 },
+        { "label": "Tag para crianças", "price": 59.9 }
+      ],
+      "Cor": [
+        { "label": "Preta" },
+        { "label": "Branca" },
+        { "label": "Rosa" },
+        { "label": "Azul" }
+      ]
+    },
+    "faq": [
+      { "question": "Precisa instalar aplicativo?", "answer": "Não. A leitura do NFC depende apenas de um celular compatível." },
+      { "question": "Posso usar em coleira ou mala?", "answer": "Sim. Escolha o modelo mais adequado ao uso." }
+    ],
+    "related": ["n1-mini-pet", "n1-pet-move", "n1-flat"]
+  },
+  {
+    "slug": "n1-mini-pet",
+    "name": "N1 Mini Pet",
+    "shortDescription": "Identificação compacta para pets.",
+    "description": "Uma opção pequena e prática para ajudar na identificação do seu pet.",
+    "price": 34.9,
+    "photos": ["images/produto-placeholder.svg"],
+    "features": ["Compacto", "Leve", "Personalizável"],
+    "dimensions": "Sob consulta.",
+    "material": "Material personalizado conforme o modelo.",
+    "deadline": "Prazo informado no atendimento.",
+    "options": {},
+    "faq": [],
+    "related": ["n1-flat-tag-nfc", "n1-pet-move", "n1-flat"]
+  },
+  {
+    "slug": "n1-pet-move",
+    "name": "N1 Pet Move",
+    "shortDescription": "Solução de identificação para pets em movimento.",
+    "description": "Produto pensado para pets ativos, com foco em identificação e praticidade.",
+    "price": 44.9,
+    "photos": ["images/produto-placeholder.svg"],
+    "features": ["Uso pet", "Personalização", "Praticidade"],
+    "dimensions": "Sob consulta.",
+    "material": "Material resistente para uso diário.",
+    "deadline": "Prazo informado no atendimento.",
+    "options": {},
+    "faq": [],
+    "related": ["n1-mini-pet", "n1-flat-tag-nfc", "n1-flat"]
+  },
+  {
+    "slug": "n1-stencil",
+    "name": "N1 Stencil",
+    "shortDescription": "Stencil personalizado para aplicação criativa.",
+    "description": "Produto para quem deseja aplicar formas, nomes ou desenhos personalizados.",
+    "price": 29.9,
+    "photos": ["images/produto-placeholder.svg"],
+    "features": ["Personalizável", "Reutilizável conforme o uso", "Ideal para projetos criativos"],
+    "dimensions": "Sob consulta.",
+    "material": "Material definido conforme a aplicação.",
+    "deadline": "Prazo informado no atendimento.",
+    "options": {},
+    "faq": [],
+    "related": ["n1-art3d", "n1-flat", "n1-mini-me"]
+  },
+  {
+    "slug": "n1-mini-me",
+    "name": "N1 Mini Me",
+    "shortDescription": "Produto personalizado inspirado em pessoas, personagens ou estilos.",
+    "description": "Uma peça personalizada com toque afetivo e criativo.",
+    "price": 69.9,
+    "photos": ["images/produto-placeholder.svg"],
+    "features": ["Personalização", "Boa opção para presente", "Acabamento criativo"],
+    "dimensions": "Sob consulta.",
+    "material": "Material personalizado conforme o projeto.",
+    "deadline": "Prazo informado no atendimento.",
+    "options": {},
+    "faq": [],
+    "related": ["n1-art3d", "n1-scult", "n1-stencil"]
+  },
+  {
+    "slug": "n1-scult",
+    "name": "N1 Scult",
+    "shortDescription": "Produto personalizado com acabamento escultural.",
+    "description": "Peça personalizada para quem busca um acabamento mais artístico e detalhado.",
+    "price": 89.9,
+    "photos": ["images/produto-placeholder.svg"],
+    "features": ["Acabamento artístico", "Personalização", "Projeto sob consulta"],
+    "dimensions": "Sob consulta.",
+    "material": "Material definido conforme o projeto.",
+    "deadline": "Prazo informado no atendimento.",
+    "options": {},
+    "faq": [],
+    "related": ["n1-mini-me", "n1-art3d", "n1-flat"]
+  }
+]
