@@ -238,7 +238,7 @@
   }
 ];
 
-const CATEGORIAS = ["Todos", "Pets", "Pessoas", "NFC", "Decoração", "Empresas", "Presentes", "Personalizados"];
+const CATEGORIAS = ["Todos", ...Array.from(new Set(PRODUTOS.flatMap((produto) => produto.categoria))).sort((a, b) => a.localeCompare(b, "pt-BR"))];
 
 function produtoPorId(id) {
   return PRODUTOS.find((produto) => produto.id === id);

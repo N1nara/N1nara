@@ -5,11 +5,34 @@ const CATEGORY_ALIASES = {
   pessoa: "Pessoas",
   nfc: "NFC",
   decoracao: "Decoração",
-  decoração: "Decoração",
+  "decoração": "Decoração",
   presentes: "Presentes",
   empresas: "Empresas",
   personalizados: "Personalizados"
 };
+
+function normalizeCategory(value) {
+  if (!value) return "Todos";
+  return CATEGORY_ALIASES[value.toLowerCase()] || value;
+}
+
+function readCatalogState() {
+  const params = new URLSearchParams(location.search);
+  return {
+    busca: params.get("busca") || "",
+    categoria: normalizeCategory(params.get("categoria")),
+    ordem: params.get("ordem") || ""
+  };
+}
+
+function writeCatalogState({ busca, categoria, ordem }) {
+  const params = new URLSearchParams();
+  if (busca) params.set("busca", busca);
+  if (categoria && categoria !== "Todos") params.set("categoria", categoria.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
+  if (ordem) params.set("ordem", ordem);
+  const url = params.toString() ? `produtos.html?${params.toString()}` : "produtos.html";
+  history.replaceState(null, "", url);
+}
 
 function renderProductsPage() {
   const list = document.querySelector("[data-products-list]");
@@ -18,20 +41,23 @@ function renderProductsPage() {
   const sort = document.querySelector("[data-sort]");
   const clear = document.querySelector("[data-clear-filters]");
   const count = document.querySelector("[data-results-count]");
-  const params = new URLSearchParams(location.search);
+  if (!list || !search || !category || !sort || !clear || !count) return;
 
   category.innerHTML = CATEGORIAS.map((cat) => `<option value="${cat}">${cat}</option>`).join("");
 
-  const requestedCategory = CATEGORY_ALIASES[(params.get("categoria") || "").toLowerCase()];
-  if (requestedCategory && CATEGORIAS.includes(requestedCategory)) {
-    category.value = requestedCategory;
+  function setFieldsFromUrl() {
+    const state = readCatalogState();
+    search.value = state.busca;
+    category.value = CATEGORIAS.includes(state.categoria) ? state.categoria : "Todos";
+    sort.value = state.ordem;
   }
 
-  function apply() {
+  function apply({ updateUrl = true } = {}) {
     const term = search.value.trim().toLowerCase();
     const cat = category.value;
     let items = PRODUTOS.filter((produto) => {
-      const matchTerm = produto.nome.toLowerCase().includes(term) || produto.descricao.toLowerCase().includes(term);
+      const content = `${produto.nome} ${produto.descricao} ${produto.uso || ""}`.toLowerCase();
+      const matchTerm = !term || content.includes(term);
       const matchCat = cat === "Todos" || produto.categoria.includes(cat);
       return matchTerm && matchCat;
     });
@@ -40,20 +66,36 @@ function renderProductsPage() {
     if (sort.value === "maior") items.sort((a, b) => (b.precoInicial || 0) - (a.precoInicial || 0));
 
     count.textContent = `${items.length} ${items.length === 1 ? "produto encontrado" : "produtos encontrados"}.`;
+    list.classList.remove("catalog-fallback");
     list.innerHTML = items.length
       ? items.map(productCard).join("")
-      : `<div class="empty"><h2>Nenhum produto encontrado.</h2><p>Tente limpar os filtros ou buscar por outro termo.</p><a class="btn primary" href="produtos.html">Ver todos os produtos</a></div>`;
+      : `<div class="empty catalog-empty"><h2>Nenhum produto encontrado.</h2><p>Tente limpar os filtros ou buscar por outro termo.</p><button class="btn primary" type="button" data-clear-filters-inline>Limpar filtros</button></div>`;
+
+    if (updateUrl) {
+      writeCatalogState({ busca: search.value.trim(), categoria: category.value, ordem: sort.value });
+    }
   }
 
-  [search, category, sort].forEach((field) => field.addEventListener("input", apply));
-  clear.addEventListener("click", () => {
+  function resetFilters() {
     search.value = "";
     category.value = "Todos";
     sort.value = "";
-    history.replaceState(null, "", "produtos.html");
-    apply();
+    writeCatalogState({ busca: "", categoria: "Todos", ordem: "" });
+    apply({ updateUrl: false });
+  }
+
+  [search, category, sort].forEach((field) => field.addEventListener("input", () => apply()));
+  clear.addEventListener("click", resetFilters);
+  list.addEventListener("click", (event) => {
+    if (event.target.closest("[data-clear-filters-inline]")) resetFilters();
   });
-  apply();
+  window.addEventListener("popstate", () => {
+    setFieldsFromUrl();
+    apply({ updateUrl: false });
+  });
+
+  setFieldsFromUrl();
+  apply({ updateUrl: false });
 }
 
 document.addEventListener("DOMContentLoaded", renderProductsPage);

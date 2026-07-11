@@ -21,6 +21,8 @@ Arquivos modificados nesta rodada:
 - home.js
 - produtos.html
 - produtos-page.js
+- produtos.js
+- produto-page.js
 - styles.css
 - produto-n1-scult.html
 - sitemap.xml
@@ -41,6 +43,11 @@ Melhorias aplicadas:
 - FAQ acessivel com botoes, aria-expanded e navegação por teclado.
 - Sitemap atualizado com URLs oficiais atuais.
 - produto-n1-scult.html mantido como compatibilidade e redirecionado para produto-n1-sculpt.html.
+- Catalogo com conteudo HTML inicial e bloco noscript para navegadores sem JavaScript.
+- Categorias construidas automaticamente a partir dos produtos cadastrados em produtos.js.
+- Catalogo atualiza a URL sem recarregar e aceita filtros vindos da URL.
+- Paginas individuais padronizadas com breadcrumb, galeria, opcoes, validacao por campo e secoes de informacoes.
+- Paginas de produto mantem temporariamente as opcoes preenchidas ao navegar e voltar.
 
 Arquivos e caminhos aparentemente duplicados ou de compatibilidade:
 
