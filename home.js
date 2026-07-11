@@ -46,7 +46,7 @@ function renderInstagram() {
       <a href="${reelUrl}" target="_blank" rel="noopener">Assistir no Instagram</a>
     </blockquote>
     <div class="instagram-fallback">
-      <img class="instagram-cover" src="foto-bastidores.png" alt="Bastidores da produção N1nara" width="640" height="480" loading="lazy">
+      <img class="instagram-cover" src="foto-bastidores.png" alt="Bastidores da produção N1nara" width="640" height="480" loading="lazy" decoding="async">
       <div>
         <p class="eyebrow">Instagram</p>
         <h2>Veja como cada peça ganha vida</h2>

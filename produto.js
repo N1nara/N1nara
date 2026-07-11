@@ -255,11 +255,24 @@ function renderProduct() {
   document.querySelector("[data-copy-link]")?.addEventListener("click", async () => {
     try {
       await navigator.clipboard.writeText(productUrl);
-      alert("Link copiado.");
+      showLegacyMessage("Link copiado.");
     } catch {
-      prompt("Copie o link:", productUrl);
+      showLegacyMessage(`Copie este link: ${productUrl}`);
     }
   });
+}
+
+function showLegacyMessage(message) {
+  let box = document.querySelector("[data-product-message]");
+  if (!box) {
+    box = document.createElement("p");
+    box.dataset.productMessage = "";
+    box.className = "site-message";
+    box.setAttribute("role", "status");
+    box.setAttribute("aria-live", "polite");
+    document.body.appendChild(box);
+  }
+  box.textContent = message;
 }
 
 document.addEventListener("DOMContentLoaded", renderProduct);

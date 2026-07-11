@@ -4,9 +4,22 @@ function openWhatsApp(message) {
   window.open(`https://wa.me/${N1_WHATSAPP}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
 }
 
+function showMessage(message) {
+  let box = document.querySelector("[data-site-message]");
+  if (!box) {
+    box = document.createElement("p");
+    box.dataset.siteMessage = "";
+    box.className = "site-message";
+    box.setAttribute("role", "status");
+    box.setAttribute("aria-live", "polite");
+    document.body.appendChild(box);
+  }
+  box.textContent = message;
+}
+
 function shareLocation(kind) {
   if (!navigator.geolocation) {
-    alert("Seu navegador não permite compartilhar localização.");
+    showMessage("Seu navegador não permite compartilhar localização.");
     return;
   }
 
@@ -21,8 +34,13 @@ function shareLocation(kind) {
       openWhatsApp(messages[kind] || `Estou compartilhando minha localização:\n${mapUrl}`);
     },
     () => {
-      alert("Não foi possível acessar a localização. Verifique a permissão do navegador.");
+      showMessage("Não foi possível acessar a localização. Verifique a permissão do navegador.");
     },
     { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
   );
 }
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-share-location]");
+  if (button) shareLocation(button.dataset.shareLocation);
+});

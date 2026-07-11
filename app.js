@@ -73,7 +73,7 @@ function header() {
   document.querySelector("[data-header]").innerHTML = `
     <header class="topbar">
       <a class="brand" href="index.html" aria-label="N1nara">
-        <img src="Logo%20N1.png" onerror="this.onerror=null;this.src='logo-n1nara.svg';" alt="Logo N1nara">
+        <img src="Logo%20N1.png" onerror="this.onerror=null;this.src='logo-n1nara.svg';" alt="Logo N1nara" decoding="async">
         <span><strong>N1nara</strong><small>Impressão 3D personalizada</small></span>
       </a>
       <div class="header-tools">
@@ -128,7 +128,7 @@ function footer() {
   document.querySelector("[data-footer]").innerHTML = `
     <footer class="footer">
       <div class="footer-brand">
-        <img src="Logo%20N1.png" onerror="this.onerror=null;this.src='logo-n1nara.svg';" alt="Logo N1nara">
+        <img src="Logo%20N1.png" onerror="this.onerror=null;this.src='logo-n1nara.svg';" alt="Logo N1nara" loading="lazy" decoding="async">
         <strong>N1nara</strong>
         <p>Produtos personalizados em impressão 3D.</p>
       </div>
@@ -195,7 +195,7 @@ function productCard(produto) {
 function productMedia(produto, className = "product-thumb") {
   const image = produto.imagem || "";
   if (/\.(png|jpe?g|webp|gif|svg)$/i.test(image)) {
-    return `<img class="${className}" src="${image}" alt="${produto.nome}" width="640" height="480" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: '${className}', textContent: '${produto.nome}' }))">`;
+    return `<img class="${className}" src="${image}" alt="${produto.nome}" width="640" height="480" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: '${className}', textContent: '${produto.nome}' }))">`;
   }
   return `<div class="${className}" aria-hidden="true">${image || produto.nome}</div>`;
 }

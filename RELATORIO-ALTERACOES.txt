@@ -25,6 +25,10 @@ Arquivos modificados nesta rodada:
 - produto-page.js
 - carrinho.html
 - carrinho.js
+- site.js
+- produto.js
+- identificacao.js
+- home.js
 - styles.css
 - produto-n1-scult.html
 - sitemap.xml
@@ -54,6 +58,14 @@ Melhorias aplicadas:
 - Mensagem do WhatsApp formatada sem campos vazios, com observacoes do pedido e aviso sobre avaliacao de produtos personalizados.
 - Feedback ao adicionar produto com links para Ver pedido e Continuar escolhendo.
 - Rodape reorganizado em quatro colunas, com ano automatico, Instagram, WhatsApp e link para voltar ao topo.
+- Design padronizado com variaveis CSS, paleta mais leve, fundo branco, cinza claro e destaque da marca.
+- Largura maxima padronizada em 1180 px para secoes principais.
+- Adicionado link "Pular para o conteudo" nas paginas HTML.
+- Scripts HTML marcados com defer.
+- Imagens estaticas e dinamicas receberam loading/decoding quando adequado.
+- Imagem principal do hero recebeu fetchpriority="high".
+- Adicionado suporte a prefers-reduced-motion.
+- Removidos onclick e alert/prompt de arquivos antigos de demonstracao e compatibilidade.
 
 Arquivos e caminhos aparentemente duplicados ou de compatibilidade:
 

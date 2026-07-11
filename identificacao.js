@@ -104,7 +104,7 @@ function renderIdentificationPage() {
 
   root.innerHTML = `
     <section class="id-card id-profile">
-      ${data.foto ? `<img class="id-photo-square" src="${data.foto}" alt="Foto de ${data.nome}" width="640" height="640" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'id-photo-square', textContent: '${data.fotoTexto}' }))">` : `<div class="id-photo-square" aria-label="Foto">${data.fotoTexto}</div>`}
+      ${data.foto ? `<img class="id-photo-square" src="${data.foto}" alt="Foto de ${data.nome}" width="640" height="640" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'id-photo-square', textContent: '${data.fotoTexto}' }))">` : `<div class="id-photo-square" aria-label="Foto">${data.fotoTexto}</div>`}
       <h1>${data.nome}</h1>
       <p class="muted">${data.chamada}</p>
       <div class="id-actions">
@@ -125,7 +125,7 @@ function renderIdentificationPage() {
       </div>
       <div class="privacy-box">As informações desta página foram fornecidas pelo responsável e têm finalidade de identificação e contato. A localização só é acessada mediante autorização do visitante e não é armazenada pelo site.</div>
       <div class="qr-discreet">
-        <img data-qrcode alt="QR Code desta página">
+        <img data-qrcode alt="QR Code desta página" width="112" height="112" loading="lazy" decoding="async">
         <p>Escaneie para acessar esta página.</p>
       </div>
     </section>

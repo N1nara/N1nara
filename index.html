@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
@@ -12,9 +12,9 @@
   <meta property="og:image" content="https://n1nara.github.io/N1nara/og-n1nara.png">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body id="top">
+<body id="top"><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <div data-header></div>
-  <main>
+  <main id="conteudo">
     <section class="hero">
       <div>
         <p class="eyebrow">Impressão 3D personalizada</p>
@@ -27,9 +27,9 @@
         <p class="support-line">Produção personalizada • Atendimento pelo WhatsApp • NFC opcional</p>
       </div>
       <div class="hero-composition" aria-label="Produtos N1nara em destaque">
-        <img class="hero-photo hero-main" src="hero-n1-art-3d.png" alt="N1 Art 3D personalizado" width="640" height="640">
-        <img class="hero-photo hero-secondary" src="hero-n1-pet-move.png" alt="N1 Pet Move personalizado" width="360" height="360" loading="lazy">
-        <img class="hero-photo hero-third" src="produto-n1-mini-me.png" alt="N1 Mini Me personalizado" width="360" height="360" loading="lazy">
+        <img class="hero-photo hero-main" src="hero-n1-art-3d.png" alt="N1 Art 3D personalizado" width="640" height="640" fetchpriority="high" decoding="async">
+        <img class="hero-photo hero-secondary" src="hero-n1-pet-move.png" alt="N1 Pet Move personalizado" width="360" height="360" loading="lazy" decoding="async">
+        <img class="hero-photo hero-third" src="produto-n1-mini-me.png" alt="N1 Mini Me personalizado" width="360" height="360" loading="lazy" decoding="async">
       </div>
     </section>
 
@@ -37,7 +37,7 @@
       <div class="instagram-box panel">
         <div data-instagram-embed></div>
         <div data-instagram-empty>
-          <img class="instagram-cover" src="foto-bastidores.png" alt="Bastidores da produção N1nara" width="640" height="480" loading="lazy">
+          <img class="instagram-cover" src="foto-bastidores.png" alt="Bastidores da produção N1nara" width="640" height="480" loading="lazy" decoding="async">
           <div class="instagram-empty-copy">
             <p class="eyebrow">Instagram</p>
             <h2>Veja como cada peça ganha vida</h2>
@@ -149,10 +149,10 @@
         <p>Cada produto é preparado de acordo com o pedido, impresso em 3D e revisado antes da entrega.</p>
       </div>
       <div class="trust-editorial">
-        <figure><img src="foto-impressora-3d.png" alt="Impressora 3D trabalhando em uma peça personalizada" width="640" height="480" loading="lazy"><figcaption>Produção personalizada em impressão 3D</figcaption></figure>
-        <figure><img src="foto-acabamento.png" alt="Detalhe de acabamento de produto personalizado" width="640" height="480" loading="lazy"><figcaption>Conferência do acabamento</figcaption></figure>
-        <figure><img src="foto-produto-na-mao.png" alt="Produto N1nara personalizado na mão" width="640" height="480" loading="lazy"><figcaption>Comunicação pelo WhatsApp</figcaption></figure>
-        <figure><img src="foto-embalagem.png" alt="Embalagem preparada para entrega" width="640" height="480" loading="lazy"><figcaption>Embalagem preparada para entrega</figcaption></figure>
+        <figure><img src="foto-impressora-3d.png" alt="Impressora 3D trabalhando em uma peça personalizada" width="640" height="480" loading="lazy" decoding="async"><figcaption>Produção personalizada em impressão 3D</figcaption></figure>
+        <figure><img src="foto-acabamento.png" alt="Detalhe de acabamento de produto personalizado" width="640" height="480" loading="lazy" decoding="async"><figcaption>Conferência do acabamento</figcaption></figure>
+        <figure><img src="foto-produto-na-mao.png" alt="Produto N1nara personalizado na mão" width="640" height="480" loading="lazy" decoding="async"><figcaption>Comunicação pelo WhatsApp</figcaption></figure>
+        <figure><img src="foto-embalagem.png" alt="Embalagem preparada para entrega" width="640" height="480" loading="lazy" decoding="async"><figcaption>Embalagem preparada para entrega</figcaption></figure>
       </div>
     </section>
 
@@ -174,9 +174,9 @@
   </main>
   <div data-footer></div>
   <div data-floating></div>
-  <script src="config.js"></script>
-  <script src="produtos.js"></script>
-  <script src="app.js"></script>
-  <script src="home.js"></script>
+  <script defer  src="config.js"></script>
+  <script defer  src="produtos.js"></script>
+  <script defer  src="app.js"></script>
+  <script defer  src="home.js"></script>
 </body>
 </html>

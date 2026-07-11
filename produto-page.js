@@ -99,7 +99,7 @@ function renderProductPage() {
           <div class="mini-gallery" role="list" aria-label="Miniaturas do produto">
             ${gallery.map((image, index) => `
               <button type="button" role="listitem" data-gallery-image="${image}" aria-label="Ver imagem ${index + 1} de ${produto.nome}" ${index === 0 ? 'aria-current="true"' : ""}>
-                <img src="${image}" alt="${produto.nome} ${index + 1}" width="160" height="120" loading="lazy">
+                <img src="${image}" alt="${produto.nome} ${index + 1}" width="160" height="120" loading="lazy" decoding="async">
               </button>
             `).join("")}
           </div>

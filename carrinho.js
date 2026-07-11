@@ -84,7 +84,7 @@ function cartItem(item) {
 
   return `
     <article class="cart-item">
-      ${/\.(png|jpe?g|webp|gif|svg)$/i.test(item.imagem || "") ? `<img class="product-thumb small" src="${item.imagem}" alt="${item.nome}" width="74" height="74" loading="lazy">` : `<div class="product-thumb small">${item.imagem || "N1"}</div>`}
+      ${/\.(png|jpe?g|webp|gif|svg)$/i.test(item.imagem || "") ? `<img class="product-thumb small" src="${item.imagem}" alt="${item.nome}" width="74" height="74" loading="lazy" decoding="async">` : `<div class="product-thumb small">${item.imagem || "N1"}</div>`}
       <div>
         <h3>${item.nome}</h3>
         ${options ? `<ul>${options}</ul>` : `<p class="muted">Detalhes a combinar pelo WhatsApp.</p>`}
