@@ -1,4 +1,4 @@
-const PRODUTOS = [
+﻿const PRODUTOS = [
   {
     id: "n1-flat",
     nome: "N1 Flat",
@@ -12,7 +12,9 @@ const PRODUTOS = [
     material: "Impressão 3D personalizada, leve e resistente.",
     prazo: "Produção sob encomenda. Prazo confirmado pelo WhatsApp.",
     precoInicial: 24.9,
-    imagem: "FLAT",
+    imagem: "produto-n1-flat.png",
+    galeria: ["produto-n1-flat.png", "foto-produto-na-mao.png", "foto-acabamento.png"],
+    imagemNota: "Foto do N1 Flat personalizado.",
     nfc: false,
     caracteristicas: [
       "Impressão 3D personalizada",
@@ -42,7 +44,9 @@ const PRODUTOS = [
     material: "Identificador personalizado com tecnologia NFC incorporada. A programação da tag NFC já está incluída no preço.",
     prazo: "Produção sob encomenda. Prazo confirmado pelo WhatsApp.",
     precoInicial: 49.9,
-    imagem: "NFC",
+    imagem: "produto-n1-tag-nfc.png",
+    galeria: ["produto-n1-tag-nfc.png", "foto-produto-na-mao.png", "foto-bastidores.png"],
+    imagemNota: "Foto do N1 Tag NFC personalizado.",
     nfc: true,
     caracteristicas: [
       "NFC programada incluída",
@@ -72,7 +76,9 @@ const PRODUTOS = [
     material: "Impressão 3D personalizada com acabamento artesanal.",
     prazo: "Produção sob encomenda após envio das fotos do pet.",
     precoInicial: 49.9,
-    imagem: "PET",
+    imagem: "foto-pet-demo.png",
+    galeria: ["foto-pet-demo.png", "foto-produto-na-mao.png", "foto-acabamento.png"],
+    imagemNota: "Foto do N1 Mini Pet personalizado.",
     nfc: false,
     caracteristicas: [
       "Produzido a partir das fotos do pet",
@@ -101,7 +107,9 @@ const PRODUTOS = [
     material: "Impressão 3D personalizada com corpo articulado e acabamento artesanal.",
     prazo: "Produção sob encomenda após envio das fotos do pet.",
     precoInicial: 59.9,
-    imagem: "MOVE",
+    imagem: "produto-n1-pet-move.png",
+    galeria: ["produto-n1-pet-move.png", "foto-produto-na-mao.png", "foto-bastidores.png"],
+    imagemNota: "Foto do N1 Pet Move personalizado.",
     nfc: false,
     caracteristicas: [
       "Corpo articulado com movimento",
@@ -130,7 +138,9 @@ const PRODUTOS = [
     material: "Imagem em relevo produzida em impressão 3D, com suporte independente incluído.",
     prazo: "Produção sob encomenda após análise da fotografia.",
     precoInicial: 79.9,
-    imagem: "ART",
+    imagem: "produto-n1-art-3d.png",
+    galeria: ["produto-n1-art-3d.png", "hero-n1-art-3d.png", "foto-acabamento.png"],
+    imagemNota: "Foto do N1 Art 3D personalizado.",
     nfc: false,
     caracteristicas: [
       "Produzido a partir de uma fotografia",
@@ -165,7 +175,9 @@ const PRODUTOS = [
     material: "Impressão 3D personalizada, com roupa, aparência e base independente.",
     prazo: "Produção sob encomenda após análise das fotografias.",
     precoInicial: 99.9,
-    imagem: "ME",
+    imagem: "produto-n1-mini-me.png",
+    galeria: ["produto-n1-mini-me.png", "foto-produto-na-mao.png", "foto-acabamento.png"],
+    imagemNota: "Foto do N1 Mini Me personalizado.",
     nfc: false,
     caracteristicas: [
       "Produzido a partir das fotos da pessoa",
@@ -201,7 +213,9 @@ const PRODUTOS = [
     material: "Escultura personalizada em impressão 3D com base independente inclusa.",
     prazo: "Produção sob encomenda após análise das fotografias.",
     precoInicial: 199.9,
-    imagem: "SC",
+    imagem: "produto-n1-sculpt.png",
+    galeria: ["produto-n1-sculpt.png", "foto-produto-na-mao.png", "foto-acabamento.png"],
+    imagemNota: "Foto do N1 Sculpt personalizado.",
     nfc: false,
     caracteristicas: [
       "Produzido a partir de fotografias",
@@ -229,3 +243,4 @@ const CATEGORIAS = ["Todos", "Pets", "Pessoas", "NFC", "Decoração", "Empresas"
 function produtoPorId(id) {
   return PRODUTOS.find((produto) => produto.id === id);
 }
+

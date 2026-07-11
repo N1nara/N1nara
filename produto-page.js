@@ -19,10 +19,16 @@ function renderProductPage() {
   root.innerHTML = `
     <section class="product-detail">
       <div class="gallery-main">
-        <div class="product-thumb big">${produto.imagem}</div>
+        ${productMedia(produto, "product-thumb big")}
         <div class="mini-gallery">
-          <span>Foto</span><span>Vídeo</span><span>Cliente</span>
+          ${(produto.galeria || [produto.imagem]).slice(0, 3).map((image, index) => {
+            if (/\.(png|jpe?g|webp|gif|svg)$/i.test(image || "")) {
+              return `<button type="button" data-gallery-image="${image}"><img src="${image}" alt="${produto.nome} ${index + 1}" width="160" height="120" loading="lazy"></button>`;
+            }
+            return `<span>Imagem ilustrativa</span>`;
+          }).join("")}
         </div>
+        <p class="image-note">${produto.imagemNota || "Imagem ilustrativa — produto personalizado conforme a arte aprovada."}</p>
       </div>
       <div>
         <p class="eyebrow">Produto personalizado</p>
@@ -178,6 +184,14 @@ function bindProductForm(produto) {
       return;
     }
     openWhatsApp(`Olá! Tenho uma dúvida sobre o produto ${produto.nome}.\n\nMinha dúvida:\n${question}`);
+  });
+
+  document.querySelectorAll("[data-gallery-image]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const image = button.dataset.galleryImage;
+      const current = document.querySelector(".product-thumb.big");
+      if (current?.tagName === "IMG") current.src = image;
+    });
   });
 
   updatePrice(produto);

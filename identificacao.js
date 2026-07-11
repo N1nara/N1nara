@@ -2,6 +2,7 @@
   pet: {
     tipo: "pet",
     fotoTexto: "PET",
+    foto: "foto-pet-demo.png",
     nome: "Luna",
     chamada: "Se você encontrou este pet, entre em contato com o tutor.",
     nascimento: "15/06/2023",
@@ -21,6 +22,7 @@
   pessoa: {
     tipo: "pessoa",
     fotoTexto: "ID",
+    foto: "foto-pessoa-demo.png",
     nome: "Maria",
     chamada: "Página de identificação para contato com o responsável.",
     nascimento: "15/06/2023",
@@ -39,6 +41,7 @@
   bagagem: {
     tipo: "bagagem",
     fotoTexto: "MALA",
+    foto: "foto-bagagem-demo.png",
     nome: "Bagagem identificada",
     chamada: "Se você encontrou esta bagagem, fale com o proprietário.",
     telefone: "5521984004976",
@@ -101,7 +104,7 @@ function renderIdentificationPage() {
 
   root.innerHTML = `
     <section class="id-card id-profile">
-      <div class="id-photo-square" aria-label="Foto">${data.fotoTexto}</div>
+      ${data.foto ? `<img class="id-photo-square" src="${data.foto}" alt="Foto de ${data.nome}" width="640" height="640" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'id-photo-square', textContent: '${data.fotoTexto}' }))">` : `<div class="id-photo-square" aria-label="Foto">${data.fotoTexto}</div>`}
       <h1>${data.nome}</h1>
       <p class="muted">${data.chamada}</p>
       <div class="id-actions">

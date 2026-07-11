@@ -124,7 +124,7 @@ function floatingActions() {
 function productCard(produto) {
   return `
     <article class="product-card" data-category="${produto.categoria.join(" ")}">
-      <div class="product-thumb" aria-hidden="true">${produto.imagem}</div>
+      ${productMedia(produto, "product-thumb")}
       <div>
         <h3>${produto.nome}</h3>
         <p>${produto.descricao}</p>
@@ -136,6 +136,14 @@ function productCard(produto) {
       </div>
     </article>
   `;
+}
+
+function productMedia(produto, className = "product-thumb") {
+  const image = produto.imagem || "";
+  if (/\.(png|jpe?g|webp|gif|svg)$/i.test(image)) {
+    return `<img class="${className}" src="${image}" alt="${produto.nome}" width="640" height="480" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: '${className}', textContent: '${produto.nome}' }))">`;
+  }
+  return `<div class="${className}" aria-hidden="true">${image || produto.nome}</div>`;
 }
 
 function quickAdd(productId) {

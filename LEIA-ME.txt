@@ -9,6 +9,28 @@ Como publicar:
 3. O arquivo index.html precisa ficar na raiz.
 4. Se a sua logo estiver no GitHub com o nome Logo N1.png, ela sera usada automaticamente.
 
+Imagens que devem ser enviadas para a raiz do repositorio:
+
+- og-n1nara.png
+- produto-n1-art-3d.png
+- produto-n1-flat.png
+- produto-n1-mini-me.png
+- produto-n1-pet-move.png
+- produto-n1-sculpt.png
+- produto-n1-tag-nfc.png
+- foto-bagagem-demo.png
+- foto-pessoa-demo.png
+- foto-pet-demo.png
+- hero-n1-art-3d.png
+- hero-n1-pet-move.png
+- foto-produto-na-mao.png
+- foto-acabamento.png
+- foto-bastidores.png
+- foto-embalagem.png
+- foto-impressora-3d.png
+
+Use exatamente estes nomes, mantendo letras minusculas, hifens e extensao .png.
+
 Arquivos importantes:
 
 - produtos.js: dados, preços, opções e textos dos produtos.
