@@ -1,0 +1,36 @@
+Relatorio complementar - imagens WebP
+=====================================
+
+Arquivos ajustados:
+
+- index.html
+- home.js
+- produtos.js
+- produto-page.js
+- identificacao.js
+- sobre.html
+- paginas HTML da raiz com Open Graph
+- LEIA-ME.txt
+
+O que foi feito:
+
+- O site passou a usar os arquivos .webp informados pela proprietaria.
+- O produto N1 Mini Pet aponta para produto-n1-mini-pet.webp.
+- A home usa hero-n1-art-3d.webp, hero-n1-pet-move.webp e produto-n1-mini-me.webp no destaque inicial.
+- A imagem de compartilhamento social foi atualizada para og-n1nara.webp.
+- As paginas Pet, Pessoa e Bagagem usam foto-pet-demo.webp, foto-pessoa-demo.webp e foto-bagagem-demo.webp.
+- As fotos editoriais de bastidores, impressora, acabamento, produto na mao e embalagem usam os arquivos .webp.
+- As galerias dos produtos continuam usando somente a imagem do proprio produto.
+
+Conferencia realizada:
+
+- Todos os 18 arquivos .webp informados aparecem como referencia no site.
+- Nao sobrou referencia .png nas paginas principais e no cadastro de produtos, exceto a logo Logo N1.png.
+- N1 Mini Pet esta configurado com imagem e galeria em produto-n1-mini-pet.webp.
+- Nao ha fotos genericas de bastidores, acabamento ou produto na mao dentro das galerias de produtos em produtos.js.
+
+Observacao:
+
+- O ambiente do Codex nao teve permissao para ler diretamente a pasta do Dropbox informada.
+- Por isso, os arquivos .webp nao foram copiados para a pasta outputs por aqui.
+- Como a proprietaria informou que as imagens ja estao no GitHub, elas devem permanecer na raiz do repositorio com exatamente os mesmos nomes usados neste relatorio.

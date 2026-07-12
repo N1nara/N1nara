@@ -230,7 +230,7 @@ function injectProductStructuredData(produto) {
     "@type": "Product",
     name: produto.nome,
     description: produto.descricao,
-    image: absoluteUrl(produto.imagem || "og-n1nara.png"),
+    image: absoluteUrl(produto.imagem || "og-n1nara.webp"),
     brand: { "@type": "Brand", name: "N1nara" }
   };
 

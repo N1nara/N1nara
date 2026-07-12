@@ -9,7 +9,7 @@ Arquivos ajustados:
 
 O que foi corrigido:
 
-- O produto N1 Mini Pet agora aponta para o arquivo produto-n1-mini-pet.png no cadastro central de produtos.
+- O produto N1 Mini Pet agora aponta para o arquivo produto-n1-mini-pet.webp no cadastro central de produtos.
 - As galerias dos produtos passaram a usar somente a imagem principal do proprio produto.
 - Fotos genericas de bastidores, acabamento e produto na mao nao aparecem mais como fotos de produto nas paginas individuais.
 - A composicao inicial da home foi ajustada para exibir tres imagens em grid, sem sobreposicao no celular.
@@ -28,6 +28,6 @@ Testes realizados:
 
 Observacao importante:
 
-- O arquivo produto-n1-mini-pet.png nao existe na pasta local outputs deste ambiente.
+- O arquivo produto-n1-mini-pet.webp nao existe na pasta local outputs deste ambiente.
 - Como a proprietaria informou que esse arquivo ja foi enviado ao GitHub, o site publicado deve carregar a imagem real se o arquivo permanecer na raiz do repositorio N1nara.
 - Nao foi criada imagem inventada para o Mini Pet, para evitar substituir a foto real do produto.

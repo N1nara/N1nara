@@ -1,60 +1,60 @@
-ï»¿const IDENTIFICACOES = {
+const IDENTIFICACOES = {
   pet: {
     tipo: "pet",
     demo: true,
     fotoTexto: "PET",
-    foto: "foto-pet-demo.png",
+    foto: "foto-pet-demo.webp",
     nome: "Pet Exemplo",
-    chamada: "Se vocÃª encontrou este pet, entre em contato com o tutor.",
+    chamada: "Se você encontrou este pet, entre em contato com o tutor.",
     nascimento: "15/06/2023",
     telefone: "5500000000000",
     whatsapp: "5500000000000",
     instagram: "https://www.instagram.com/n1nara/",
     campos: {
-      "RaÃ§a": "Informar raÃ§a",
+      "Raça": "Informar raça",
       "Sexo": "Informar sexo",
-      "Tutor": "ResponsÃ¡vel fictÃ­cio",
-      "InformaÃ§Ãµes mÃ©dicas": "InformaÃ§Ã£o fictÃ­cia para demonstraÃ§Ã£o. Informe apenas o necessÃ¡rio na pÃ¡gina real.",
-      "Vacinas": "Informar situaÃ§Ã£o das vacinas.",
-      "VeterinÃ¡rio": "Informar clÃ­nica ou contato somente se necessÃ¡rio.",
-      "ObservaÃ§Ãµes": "Exemplo fictÃ­cio: pet pode ficar assustado com barulhos altos."
+      "Tutor": "Responsável fictício",
+      "Informações médicas": "Informação fictícia para demonstração. Informe apenas o necessário na página real.",
+      "Vacinas": "Informar situação das vacinas.",
+      "Veterinário": "Informar clínica ou contato somente se necessário.",
+      "Observações": "Exemplo fictício: pet pode ficar assustado com barulhos altos."
     }
   },
   pessoa: {
     tipo: "pessoa",
     demo: true,
     fotoTexto: "ID",
-    foto: "foto-pessoa-demo.png",
+    foto: "foto-pessoa-demo.webp",
     nome: "Pessoa Exemplo",
-    chamada: "PÃ¡gina de identificaÃ§Ã£o para contato com o responsÃ¡vel.",
+    chamada: "Página de identificação para contato com o responsável.",
     nascimento: "15/06/2023",
     telefone: "5500000000000",
     whatsapp: "5500000000000",
     instagram: "https://www.instagram.com/n1nara/",
     campos: {
       "Sexo": "Informar sexo",
-      "Nome do responsÃ¡vel": "ResponsÃ¡vel fictÃ­cio",
-      "Alergias": "Exemplo fictÃ­cio. O campo pode ficar vazio na pÃ¡gina real.",
-      "Medicamentos": "Exemplo fictÃ­cio. Informe apenas se necessÃ¡rio.",
-      "Plano de saÃºde": "Exemplo fictÃ­cio. Informe apenas se necessÃ¡rio.",
-      "InformaÃ§Ãµes importantes": "Informe somente orientaÃ§Ãµes realmente necessÃ¡rias."
+      "Nome do responsável": "Responsável fictício",
+      "Alergias": "Exemplo fictício. O campo pode ficar vazio na página real.",
+      "Medicamentos": "Exemplo fictício. Informe apenas se necessário.",
+      "Plano de saúde": "Exemplo fictício. Informe apenas se necessário.",
+      "Informações importantes": "Informe somente orientações realmente necessárias."
     }
   },
   bagagem: {
     tipo: "bagagem",
     demo: true,
     fotoTexto: "MALA",
-    foto: "foto-bagagem-demo.png",
+    foto: "foto-bagagem-demo.webp",
     nome: "Bagagem identificada",
-    chamada: "Se vocÃª encontrou esta bagagem, fale com o proprietÃ¡rio.",
+    chamada: "Se você encontrou esta bagagem, fale com o proprietário.",
     telefone: "5500000000000",
     whatsapp: "5500000000000",
     campos: {
-      "Nome do proprietÃ¡rio": "ProprietÃ¡rio fictÃ­cio",
-      "IdentificaÃ§Ã£o da bagagem": "MALA-001",
-      "IdentificaÃ§Ã£o": "MALA-001",
+      "Nome do proprietário": "Proprietário fictício",
+      "Identificação da bagagem": "MALA-001",
+      "Identificação": "MALA-001",
       "Mensagem": "Obrigada por ajudar a devolver esta bagagem.",
-      "InformaÃ§Ãµes adicionais": "Evite expor endereÃ§o residencial completo."
+      "Informações adicionais": "Evite expor endereço residencial completo."
     }
   }
 };
@@ -83,7 +83,7 @@ function calcularIdade(dataBR, hoje = new Date()) {
   }
 
   if (anos > 0) return anos === 1 ? "1 ano" : `${anos} anos`;
-  if (meses > 0) return meses === 1 ? "1 mÃªs" : `${meses} meses`;
+  if (meses > 0) return meses === 1 ? "1 mês" : `${meses} meses`;
   return dias <= 1 ? "1 dia" : `${dias} dias`;
 }
 
@@ -110,27 +110,27 @@ function renderIdentificationPage() {
       ${data.foto ? `<img class="id-photo-square" src="${data.foto}" alt="Foto de ${data.nome}" width="640" height="640" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('div'), { className: 'id-photo-square', textContent: '${data.fotoTexto}' }))">` : `<div class="id-photo-square" aria-label="Foto">${data.fotoTexto}</div>`}
       <h1>${data.nome}</h1>
       <p class="muted">${data.chamada}</p>
-      ${data.demo ? `<p class="demo-notice">Dados fictÃ­cios para demonstraÃ§Ã£o. Em uma pÃ¡gina real, exiba somente as informaÃ§Ãµes necessÃ¡rias para identificaÃ§Ã£o e contato.</p>` : ""}
+      ${data.demo ? `<p class="demo-notice">Dados fictícios para demonstração. Em uma página real, exiba somente as informações necessárias para identificação e contato.</p>` : ""}
       <div class="id-actions">
         ${data.telefone ? `<a class="btn ghost" href="tel:+${data.telefone}">Ligar</a>` : ""}
         ${data.whatsapp ? `<a class="btn primary" href="${whatsappLink(data.whatsapp, defaultMessage(type, data))}" target="_blank" rel="noopener">Abrir WhatsApp</a>` : ""}
-        ${data.whatsapp ? `<button class="btn ghost" type="button" data-share-location="${type}">Compartilhar localizaÃ§Ã£o</button>` : ""}
+        ${data.whatsapp ? `<button class="btn ghost" type="button" data-share-location="${type}">Compartilhar localização</button>` : ""}
         ${data.instagram ? `<a class="btn ghost" href="${data.instagram}" target="_blank" rel="noopener">Instagram</a>` : ""}
       </div>
-      <p class="location-help">Ao tocar em compartilhar localizaÃ§Ã£o, o navegador pedirÃ¡ autorizaÃ§Ã£o. A localizaÃ§Ã£o nÃ£o Ã© armazenada pelo site. Se a autorizaÃ§Ã£o falhar, o WhatsApp abrirÃ¡ com instruÃ§Ãµes para envio manual.</p>
+      <p class="location-help">Ao tocar em compartilhar localização, o navegador pedirá autorização. A localização não é armazenada pelo site. Se a autorização falhar, o WhatsApp abrirá com instruções para envio manual.</p>
     </section>
     <section class="id-card">
-      <h2>InformaÃ§Ãµes</h2>
+      <h2>Informações</h2>
       <div class="id-info-list">
         ${Object.entries(info)
           .filter(([, value]) => value && String(value).trim())
           .map(([label, value]) => `<article><span>${label}</span><p>${value}</p></article>`)
           .join("")}
       </div>
-      <div class="privacy-box">As informaÃ§Ãµes desta pÃ¡gina foram fornecidas pelo responsÃ¡vel e tÃªm finalidade de identificaÃ§Ã£o e contato. A localizaÃ§Ã£o sÃ³ Ã© acessada mediante autorizaÃ§Ã£o do visitante e nÃ£o Ã© armazenada pelo site.</div>
+      <div class="privacy-box">As informações desta página foram fornecidas pelo responsável e têm finalidade de identificação e contato. A localização só é acessada mediante autorização do visitante e não é armazenada pelo site.</div>
       <div class="qr-discreet">
-        <img data-qrcode alt="QR Code desta pÃ¡gina" width="112" height="112" loading="lazy" decoding="async">
-        <p>Escaneie para acessar esta pÃ¡gina.</p>
+        <img data-qrcode alt="QR Code desta página" width="112" height="112" loading="lazy" decoding="async">
+        <p>Escaneie para acessar esta página.</p>
       </div>
     </section>
   `;
@@ -139,25 +139,25 @@ function renderIdentificationPage() {
 }
 
 function defaultMessage(kind, data) {
-  if (kind === "pet") return `OlÃ¡! Encontrei o pet ${data.nome}.`;
-  if (kind === "pessoa") return `OlÃ¡! Estou entrando em contato por meio da pÃ¡gina de identificaÃ§Ã£o de ${data.nome}.`;
-  return "OlÃ¡! Encontrei sua bagagem.";
+  if (kind === "pet") return `Olá! Encontrei o pet ${data.nome}.`;
+  if (kind === "pessoa") return `Olá! Estou entrando em contato por meio da página de identificação de ${data.nome}.`;
+  return "Olá! Encontrei sua bagagem.";
 }
 
 function locationMessage(kind, mapUrl) {
-  if (kind === "pet") return `OlÃ¡! Encontrei o seu pet.\n\nMinha localizaÃ§Ã£o atual:\n${mapUrl}`;
-  if (kind === "pessoa") return `OlÃ¡! Estou entrando em contato por meio da pÃ¡gina de identificaÃ§Ã£o.\n\nMinha localizaÃ§Ã£o atual:\n${mapUrl}`;
-  return `OlÃ¡! Encontrei sua bagagem.\n\nMinha localizaÃ§Ã£o atual:\n${mapUrl}`;
+  if (kind === "pet") return `Olá! Encontrei o seu pet.\n\nMinha localização atual:\n${mapUrl}`;
+  if (kind === "pessoa") return `Olá! Estou entrando em contato por meio da página de identificação.\n\nMinha localização atual:\n${mapUrl}`;
+  return `Olá! Encontrei sua bagagem.\n\nMinha localização atual:\n${mapUrl}`;
 }
 
 function manualLocationMessage(kind) {
   const base = kind === "pet"
-    ? "OlÃ¡! Encontrei o seu pet."
+    ? "Olá! Encontrei o seu pet."
     : kind === "pessoa"
-      ? "OlÃ¡! Estou entrando em contato por meio da pÃ¡gina de identificaÃ§Ã£o."
-      : "OlÃ¡! Encontrei sua bagagem.";
+      ? "Olá! Estou entrando em contato por meio da página de identificação."
+      : "Olá! Encontrei sua bagagem.";
 
-  return `${base}\n\nNÃ£o consegui autorizar a localizaÃ§Ã£o automÃ¡tica no navegador.\n\nVou enviar minha localizaÃ§Ã£o manualmente pelo WhatsApp:\n1. Toque no clipe/anexo ou no botÃ£o +\n2. Escolha LocalizaÃ§Ã£o\n3. Envie minha localizaÃ§Ã£o atual`;
+  return `${base}\n\nNão consegui autorizar a localização automática no navegador.\n\nVou enviar minha localização manualmente pelo WhatsApp:\n1. Toque no clipe/anexo ou no botão +\n2. Escolha Localização\n3. Envie minha localização atual`;
 }
 
 function openManualLocation(kind) {
@@ -171,28 +171,28 @@ function shareLocation(kind) {
   if (!data?.whatsapp) return;
 
   if (!window.isSecureContext) {
-    toast("A localizaÃ§Ã£o automÃ¡tica sÃ³ funciona em site seguro. Abrindo WhatsApp com instruÃ§Ã£o manual.");
+    toast("A localização automática só funciona em site seguro. Abrindo WhatsApp com instrução manual.");
     openManualLocation(kind);
     return;
   }
 
   if (!navigator.geolocation) {
-    toast("Seu navegador nÃ£o permite compartilhar localizaÃ§Ã£o. Abrindo instruÃ§Ã£o manual.");
+    toast("Seu navegador não permite compartilhar localização. Abrindo instrução manual.");
     openManualLocation(kind);
     return;
   }
 
-  toast("Solicitando autorizaÃ§Ã£o de localizaÃ§Ã£o...");
+  toast("Solicitando autorização de localização...");
   navigator.geolocation.getCurrentPosition(({ coords }) => {
     const map = `https://www.google.com/maps?q=${coords.latitude},${coords.longitude}`;
     goToWhatsApp(data.whatsapp, locationMessage(kind, map));
   }, (error) => {
     const messages = {
-      1: "PermissÃ£o de localizaÃ§Ã£o negada.",
-      2: "LocalizaÃ§Ã£o indisponÃ­vel no momento.",
-      3: "Tempo esgotado ao tentar obter a localizaÃ§Ã£o."
+      1: "Permissão de localização negada.",
+      2: "Localização indisponível no momento.",
+      3: "Tempo esgotado ao tentar obter a localização."
     };
-    toast(`${messages[error.code] || "NÃ£o foi possÃ­vel obter a localizaÃ§Ã£o."} Abrindo instruÃ§Ã£o manual.`);
+    toast(`${messages[error.code] || "Não foi possível obter a localização."} Abrindo instrução manual.`);
     openManualLocation(kind);
   }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
 }
@@ -200,7 +200,7 @@ function shareLocation(kind) {
 function renderQrCode() {
   document.querySelectorAll("[data-qrcode]").forEach((img) => {
     img.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(location.href)}`;
-    img.alt = "QR Code para acessar esta pÃ¡gina";
+    img.alt = "QR Code para acessar esta página";
   });
 }
 

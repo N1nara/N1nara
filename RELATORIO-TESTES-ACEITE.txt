@@ -39,23 +39,23 @@ Arquivos criados:
 - RELATORIO-TESTES-ACEITE.txt
 - imagens PNG provisórias para evitar imagens quebradas:
   - Logo N1.png
-  - og-n1nara.png
-  - produto-n1-art-3d.png
-  - produto-n1-flat.png
-  - produto-n1-mini-me.png
-  - produto-n1-pet-move.png
-  - produto-n1-sculpt.png
-  - produto-n1-tag-nfc.png
-  - foto-bagagem-demo.png
-  - foto-pessoa-demo.png
-  - foto-pet-demo.png
-  - hero-n1-art-3d.png
-  - hero-n1-pet-move.png
-  - foto-produto-na-mao.png
-  - foto-acabamento.png
-  - foto-bastidores.png
-  - foto-embalagem.png
-  - foto-impressora-3d.png
+  - og-n1nara.webp
+  - produto-n1-art-3d.webp
+  - produto-n1-flat.webp
+  - produto-n1-mini-me.webp
+  - produto-n1-pet-move.webp
+  - produto-n1-sculpt.webp
+  - produto-n1-tag-nfc.webp
+  - foto-bagagem-demo.webp
+  - foto-pessoa-demo.webp
+  - foto-pet-demo.webp
+  - hero-n1-art-3d.webp
+  - hero-n1-pet-move.webp
+  - foto-produto-na-mao.webp
+  - foto-acabamento.webp
+  - foto-bastidores.webp
+  - foto-embalagem.webp
+  - foto-impressora-3d.webp
 
 Principais melhorias:
 
