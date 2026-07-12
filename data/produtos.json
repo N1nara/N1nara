@@ -1,0 +1,4 @@
+{
+  "deprecated": true,
+  "message": "Os dados oficiais dos produtos ficam em produtos.js. Este arquivo foi mantido apenas para compatibilidade e não deve ser usado para cadastrar preços."
+}
