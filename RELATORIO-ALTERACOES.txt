@@ -1,0 +1,99 @@
+RELATORIO DE ALTERACOES - N1NARA
+
+Arquivos principais identificados:
+
+- index.html: pagina inicial.
+- app.js: cabecalho, rodape, botoes flutuantes, cards de produto, carrinho rapido e FAQ.
+- home.js: produtos em destaque e area do Instagram.
+- produtos.js: catalogo central com nomes, descricoes, imagens, precos e opcoes.
+- produtos.html: pagina geral de produtos.
+- produtos-page.js: busca, filtro por categoria, ordenacao e leitura de parametros na URL.
+- carrinho.html e carrinho.js: pedido salvo no navegador e envio pelo WhatsApp.
+- produto-page.js: montagem das paginas individuais de produto.
+- config.js: WhatsApp, Instagram e link manual do Reels.
+- identificacao.js: paginas Pet, Pessoa e Bagagem com idade, QR Code e localizacao.
+- styles.css: identidade visual, responsividade e componentes.
+
+Arquivos modificados nesta rodada:
+
+- index.html
+- app.js
+- home.js
+- produtos.html
+- produtos-page.js
+- produtos.js
+- produto-page.js
+- carrinho.html
+- carrinho.js
+- site.js
+- produto.js
+- identificacao.js
+- home.js
+- styles.css
+- produto-n1-scult.html
+- sitemap.xml
+- RELATORIO-ALTERACOES.txt
+
+Melhorias aplicadas:
+
+- Cabecalho compacto, fixo, responsivo e com contador do pedido.
+- Menu com Inicio, Produtos, Como funciona, NFC, Sobre e botao de WhatsApp.
+- Menu mobile fecha ao escolher uma opcao e tambem ao redimensionar para computador.
+- Nova primeira secao com texto mais claro e composicao visual de produtos.
+- Secao do Instagram sem mensagens tecnicas para visitantes.
+- Atalhos por necessidade com links filtrados para o catalogo.
+- Catalogo lendo parametros como produtos.html?categoria=pets.
+- Botao Limpar filtros e contador de resultados no catalogo.
+- Cards de produto com imagem maior, selos, preco mais visivel e hover discreto.
+- Secoes Como funciona, NFC, Confianca e Perguntas frequentes.
+- FAQ acessivel com botoes, aria-expanded e navegação por teclado.
+- Sitemap atualizado com URLs oficiais atuais.
+- produto-n1-scult.html mantido como compatibilidade e redirecionado para produto-n1-sculpt.html.
+- Catalogo com conteudo HTML inicial e bloco noscript para navegadores sem JavaScript.
+- Categorias construidas automaticamente a partir dos produtos cadastrados em produtos.js.
+- Catalogo atualiza a URL sem recarregar e aceita filtros vindos da URL.
+- Paginas individuais padronizadas com breadcrumb, galeria, opcoes, validacao por campo e secoes de informacoes.
+- Paginas de produto mantem temporariamente as opcoes preenchidas ao navegar e voltar.
+- Carrinho atualizado com miniaturas, opcoes, quantidade, subtotal, total parcial e observacao para itens sob consulta.
+- Mensagem do WhatsApp formatada sem campos vazios, com observacoes do pedido e aviso sobre avaliacao de produtos personalizados.
+- Feedback ao adicionar produto com links para Ver pedido e Continuar escolhendo.
+- Rodape reorganizado em quatro colunas, com ano automatico, Instagram, WhatsApp e link para voltar ao topo.
+- Design padronizado com variaveis CSS, paleta mais leve, fundo branco, cinza claro e destaque da marca.
+- Largura maxima padronizada em 1180 px para secoes principais.
+- Adicionado link "Pular para o conteudo" nas paginas HTML.
+- Scripts HTML marcados com defer.
+- Imagens estaticas e dinamicas receberam loading/decoding quando adequado.
+- Imagem principal do hero recebeu fetchpriority="high".
+- Adicionado suporte a prefers-reduced-motion.
+- Removidos onclick e alert/prompt de arquivos antigos de demonstracao e compatibilidade.
+- SEO revisado em todas as paginas HTML: title, description, canonical absoluto, Open Graph, Twitter Card, favicon e theme-color.
+- Paginas de demonstracao e compatibilidade nao comerciais marcadas com noindex, nofollow.
+- Adicionados dados estruturados JSON-LD para Organization na pagina inicial.
+- Paginas de produto passaram a gerar JSON-LD Product e BreadcrumbList sem inventar avaliacoes ou disponibilidade.
+- Paginas internas comuns passaram a gerar BreadcrumbList.
+- Criada pagina 404.html compativel com GitHub Pages.
+- Carrinho e paginas de produto receberam tratamento extra para localStorage/sessionStorage indisponivel ou corrompido.
+- Sitemap e robots.txt revisados para o caminho publico https://n1nara.github.io/N1nara/.
+- produtos.js passou a normalizar campos como slug, resumo, imagens, preco, pagina, opcoes, usos e NFC disponivel para servir como fonte unica dos dados dos produtos.
+- produtos.js agora emite avisos apenas no console de desenvolvimento quando encontra id duplicado, slug duplicado, pagina ausente, imagem principal ausente ou preco invalido.
+- produto.js antigo foi substituido por uma camada de compatibilidade sem cadastro duplicado de precos ou descricoes.
+- Pagina Sobre refeita com foco em impressao 3D personalizada, atendimento pelo WhatsApp, cuidado de producao e NFC incorporado em alguns produtos.
+- Botao flutuante reduzido para WhatsApp, com rotulo acessivel e versao compacta no celular.
+- Catalogo recebeu estado de carregamento e mensagem amigavel quando nenhum produto corresponde aos filtros.
+- Carrinho passou a exibir aviso discreto sobre produtos personalizados e alerta quando item salvo precisar ser conferido com o catalogo atual.
+- Paginas Pet, Pessoa e Bagagem passaram a usar dados ficticios, aviso de demonstracao, noindex e texto de privacidade/localizacao mais claro.
+- Paginas antigas nas pastas produto/ e produtos/ foram regeneradas como compatibilidade sem indexacao.
+- Sitemap removeu paginas de identificacao com dados ficticios para evitar indexacao de modelos.
+
+Arquivos e caminhos aparentemente duplicados ou de compatibilidade:
+
+- produto-n1-scult.html: grafia antiga; mantido como redirecionamento.
+- produto-n1-flat-tag-nfc.html e produto-n1-tag-nfc.html: apontam para o mesmo produto NFC.
+- produto/ e produtos/: contem paginas antigas ou alternativas para compatibilidade.
+- n1nara-site-restaurado/ e n1nara-site-sem-pastas/: copias anteriores do site.
+- produto.js: mantido apenas como compatibilidade de links antigos; o catalogo atual usa produtos.js como fonte unica.
+- assets/, data/ e images/: estrutura antiga com arquivos que podem ser preservados, mas nao sao o centro do site sem pastas.
+
+Observacao:
+
+Nenhum arquivo antigo foi apagado automaticamente. A recomendacao e manter as paginas antigas como compatibilidade ate confirmar no GitHub quais links ainda recebem acesso.

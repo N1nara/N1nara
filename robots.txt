@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://n1nara.github.io/N1nara/sitemap.xml

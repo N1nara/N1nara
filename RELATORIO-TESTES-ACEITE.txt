@@ -1,0 +1,137 @@
+RELATORIO DE TESTES E ACEITE - N1NARA
+
+Data: 11/07/2026
+
+Arquivos principais modificados:
+
+- index.html
+- produtos.html
+- carrinho.html
+- sobre.html
+- pet.html
+- pessoa.html
+- bagagem.html
+- pet-demo.html
+- pessoa-demo.html
+- bagagem-demo.html
+- produtos.js
+- app.js
+- home.js
+- produtos-page.js
+- produto-page.js
+- carrinho.js
+- identificacao.js
+- produto.js
+- site.js
+- styles.css
+- sitemap.xml
+- robots.txt
+- README.md
+- LEIA-ME.txt
+- data/produtos.json
+- assets/js/main.js
+- assets/js/products.js
+- assets/js/product-page.js
+
+Arquivos criados:
+
+- 404.html
+- RELATORIO-TESTES-ACEITE.txt
+- imagens PNG provisórias para evitar imagens quebradas:
+  - Logo N1.png
+  - og-n1nara.png
+  - produto-n1-art-3d.png
+  - produto-n1-flat.png
+  - produto-n1-mini-me.png
+  - produto-n1-pet-move.png
+  - produto-n1-sculpt.png
+  - produto-n1-tag-nfc.png
+  - foto-bagagem-demo.png
+  - foto-pessoa-demo.png
+  - foto-pet-demo.png
+  - hero-n1-art-3d.png
+  - hero-n1-pet-move.png
+  - foto-produto-na-mao.png
+  - foto-acabamento.png
+  - foto-bastidores.png
+  - foto-embalagem.png
+  - foto-impressora-3d.png
+
+Principais melhorias:
+
+- Dados oficiais dos produtos centralizados em produtos.js.
+- Arquivos antigos de produto transformados em compatibilidade, sem preços duplicados.
+- Página Sobre refeita com foco em impressão 3D personalizada, atendimento e NFC.
+- Carrinho com localStorage, itens sob consulta e mensagem organizada para WhatsApp.
+- Catálogo com busca, filtro por URL, ordenação, limpar filtros e estado vazio.
+- Páginas Pet, Pessoa e Bagagem com dados fictícios, noindex e aviso de privacidade.
+- Sitemap e robots.txt revisados para GitHub Pages em /N1nara/.
+- Títulos e descrições únicos nos HTML raiz.
+- Imagens provisórias criadas para não deixar links quebrados.
+
+Erros ou duplicidades encontrados:
+
+- data/produtos.json tinha produtos e preços antigos. Foi substituído por aviso de compatibilidade.
+- assets/js antigos exibiam textos antigos e instruções técnicas. Foram simplificados para compatibilidade.
+- produto-n1-flat-tag-nfc.html duplicava a página oficial do NFC. Foi convertido em página de compatibilidade com noindex.
+- Havia imagens referenciadas que não existiam na pasta. Foram criadas imagens provisórias em PNG.
+
+Testes realizados:
+
+- Sintaxe dos scripts principais validada com runtime JavaScript:
+  - config.js
+  - produtos.js
+  - app.js
+  - home.js
+  - produtos-page.js
+  - produto-page.js
+  - carrinho.js
+  - identificacao.js
+  - site.js
+  - produto.js
+  - assets/js/main.js
+  - assets/js/products.js
+  - assets/js/product-page.js
+- Teste em navegador Edge via Playwright, simulando o caminho /N1nara/.
+- Home carregou sem mensagem técnica.
+- Catálogo carregou produtos.
+- Filtro por URL produtos.html?categoria=pets funcionou.
+- Busca, ordenação e limpar filtros funcionaram.
+- Páginas oficiais dos produtos abriram.
+- Validação de campos obrigatórios funcionou.
+- Produto comum foi adicionado com duas unidades.
+- Carrinho reduziu quantidade.
+- Produto sob consulta entrou no carrinho sem inventar preço.
+- Pedido persistiu após atualizar a página e abrir nova aba.
+- Menu mobile abriu em 320 px.
+- Layout em 375 px não apresentou rolagem horizontal.
+- localStorage corrompido mostrou carrinho vazio de forma amigável.
+- Função de mensagem do WhatsApp gerou texto organizado sem undefined/null.
+- Clique em finalizar chamou window.open com https://wa.me/5521984004976.
+- Links e src internos dos HTML raiz foram verificados.
+- Imagens e páginas declaradas em produtos.js existem.
+- Páginas de demonstração e modelos com dados fictícios possuem noindex.
+- prefers-reduced-motion, foco visível e overflow horizontal foram verificados no CSS.
+
+Itens que não puderam ser confirmados integralmente:
+
+- A abertura real do aplicativo WhatsApp não pode ser confirmada dentro do navegador headless. Foi confirmado que o site chama window.open com o link wa.me correto e mensagem codificada.
+- As imagens atuais são provisórias. Elas evitam erro visual, mas devem ser substituídas por fotos reais dos produtos.
+- O console foi verificado no ambiente local de teste. A validação final no GitHub Pages publicado ainda deve ser feita depois do upload.
+
+Links que precisam de revisão manual após publicar:
+
+- https://n1nara.github.io/N1nara/
+- https://n1nara.github.io/N1nara/produtos.html
+- https://n1nara.github.io/N1nara/carrinho.html
+- https://n1nara.github.io/N1nara/produto-n1-flat.html
+- https://n1nara.github.io/N1nara/produto-n1-tag-nfc.html
+- https://n1nara.github.io/N1nara/produto-n1-sculpt.html
+
+Dados que ainda precisam ser fornecidos pela proprietária:
+
+- Fotos reais dos produtos para substituir as imagens provisórias.
+- Link do Reels mais recente em config.js, quando quiser exibir um vídeo específico.
+- Dados reais de páginas Pet, Pessoa e Bagagem somente quando forem páginas finais de clientes.
+- Prazos detalhados por produto, se desejar exibir prazos mais específicos.
+- Formas de pagamento, caso queira informar no site.

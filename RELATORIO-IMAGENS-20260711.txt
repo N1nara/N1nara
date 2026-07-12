@@ -1,0 +1,33 @@
+Relatorio complementar - imagens e layout
+========================================
+
+Arquivos ajustados:
+
+- produtos.js
+- styles.css
+- app.js
+
+O que foi corrigido:
+
+- O produto N1 Mini Pet agora aponta para o arquivo produto-n1-mini-pet.png no cadastro central de produtos.
+- As galerias dos produtos passaram a usar somente a imagem principal do proprio produto.
+- Fotos genericas de bastidores, acabamento e produto na mao nao aparecem mais como fotos de produto nas paginas individuais.
+- A composicao inicial da home foi ajustada para exibir tres imagens em grid, sem sobreposicao no celular.
+- Os cards do catalogo agora reservam area quadrada 1:1 para fotos de produto.
+- O bloco de imagem indisponivel tambem fica em formato 1:1, evitando que o card fique torto enquanto uma foto ainda nao existe no ambiente local.
+
+Testes realizados:
+
+- Home testada em desktop 1440 px e celular 320 px.
+- As tres imagens do topo apareceram sem sobreposicao.
+- Nao houve rolagem horizontal no teste mobile.
+- Catalogo testado em 1024 px.
+- Todos os cards do catalogo ficaram com midia em proporcao 1:1.
+- Pagina produto-n1-mini-pet.html abriu com o nome correto do produto.
+- Nenhuma foto generica de bastidores, acabamento ou produto na mao apareceu na pagina do N1 Mini Pet.
+
+Observacao importante:
+
+- O arquivo produto-n1-mini-pet.png nao existe na pasta local outputs deste ambiente.
+- Como a proprietaria informou que esse arquivo ja foi enviado ao GitHub, o site publicado deve carregar a imagem real se o arquivo permanecer na raiz do repositorio N1nara.
+- Nao foi criada imagem inventada para o Mini Pet, para evitar substituir a foto real do produto.
