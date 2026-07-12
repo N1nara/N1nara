@@ -1,0 +1,48 @@
+Relatorio de revisao de textos e acentuacao
+==========================================
+
+Objetivo:
+
+- Revisar o site da N1nara com foco em textos visiveis e problemas de acentuacao.
+
+Problema encontrado:
+
+- Alguns arquivos publicos estavam com caracteres de substituicao, como �, em palavras que deveriam aparecer com acento.
+- Exemplos afetados antes da correcao: Pagina, identificacao, producao, conteudo, informacoes, responsavel e localizacao.
+
+Como foi corrigido:
+
+- Foram recuperadas versoes anteriores dos arquivos com acentuacao correta.
+- Depois da recuperacao, as referencias das imagens foram mantidas em .webp, conforme a lista atual do GitHub.
+- Os arquivos foram salvos novamente em UTF-8.
+
+Arquivos restaurados:
+
+- bagagem.html
+- carrinho.html
+- identificacao.js
+- index.html
+- pessoa.html
+- pet.html
+- produto-n1-art-3d.html
+- produto-n1-flat.html
+- produto-n1-mini-me.html
+- produto-n1-mini-pet.html
+- produto-n1-pet-move.html
+- produto-n1-sculpt.html
+- produto-n1-tag-nfc.html
+- produtos.html
+- produtos.js
+
+Conferencias realizadas:
+
+- Varredura UTF-8 nos arquivos publicos.
+- Nenhuma ocorrencia real de �, Ã quebrado, Â quebrado ou sequencias do tipo â€ foi encontrada.
+- Home, catalogo, produto N1 Mini Pet, Pet, Pessoa, Bagagem, Carrinho e Sobre foram abertos em navegador local.
+- Titulos e textos principais apareceram com acentuacao correta.
+- As referencias .webp continuaram ativas, incluindo produto-n1-mini-pet.webp e og-n1nara.webp.
+
+Observacao:
+
+- O PowerShell pode exibir acentos de forma quebrada no terminal, mesmo quando o arquivo esta correto em UTF-8.
+- A validacao usada foi feita lendo os arquivos como UTF-8 e abrindo as paginas no navegador.

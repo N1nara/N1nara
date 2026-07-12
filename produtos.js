@@ -1,33 +1,33 @@
-const PRODUTOS = [
+Ôªøconst PRODUTOS = [
   {
     id: "n1-flat",
     nome: "N1 Flat",
-    subtitulo: "Identificador personalizado em impress„o 3D",
+    subtitulo: "Identificador personalizado em impress√£o 3D",
     arquivo: "produto-n1-flat.html",
     categoria: ["Pets", "Pessoas", "Empresas", "Presentes", "Personalizados"],
     destaque: true,
-    descricao: "Identificador personalizado, leve e resistente, disponÌvel para coleira, chaveiro, empresas, brindes e diversas aplicaÁıes.",
-    uso: "C„es, gatos, chaveiros personalizados, identificaÁ„o de mochilas, bagagens, brindes corporativos, eventos, lembranÁas, coleiras para pets e equipamentos.",
-    dimensoes: "Aproximadamente 47 ◊ 38 mm.",
-    material: "Impress„o 3D personalizada, leve e resistente.",
-    prazo: "ProduÁ„o sob encomenda. Prazo confirmado pelo WhatsApp.",
+    descricao: "Identificador personalizado, leve e resistente, dispon√≠vel para coleira, chaveiro, empresas, brindes e diversas aplica√ß√µes.",
+    uso: "C√£es, gatos, chaveiros personalizados, identifica√ß√£o de mochilas, bagagens, brindes corporativos, eventos, lembran√ßas, coleiras para pets e equipamentos.",
+    dimensoes: "Aproximadamente 47 √ó 38 mm.",
+    material: "Impress√£o 3D personalizada, leve e resistente.",
+    prazo: "Produ√ß√£o sob encomenda. Prazo confirmado pelo WhatsApp.",
     precoInicial: 24.9,
     imagem: "produto-n1-flat.webp",
     galeria: ["produto-n1-flat.webp"],
     imagemNota: "Foto do N1 Flat personalizado.",
     nfc: false,
     caracteristicas: [
-      "Impress„o 3D personalizada",
-      "Diversas opÁıes de cores",
-      "ProduÁ„o sob encomenda",
+      "Impress√£o 3D personalizada",
+      "Diversas op√ß√µes de cores",
+      "Produ√ß√£o sob encomenda",
       "Desenvolvido exclusivamente para cada cliente"
     ],
     campos: [
       { id: "modelo", label: "Modelo", tipo: "select", obrigatorio: true, opcoes: ["N1 Flat Pet", "N1 Flat Pessoa", "N1 Flat Empresa", "N1 Flat Personalizado"] },
       { id: "uso", label: "Tipo de uso", tipo: "select", obrigatorio: true, opcoes: ["Coleira", "Chaveiro", "Mochila", "Bagagem", "Brinde corporativo", "Evento", "Equipamento", "Outro"] },
       { id: "cor", label: "Cor", tipo: "text", obrigatorio: true, placeholder: "Ex.: preto, branco, rosa" },
-      { id: "personalizacao", label: "InformaÁıes personalizadas", tipo: "textarea", obrigatorio: true, placeholder: "Nome, telefone, logotipo, frase, data especial ou QR Code opcional" },
-      { id: "observacoes", label: "ObservaÁıes", tipo: "textarea" }
+      { id: "personalizacao", label: "Informa√ß√µes personalizadas", tipo: "textarea", obrigatorio: true, placeholder: "Nome, telefone, logotipo, frase, data especial ou QR Code opcional" },
+      { id: "observacoes", label: "Observa√ß√µes", tipo: "textarea" }
     ],
     relacionados: ["n1-tag-nfc", "n1-mini-pet", "n1-art-3d"]
   },
@@ -38,29 +38,29 @@ const PRODUTOS = [
     arquivo: "produto-n1-tag-nfc.html",
     categoria: ["NFC", "Pets", "Pessoas", "Empresas", "Personalizados"],
     destaque: true,
-    descricao: "Identificador inteligente com NFC programada e p·gina personalizada para pessoas, pets, empresas, mochilas, malas e bicicletas.",
-    uso: "Coleiras de c„es e gatos, mochilas, malas, bicicletas, identificaÁ„o de crianÁas, idosos, pessoas e empresas.",
-    dimensoes: "Aproximadamente 47 ◊ 38 mm.",
-    material: "Identificador personalizado com tecnologia NFC incorporada. A programaÁ„o da tag NFC j· est· incluÌda no preÁo.",
-    prazo: "ProduÁ„o sob encomenda. Prazo confirmado pelo WhatsApp.",
+    descricao: "Identificador inteligente com NFC programada e p√°gina personalizada para pessoas, pets, empresas, mochilas, malas e bicicletas.",
+    uso: "Coleiras de c√£es e gatos, mochilas, malas, bicicletas, identifica√ß√£o de crian√ßas, idosos, pessoas e empresas.",
+    dimensoes: "Aproximadamente 47 √ó 38 mm.",
+    material: "Identificador personalizado com tecnologia NFC incorporada. A programa√ß√£o da tag NFC j√° est√° inclu√≠da no pre√ßo.",
+    prazo: "Produ√ß√£o sob encomenda. Prazo confirmado pelo WhatsApp.",
     precoInicial: 49.9,
     imagem: "produto-n1-tag-nfc.webp",
     galeria: ["produto-n1-tag-nfc.webp"],
     imagemNota: "Foto do N1 Tag NFC personalizado.",
     nfc: true,
     caracteristicas: [
-      "NFC programada incluÌda",
-      "P·gina personalizada",
-      "Bot„o para WhatsApp",
-      "Pode incluir fotos, Instagram, informaÁıes mÈdicas e localizaÁ„o autorizada"
+      "NFC programada inclu√≠da",
+      "P√°gina personalizada",
+      "Bot√£o para WhatsApp",
+      "Pode incluir fotos, Instagram, informa√ß√µes m√©dicas e localiza√ß√£o autorizada"
     ],
     campos: [
-      { id: "modelo", label: "Modelo", tipo: "select", obrigatorio: true, opcoes: ["Tag para coleira", "Tag para mochila", "Tag para mala", "Tag para bicicleta", "Tag para idosos", "Tag para crianÁas", "Cart„o NFC"] },
+      { id: "modelo", label: "Modelo", tipo: "select", obrigatorio: true, opcoes: ["Tag para coleira", "Tag para mochila", "Tag para mala", "Tag para bicicleta", "Tag para idosos", "Tag para crian√ßas", "Cart√£o NFC"] },
       { id: "cor", label: "Cor", tipo: "text", obrigatorio: true },
-      { id: "pagina", label: "InformaÁıes para a p·gina", tipo: "textarea", obrigatorio: true, placeholder: "Nome, telefones, Instagram, fotos, informaÁıes importantes ou redes sociais" },
-      { id: "observacoes", label: "ObservaÁıes", tipo: "textarea" }
+      { id: "pagina", label: "Informa√ß√µes para a p√°gina", tipo: "textarea", obrigatorio: true, placeholder: "Nome, telefones, Instagram, fotos, informa√ß√µes importantes ou redes sociais" },
+      { id: "observacoes", label: "Observa√ß√µes", tipo: "textarea" }
     ],
-    nota: "Ao aproximar um celular compatÌvel, a pessoa pode acessar informaÁıes cadastradas, como telefone, WhatsApp, identificaÁ„o, p·gina personalizada, redes sociais ou informaÁıes importantes. O NFC n„o È vendido separadamente; ele fica incorporado ao produto personalizado.",
+    nota: "Ao aproximar um celular compat√≠vel, a pessoa pode acessar informa√ß√µes cadastradas, como telefone, WhatsApp, identifica√ß√£o, p√°gina personalizada, redes sociais ou informa√ß√µes importantes. O NFC n√£o √© vendido separadamente; ele fica incorporado ao produto personalizado.",
     relacionados: ["n1-flat", "n1-mini-pet", "n1-pet-move"]
   },
   {
@@ -71,10 +71,10 @@ const PRODUTOS = [
     categoria: ["Pets", "Presentes", "Personalizados"],
     destaque: true,
     descricao: "Mini escultura personalizada exclusiva para pets, produzida a partir das fotos do seu melhor amigo.",
-    uso: "DecoraÁ„o de mesa, lembranÁa do pet, presente para tutores, coleÁ„o de miniaturas e decoraÁ„o de home office.",
+    uso: "Decora√ß√£o de mesa, lembran√ßa do pet, presente para tutores, cole√ß√£o de miniaturas e decora√ß√£o de home office.",
     dimensoes: "Altura aproximada: 8 cm.",
-    material: "Impress„o 3D personalizada com acabamento artesanal.",
-    prazo: "ProduÁ„o sob encomenda apÛs envio das fotos do pet.",
+    material: "Impress√£o 3D personalizada com acabamento artesanal.",
+    prazo: "Produ√ß√£o sob encomenda ap√≥s envio das fotos do pet.",
     precoInicial: 49.9,
     imagem: "produto-n1-mini-pet.webp",
     galeria: ["produto-n1-mini-pet.webp"],
@@ -82,7 +82,7 @@ const PRODUTOS = [
     nfc: false,
     caracteristicas: [
       "Produzido a partir das fotos do pet",
-      "Cada peÁa È criada sob encomenda",
+      "Cada pe√ßa √© criada sob encomenda",
       "Acabamento artesanal",
       "Produto exclusivo para pets"
     ],
@@ -90,7 +90,7 @@ const PRODUTOS = [
       { id: "nomePet", label: "Nome do pet", tipo: "text", obrigatorio: true },
       { id: "cor", label: "Cor", tipo: "text", obrigatorio: true },
       { id: "fotos", label: "Fotos do pet", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
-      { id: "observacoes", label: "ObservaÁıes", tipo: "textarea" }
+      { id: "observacoes", label: "Observa√ß√µes", tipo: "textarea" }
     ],
     relacionados: ["n1-pet-move", "n1-tag-nfc", "n1-flat"]
   },
@@ -102,10 +102,10 @@ const PRODUTOS = [
     categoria: ["Pets", "Presentes", "Personalizados"],
     destaque: true,
     descricao: "Uma miniatura personalizada que ganha ainda mais personalidade com o movimento do corpo.",
-    uso: "Presente para apaixonados por pets, decoraÁ„o de mesa, home office, lembranÁa especial e colecion·vel personalizado.",
+    uso: "Presente para apaixonados por pets, decora√ß√£o de mesa, home office, lembran√ßa especial e colecion√°vel personalizado.",
     dimensoes: "Altura aproximada: 8 cm.",
-    material: "Impress„o 3D personalizada com corpo articulado e acabamento artesanal.",
-    prazo: "ProduÁ„o sob encomenda apÛs envio das fotos do pet.",
+    material: "Impress√£o 3D personalizada com corpo articulado e acabamento artesanal.",
+    prazo: "Produ√ß√£o sob encomenda ap√≥s envio das fotos do pet.",
     precoInicial: 59.9,
     imagem: "produto-n1-pet-move.webp",
     galeria: ["produto-n1-pet-move.webp"],
@@ -114,14 +114,14 @@ const PRODUTOS = [
     caracteristicas: [
       "Corpo articulado com movimento",
       "Produzido a partir das fotos do pet",
-      "Impress„o 3D personalizada",
+      "Impress√£o 3D personalizada",
       "Acabamento artesanal"
     ],
     campos: [
       { id: "nomePet", label: "Nome do pet", tipo: "text", obrigatorio: true },
       { id: "cor", label: "Cor", tipo: "text", obrigatorio: true },
       { id: "fotos", label: "Fotos do pet", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
-      { id: "observacoes", label: "ObservaÁıes", tipo: "textarea" }
+      { id: "observacoes", label: "Observa√ß√µes", tipo: "textarea" }
     ],
     relacionados: ["n1-mini-pet", "n1-tag-nfc", "n1-art-3d"]
   },
@@ -130,13 +130,13 @@ const PRODUTOS = [
     nome: "N1 Art 3D",
     subtitulo: "Retrato personalizado em relevo com suporte",
     arquivo: "produto-n1-art-3d.html",
-    categoria: ["DecoraÁ„o", "Presentes", "Personalizados", "Pets", "Pessoas"],
+    categoria: ["Decora√ß√£o", "Presentes", "Personalizados", "Pets", "Pessoas"],
     destaque: true,
     descricao: "Retrato personalizado em relevo, produzido a partir de uma fotografia especial, acompanhado de suporte independente.",
-    uso: "Retratos de pessoas, retratos de pets, casamentos, anivers·rios, homenagens, decoraÁ„o de salas, quartos e escritÛrios, presentes personalizados.",
-    dimensoes: "DisponÌvel nos tamanhos 10 ◊ 15 cm, 15 ◊ 20 cm e 20 ◊ 25 cm.",
-    material: "Imagem em relevo produzida em impress„o 3D, com suporte independente incluÌdo.",
-    prazo: "ProduÁ„o sob encomenda apÛs an·lise da fotografia.",
+    uso: "Retratos de pessoas, retratos de pets, casamentos, anivers√°rios, homenagens, decora√ß√£o de salas, quartos e escrit√≥rios, presentes personalizados.",
+    dimensoes: "Dispon√≠vel nos tamanhos 10 √ó 15 cm, 15 √ó 20 cm e 20 √ó 25 cm.",
+    material: "Imagem em relevo produzida em impress√£o 3D, com suporte independente inclu√≠do.",
+    prazo: "Produ√ß√£o sob encomenda ap√≥s an√°lise da fotografia.",
     precoInicial: 79.9,
     imagem: "produto-n1-art-3d.webp",
     galeria: ["produto-n1-art-3d.webp"],
@@ -145,20 +145,20 @@ const PRODUTOS = [
     caracteristicas: [
       "Produzido a partir de uma fotografia",
       "Imagem criada em relevo",
-      "Suporte independente incluÌdo",
-      "Vers„o em preto e branco ou multicolorida"
+      "Suporte independente inclu√≠do",
+      "Vers√£o em preto e branco ou multicolorida"
     ],
     campos: [
       { id: "variacao", label: "Tamanho e acabamento", tipo: "select", obrigatorio: true, opcoes: [
-        { label: "10 ◊ 15 cm - Preto e branco", preco: 79.9 },
-        { label: "10 ◊ 15 cm - AtÈ 6 cores", preco: 119.9 },
-        { label: "15 ◊ 20 cm - Preto e branco", preco: 99.9 },
-        { label: "15 ◊ 20 cm - AtÈ 6 cores", preco: 149.9 },
-        { label: "20 ◊ 25 cm - Preto e branco", preco: 129.9 },
-        { label: "20 ◊ 25 cm - AtÈ 6 cores", preco: 199.9 }
+        { label: "10 √ó 15 cm - Preto e branco", preco: 79.9 },
+        { label: "10 √ó 15 cm - At√© 6 cores", preco: 119.9 },
+        { label: "15 √ó 20 cm - Preto e branco", preco: 99.9 },
+        { label: "15 √ó 20 cm - At√© 6 cores", preco: 149.9 },
+        { label: "20 √ó 25 cm - Preto e branco", preco: 129.9 },
+        { label: "20 √ó 25 cm - At√© 6 cores", preco: 199.9 }
       ]},
-      { id: "foto", label: "Foto de referÍncia", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
-      { id: "observacoes", label: "ObservaÁıes", tipo: "textarea" }
+      { id: "foto", label: "Foto de refer√™ncia", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
+      { id: "observacoes", label: "Observa√ß√µes", tipo: "textarea" }
     ],
     relacionados: ["n1-mini-me", "n1-sculpt", "n1-mini-pet"]
   },
@@ -170,10 +170,10 @@ const PRODUTOS = [
     categoria: ["Pessoas", "Presentes", "Personalizados"],
     destaque: true,
     descricao: "Miniatura personalizada da pessoa em estilo bobblehead, criada a partir de fotografias.",
-    uso: "Presente de anivers·rio, formatura, profissıes, uniformes, casamentos, homenagens, decoraÁ„o de mesa e presente para amigos, familiares e colegas de trabalho.",
-    dimensoes: "DisponÌvel em 10 cm, 13 cm com base e 16 cm com base.",
-    material: "Impress„o 3D personalizada, com roupa, aparÍncia e base independente.",
-    prazo: "ProduÁ„o sob encomenda apÛs an·lise das fotografias.",
+    uso: "Presente de anivers√°rio, formatura, profiss√µes, uniformes, casamentos, homenagens, decora√ß√£o de mesa e presente para amigos, familiares e colegas de trabalho.",
+    dimensoes: "Dispon√≠vel em 10 cm, 13 cm com base e 16 cm com base.",
+    material: "Impress√£o 3D personalizada, com roupa, apar√™ncia e base independente.",
+    prazo: "Produ√ß√£o sob encomenda ap√≥s an√°lise das fotografias.",
     precoInicial: 99.9,
     imagem: "produto-n1-mini-me.webp",
     galeria: ["produto-n1-mini-me.webp"],
@@ -182,21 +182,21 @@ const PRODUTOS = [
     caracteristicas: [
       "Produzido a partir das fotos da pessoa",
       "Estilo divertido inspirado em bobbleheads",
-      "Roupa e aparÍncia personalizadas",
-      "Base independente incluÌda"
+      "Roupa e apar√™ncia personalizadas",
+      "Base independente inclu√≠da"
     ],
     campos: [
       { id: "variacao", label: "Tamanho e acabamento", tipo: "select", obrigatorio: true, opcoes: [
         { label: "10 cm - Branco", preco: 99.9 },
-        { label: "10 cm - AtÈ 6 cores", preco: 249.9 },
+        { label: "10 cm - At√© 6 cores", preco: 249.9 },
         { label: "13 cm com base - Branco", preco: 129.9 },
-        { label: "13 cm com base - AtÈ 6 cores", preco: 349.9 },
+        { label: "13 cm com base - At√© 6 cores", preco: 349.9 },
         { label: "16 cm com base - Branco", preco: 179.9 },
-        { label: "16 cm com base - AtÈ 6 cores", preco: 449.9 }
+        { label: "16 cm com base - At√© 6 cores", preco: 449.9 }
       ]},
       { id: "nome", label: "Nome da pessoa", tipo: "text", obrigatorio: true },
-      { id: "fotos", label: "Fotos de referÍncia", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
-      { id: "observacoes", label: "Roupa, profiss„o, pose ou observaÁıes", tipo: "textarea" }
+      { id: "fotos", label: "Fotos de refer√™ncia", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
+      { id: "observacoes", label: "Roupa, profiss√£o, pose ou observa√ß√µes", tipo: "textarea" }
     ],
     relacionados: ["n1-sculpt", "n1-art-3d", "n1-flat"]
   },
@@ -205,13 +205,13 @@ const PRODUTOS = [
     nome: "N1 Sculpt",
     subtitulo: "Escultura personalizada em busto",
     arquivo: "produto-n1-sculpt.html",
-    categoria: ["Pessoas", "DecoraÁ„o", "Presentes", "Personalizados"],
+    categoria: ["Pessoas", "Decora√ß√£o", "Presentes", "Personalizados"],
     destaque: true,
-    descricao: "Escultura personalizada em busto, com foco na fidelidade da fisionomia, express„o e principais traÁos da pessoa.",
-    uso: "Presentes especiais, homenagens, formaturas, anivers·rios, casamentos, decoraÁ„o, empresas e colecionadores.",
-    dimensoes: "DisponÌvel em 13 cm, 16 cm e 20 cm.",
-    material: "Escultura personalizada em impress„o 3D com base independente inclusa.",
-    prazo: "ProduÁ„o sob encomenda apÛs an·lise das fotografias.",
+    descricao: "Escultura personalizada em busto, com foco na fidelidade da fisionomia, express√£o e principais tra√ßos da pessoa.",
+    uso: "Presentes especiais, homenagens, formaturas, anivers√°rios, casamentos, decora√ß√£o, empresas e colecionadores.",
+    dimensoes: "Dispon√≠vel em 13 cm, 16 cm e 20 cm.",
+    material: "Escultura personalizada em impress√£o 3D com base independente inclusa.",
+    prazo: "Produ√ß√£o sob encomenda ap√≥s an√°lise das fotografias.",
     precoInicial: 199.9,
     imagem: "produto-n1-sculpt.webp",
     galeria: ["produto-n1-sculpt.webp"],
@@ -219,21 +219,21 @@ const PRODUTOS = [
     nfc: false,
     caracteristicas: [
       "Produzido a partir de fotografias",
-      "Alta fidelidade aos principais traÁos",
+      "Alta fidelidade aos principais tra√ßos",
       "Base independente inclusa",
-      "ProduÁ„o artesanal sob encomenda"
+      "Produ√ß√£o artesanal sob encomenda"
     ],
     campos: [
       { id: "variacao", label: "Tamanho e acabamento", tipo: "select", obrigatorio: true, opcoes: [
         { label: "13 cm - Branco", preco: 199.9 },
         { label: "16 cm - Branco", preco: 269.9 },
         { label: "20 cm - Branco", preco: 349.9 },
-        { label: "Vers„o colorida - Sob consulta via WhatsApp", preco: 0, sobConsulta: true }
+        { label: "Vers√£o colorida - Sob consulta via WhatsApp", preco: 0, sobConsulta: true }
       ]},
-      { id: "fotos", label: "Fotos de referÍncia", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
-      { id: "observacoes", label: "ObservaÁıes", tipo: "textarea" }
+      { id: "fotos", label: "Fotos de refer√™ncia", tipo: "text", placeholder: "Enviar pelo WhatsApp" },
+      { id: "observacoes", label: "Observa√ß√µes", tipo: "textarea" }
     ],
-    nota: "A cotaÁ„o da vers„o colorida ser· realizada pelo WhatsApp apÛs a an·lise das fotografias, pois o preÁo depende do tamanho, quantidade de cores, detalhes do cabelo, barba, roupas, acessÛrios e complexidade do modelo.",
+    nota: "A cota√ß√£o da vers√£o colorida ser√° realizada pelo WhatsApp ap√≥s a an√°lise das fotografias, pois o pre√ßo depende do tamanho, quantidade de cores, detalhes do cabelo, barba, roupas, acess√≥rios e complexidade do modelo.",
     relacionados: ["n1-mini-me", "n1-art-3d", "n1-flat"]
   }
 ];
@@ -269,16 +269,16 @@ function validarProdutos(produtos) {
     if (slugs.has(produto.slug)) console.warn(`[N1nara] Produto com slug duplicado: ${produto.slug}`);
     slugs.add(produto.slug);
 
-    if (!produto.pagina) console.warn(`[N1nara] Produto sem p·gina definida: ${produto.nome}`);
+    if (!produto.pagina) console.warn(`[N1nara] Produto sem p√°gina definida: ${produto.nome}`);
     if (!produto.imagem) console.warn(`[N1nara] Produto sem imagem principal: ${produto.nome}`);
     if (produto.precoInicial !== undefined && produto.precoInicial !== null && typeof produto.precoInicial !== "number") {
-      console.warn(`[N1nara] PreÁo inicial inv·lido em: ${produto.nome}`);
+      console.warn(`[N1nara] Pre√ßo inicial inv√°lido em: ${produto.nome}`);
     }
 
     (produto.campos || []).forEach((campo) => {
       (campo.opcoes || []).forEach((opcao) => {
         if (typeof opcao === "object" && opcao.preco !== undefined && typeof opcao.preco !== "number") {
-          console.warn(`[N1nara] PreÁo de opÁ„o inv·lido em: ${produto.nome} / ${campo.label}`);
+          console.warn(`[N1nara] Pre√ßo de op√ß√£o inv√°lido em: ${produto.nome} / ${campo.label}`);
         }
       });
     });
