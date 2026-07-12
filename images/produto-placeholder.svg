@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Imagem do produto N1nara">
-  <rect width="1200" height="900" fill="#f4f1ec"/>
-  <rect x="120" y="110" width="960" height="680" rx="18" fill="#ffffff" stroke="#d7cec1" stroke-width="4"/>
-  <circle cx="600" cy="390" r="150" fill="#222222"/>
-  <text x="600" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="74" fill="#ffffff" font-weight="700">N1</text>
-  <text x="600" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" fill="#222222">Produto N1nara</text>
-</svg>
